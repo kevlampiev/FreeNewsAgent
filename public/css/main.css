@@ -1,0 +1,77 @@
+body {
+    background-color: #aaa;
+    background: url("/img/background4.jpg");
+    background-size: cover;
+    backdrop-filter: brightness(75%);
+}
+
+.subheader {
+    /*background: rgba(255,255,230,0.8) url("/img/background4.jpg") ;*/
+    /*  background-blend-mode: luminosity;*/
+    /*background-size: cover;*/
+    padding: 5px 25px 5px 20px;
+    background-color: rgba(155, 155, 255, 0.5);
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-div {
+
+}
+
+.user-img {
+    height: 75px;
+    width: 75px;
+    border-radius: 37px;
+}
+
+.user-link {
+    display: inline-block;
+    color: #ffffff;
+    margin: 0 10px;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    min-height: 50vh;
+}
+
+footer {
+    color: #ccc;
+    background-color: rgba(155, 155, 255, 0.5);
+}
+
+.footer-classic a,
+.footer-classic a:focus,
+.footer-classic a:active {
+    color: #fff;
+}
+
+.shadowed-box {
+    box-shadow: 4px 4px 10px 2px rgba(150, 150, 150, 0.43);
+}
+
+.about-panel, .latest-news-panel {
+    margin-right: 15px;
+    padding: 15px;
+    background-color: #fff;
+    height: 100%;
+}
+
+section {
+    padding-top: 15px;
+    font-size: small;
+    font-style: italic;
+}
+
+a {
+    color: darkmagenta;
+}
+
+a:hover {
+    text-decoration: none;
+    color: darkred;
+    /*font-weight: 800;*/
+}

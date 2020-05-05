@@ -1,0 +1,18 @@
+.news-container {
+    background-color: #ffffff;
+    margin:25px;
+    padding: 15px;
+}
+
+.new-box {
+    margin-top:25px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.ordering-block {
+    height: 25px;
+}
+
+.ordering-block div {
+    float: right ;
+}
