@@ -13,13 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [
-    'uses' => 'Customer\HomeController@index'
-])->name('home');
+Route::group([
+    'namespace' => 'Customer'
+],
+    function () {
+        Route::get('/', [
+            'uses' => 'HomeController@index'
+        ])->name('home');
 
-Route::get('/login', [
-    'uses' => 'Customer\HomeController@login'
-])->name('login');
+        Route::get('/login', [
+            'uses' => 'HomeController@login'
+        ])->name('login');
+
+    });
+
+//Route::get('/', [
+//    'uses' => 'Customer\HomeController@index'
+//])->name('home');
+//
+//Route::get('/login', [
+//    'uses' => 'Customer\HomeController@login'
+//])->name('login');
 
 Route::group([
     'prefix' => 'categories',
