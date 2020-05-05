@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="982e9504-9001-49f0-aa50-593e7818269e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/ArticlesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/CategoriesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TmpServices/DBConnService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/script.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/article.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/categories.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/news-list.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/background4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/logo-burst.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/customer/article-add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/customer/article.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/customer/categories.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/customer/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/customer/main.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/customer/news-of-category.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/mainlayout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mainlayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mainlayout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -222,7 +201,7 @@
       <workItem from="1588505429417" duration="41000" />
       <workItem from="1588505535358" duration="13678000" />
       <workItem from="1588580982887" duration="27284000" />
-      <workItem from="1588664700475" duration="9025000" />
+      <workItem from="1588664700475" duration="9587000" />
     </task>
     <servers />
   </component>

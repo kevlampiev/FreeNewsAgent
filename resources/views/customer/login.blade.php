@@ -22,7 +22,7 @@
             </div>
             <div class="controls">
                 <button type="submit" class="btn btn-secondary">Войти</button>
-                <a href="/" class="btn btn-light">
+                <a href="{{route('home')}}" class="btn btn-light">
                     Отмена
                 </a>
             </div>
