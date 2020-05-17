@@ -2,7 +2,7 @@ body {
     background-color: #aaa;
     background: url("/img/background4.jpg");
     background-size: cover;
-    backdrop-filter: brightness(75%);
+    backdrop-filter: opacity(150%);
 }
 
 .subheader {
@@ -10,7 +10,7 @@ body {
     /*  background-blend-mode: luminosity;*/
     /*background-size: cover;*/
     padding: 5px 25px 5px 20px;
-    background-color: rgba(155, 155, 255, 0.5);
+    background-color: rgba(120, 120, 120, 0.8);
     min-height: 100px;
     display: flex;
     justify-content: space-between;
@@ -39,8 +39,8 @@ body {
 }
 
 footer {
-    color: #ccc;
-    background-color: rgba(155, 155, 255, 0.5);
+    color: #333;
+    background-color: rgba(120, 120, 120, 0.8);
 }
 
 .footer-classic a,

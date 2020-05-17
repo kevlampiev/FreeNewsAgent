@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="982e9504-9001-49f0-aa50-593e7818269e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mainlayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mainlayout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/background4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/background4.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +201,12 @@
       <workItem from="1588505429417" duration="41000" />
       <workItem from="1588505535358" duration="13678000" />
       <workItem from="1588580982887" duration="27284000" />
-      <workItem from="1588664700475" duration="9587000" />
+      <workItem from="1588664700475" duration="11320000" />
+      <workItem from="1588866095387" duration="13000" />
+      <workItem from="1589250953739" duration="1079000" />
+      <workItem from="1589337457301" duration="737000" />
+      <workItem from="1589369132821" duration="353000" />
+      <workItem from="1589694754445" duration="3091000" />
     </task>
     <servers />
   </component>
@@ -307,10 +312,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="100" y="100" width="1720" height="840" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588335808478" />
-    <state x="667" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1588664843188">
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1589369200129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588664843188" />
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589369200129" />
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588866098536" />
     <state x="616" y="242" key="run.anything.popup" timestamp="1588601541537">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -26,7 +26,6 @@ Route::group([
         ])->name('login');
     });
 
-
 Route::group([
     'prefix' => 'categories',
     'namespace' => 'Customer'
