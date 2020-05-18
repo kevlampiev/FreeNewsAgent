@@ -75,3 +75,21 @@ a:hover {
     color: darkred;
     /*font-weight: 800;*/
 }
+
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.left-nav {
+    width: 210px;
+    background-color: rgba(0,0,0,0.1);
+    padding-left: 15px;
+    padding-top: 25px;
+}
+
+.content {
+    width: calc(100% - 210px);
+}

@@ -1,4 +1,4 @@
-@extends('mainlayout')
+@extends('layouts.mainlayout')
 
 @section('content')
     <H3>Категории новостей</H3>
