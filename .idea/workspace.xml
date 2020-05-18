@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="982e9504-9001-49f0-aa50-593e7818269e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/article-add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/article-add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/article.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/article.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/categories.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/news-of-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/news-of-category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mainlayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/mainlayout.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="982e9504-9001-49f0-aa50-593e7818269e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -215,7 +205,7 @@
       <workItem from="1589694754445" duration="3702000" />
       <workItem from="1589730838204" duration="751000" />
       <workItem from="1589767703592" duration="58000" />
-      <workItem from="1589785745530" duration="2934000" />
+      <workItem from="1589785745530" duration="3340000" />
     </task>
     <servers />
   </component>
