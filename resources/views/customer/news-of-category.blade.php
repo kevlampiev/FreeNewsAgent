@@ -1,4 +1,4 @@
-@extends('mainlayout')
+@extends('layouts.mainlayout')
 
 @section('content')
     <H3>Новости категории {{$category['name']}}</H3>
