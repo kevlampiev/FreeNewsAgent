@@ -90,6 +90,18 @@ a:hover {
     padding-top: 25px;
 }
 
+
+
 .content {
     width: calc(100% - 210px);
+}
+
+@media (max-width: 953px) {
+    .left-nav {
+        display:none;
+    }
+
+    .content {
+        width: 100%;
+    }
 }

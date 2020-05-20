@@ -100,18 +100,13 @@
                      a='{"t":"v","lang":"ru","ids":[],"a_dt_bg":"#757575","a_dt_c":"#FFFFFF","a_wn_bg":"#424242","a_wn_c":"#FFFFFF","a_wi_bg":"#757575","a_wi_c":"#FFFFFF"}'></div>
                 <div id="ml_5e40501f_c" style="padding:0;margin:0;padding:7px 5px;"><img
                         src="https://meteolabs.ru/assets/img/logo_z_b.svg"
-                        style="width:15px;opacity:0.7;margin-right:5px;position:relative;top:1px;display:inline-block;"><a
+                        style="width:15px;opacity:0.1;margin-right:5px;position:relative;top:1px;display:inline-block;"><a
                         href="https://meteolabs.ru/погода_москва/сегодня/"
-                        style="color:grey;font-size:12px;text-decoration:none;" target="_blank" id="ml_5e40501f_u">Погода
+                        style="color:#cccccc;font-size:12px;text-decoration:none;" target="_blank" id="ml_5e40501f_u">Погода
                         сегодня</a></div>
             </div>
             <script async src="https://app.meteolabs.ru/js/?id=ml_5e40501f"></script>
 
-            <ul>
-                <li><a href="#">Не знаю</a></li>
-                <li><a href="#">Не знаю</a></li>
-                <li><a href="#">Не знаю</a></li>
-            </ul>
         </div>
 
         <div class="content">
