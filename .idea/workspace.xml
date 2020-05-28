@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="982e9504-9001-49f0-aa50-593e7818269e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/mainlayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/mainlayout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/CategoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/categories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/news-of-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/news-of-category.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +215,15 @@
       <workItem from="1589730838204" duration="751000" />
       <workItem from="1589767703592" duration="58000" />
       <workItem from="1589785745530" duration="6443000" />
-      <workItem from="1589899269686" duration="3047000" />
+      <workItem from="1589899269686" duration="3357000" />
+      <workItem from="1589952191352" duration="1233000" />
+      <workItem from="1590070622085" duration="1957000" />
+      <workItem from="1590224371751" duration="3701000" />
+      <workItem from="1590328855394" duration="2408000" />
+      <workItem from="1590380431811" duration="2207000" />
+      <workItem from="1590461301857" duration="3366000" />
+      <workItem from="1590498195280" duration="1795000" />
+      <workItem from="1590672509531" duration="4822000" />
     </task>
     <servers />
   </component>
@@ -240,9 +253,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588335398902" />
-    <state x="640" y="258" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588664606284">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2560" y="258" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1589952081243">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2560" y="258" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589952081243" />
     <state x="640" y="258" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588664606284" />
     <state x="550" y="26" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588652671661">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -316,11 +330,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="100" y="100" width="1720" height="840" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588335808478" />
-    <state x="667" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1589899270148">
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1590672526321">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589767743251" />
-    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589899270148" />
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590461372387" />
+    <state x="2587" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589955812820" />
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590672526321" />
     <state x="616" y="242" key="run.anything.popup" timestamp="1588601541537">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -6,12 +6,12 @@
         @foreach ($categories as $category)
 
             <div class="newscategory shadowed-box">
-                <a href="{{route('articlesOfCategory',[$category['id']])}}" class="mega-anchor">
+                <a href="{{route('articlesOfCategory',[$category->id])}}" class="mega-anchor">
                     <h5>
-                        {{$category['name']}}
+                        {{$category->name}}
                     </h5>
                     <p>
-                        {{$category['description']}}
+                        {{$category->description}}
                     </p>
                 </a>
             </div>

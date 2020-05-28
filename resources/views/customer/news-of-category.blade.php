@@ -1,11 +1,11 @@
 @extends('layouts.mainlayout')
 
 @section('content')
-    <H3>Новости категории {{$category['name']}}</H3>
+    <H3>Новости категории {{$category->name}}</H3>
     <div class="news-container">
         <div class="ordering-block">
             <div>
-                <a href="{{route('addArticle',[$category['id']])}}" class="btn btn-secondary ">
+                <a href="{{route('addArticle',[$category->id])}}" class="btn btn-secondary ">
                     <i class="fa fa-plus-square" aria-hidden="true"></i> Добавить новость от себя
                 </a>
             </div>
@@ -14,16 +14,16 @@
 
             <div class="new-box">
                 <a href="{{route('showArticle',[
-                                                $new['category_id'],
-                                                $new['id']
+                                                $new->category_id,
+                                                $new->id
                                                 ])}}" class="mega-anchor">
                     <h5>
-                        {{$new['title']}}
+                        {{$new->title}}
                     </h5>
                 </a>
-                <h6>{{$new['created_at']}} - {{$new['category']}}</h6>
+                <h6>{{$new->created_at}} - {{$new->category_id}}</h6>
                 <p>
-                    {{$new['description']}}
+                    {{$new->article_body}}
                 </p>
 
             </div>
