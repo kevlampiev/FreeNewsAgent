@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="982e9504-9001-49f0-aa50-593e7818269e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/CategoriesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Customer/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Customer/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customer/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/categories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customer/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/main.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/customer/news-of-category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/news-of-category.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,6 +144,9 @@
       <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
     </include_path>
   </component>
   <component name="ProjectId" id="1bHOPOV9L1enDosBvMjcrQfyOlE" />
@@ -223,7 +227,11 @@
       <workItem from="1590380431811" duration="2207000" />
       <workItem from="1590461301857" duration="3366000" />
       <workItem from="1590498195280" duration="1795000" />
-      <workItem from="1590672509531" duration="4822000" />
+      <workItem from="1590672509531" duration="5642000" />
+      <workItem from="1590746062118" duration="1025000" />
+      <workItem from="1590756720321" duration="274000" />
+      <workItem from="1590862321917" duration="1350000" />
+      <workItem from="1590896748939" duration="1468000" />
     </task>
     <servers />
   </component>
@@ -330,16 +338,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="100" y="100" width="1720" height="840" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588335808478" />
-    <state x="667" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1590672526321">
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1591473373184">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590461372387" />
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1590746065988" />
     <state x="2587" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589955812820" />
-    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590672526321" />
-    <state x="616" y="242" key="run.anything.popup" timestamp="1588601541537">
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591473373184" />
+    <state x="616" y="242" key="run.anything.popup" timestamp="1590862498369">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588601541537" />
+    <state x="616" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590862498369" />
     <state x="623" y="229" key="search.everywhere.popup" timestamp="1588583438681">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

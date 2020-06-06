@@ -28,12 +28,12 @@
                 @foreach($news as $new)
                     <section>
                         <a href="{{route('showArticle',[
-                                                        $new['category_id'],
-                                                        $new['id']
+                                                        $new->category_id,
+                                                        $new->id
                                                         ])}}">
-                            <h6>{{$new['title']}}</h6>
+                            <h6>{{$new->title}}</h6>
                         </a>
-                        <h7>{{$new['created_at']}} - {{$new['category']}}</h7>
+                        <h7>{{$new->created_at}} - {{$new->name}}</h7>
                     </section>
                 @endforeach
 

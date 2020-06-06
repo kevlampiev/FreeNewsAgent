@@ -21,9 +21,9 @@
                         {{$new->title}}
                     </h5>
                 </a>
-                <h6>{{$new->created_at}} - {{$new->category_id}}</h6>
+                <h6>{{$new->created_at}} - {{$category->name}}</h6>
                 <p>
-                    {{$new->article_body}}
+                    {{$new->announcement}}
                 </p>
 
             </div>
