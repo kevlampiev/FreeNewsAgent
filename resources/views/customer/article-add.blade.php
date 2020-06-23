@@ -4,31 +4,42 @@
 
     <div class="article-container shadowed-box">
         <form method="POST">
+            @csrf
+            <div class="form-group">
+                <input type="checkbox" class="form-check-input" id="isprivate" name="is_private" value="1">
+                <label class="form-check-label" for="isprivate">Новость приватная</label>
+            </div>
+
             <div class="form-group">
                 <label for="title">Заголовок статьи</label>
-                <input type="text" class="form-control" id="title">
+                <input type="text" class="form-control" id="title" name="title">
             </div>
 
             <div class="form-group">
                 <label for="category">Категория новости</label>
-                <select class="form-control" id="category">
+                <select class="form-control" id="category" name="category_id">
                     @foreach($categoryList as $cat)
-                        <option value="{{$cat['id']}}"
-                                @if ($cat['id']==$category['id'])
+                        <option value="{{$cat->id}}"
+                                @if ($cat->id==$id)
                                 selected
                             @endif
-                        >{{$cat['name']}}</option>
+                        >{{$cat->name}}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group">
+                <label for="announcement">Аннотация</label>
+                <textarea class="form-control" id="announcement" rows="3" name="announcement"></textarea>
+            </div>
+
+            <div class="form-group">
                 <label for="description">Текст статьи</label>
-                <textarea class="form-control" id="description" rows="10"></textarea>
+                <textarea class="form-control" id="description" rows="10" name="article_body"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>
-            <a href="{{route('articlesOfCategory',[$category['id']])}}"
+            <a href="{{route('articlesOfCategory',[$id])}}"
                class="btn btn-secondary ">
                 Отмена
             </a>

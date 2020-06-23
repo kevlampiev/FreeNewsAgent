@@ -43,6 +43,9 @@ Route::group([
             'uses' => 'ArticlesController@add'
         ])->name('addArticle');
 
+        Route::post('/{category_id}/articles/add',[
+        'uses'=>'ArticlesController@insert' ]);
+
         Route::get('/{category_id}/articles/{id}', [
             'uses' => 'ArticlesController@index'
         ])->name('showArticle');
