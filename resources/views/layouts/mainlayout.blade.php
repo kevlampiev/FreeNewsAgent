@@ -109,7 +109,13 @@
 
         </div>
 
+
         <div class="content">
+            @if (session()->has('proceed_status'))
+                <div class="alert alert-success">
+                    {{session()->get('proceed_status')}}
+                </div>
+            @endif
             @yield('content')
         </div>
 

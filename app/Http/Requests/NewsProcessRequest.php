@@ -24,9 +24,9 @@ class NewsProcessRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|string|between:5,250',
+            'title'=>'required|string|between:5,60',
             'is_private'=>'nullable|integer|between:0,1',
-            'annoncement'=>'rquired|string|between: 100,250',
+            'announcement'=>'required|string|between: 20,60',
             'article_body'=>'required|string|between: 100,1000',
             'category_id'=>'required|integer|exists:news_categories,id'
         ];

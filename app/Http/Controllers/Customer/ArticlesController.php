@@ -22,16 +22,17 @@ class ArticlesController extends Controller
 
     }
 
+    private function getFromForm(Articles $article, NewsProcessRequest $request) {
+        $article->title=$request->get('title');
+        $article->announcement=$request->get('announcement');
+        $article->article_body=$request->get('article_body');
+        $article->is_private=$request->get('is_private',0);
+        $article->category_id=$request->get('category_id');
+        $article->save();
+    }
+
     public function add(int $category_id) {
         $categories=NewsCategory::orderBy('name')->get();
-
-//        $category=DBConnService::selectSingleRow('SELECT id,name FROM news_categories WHERE id=?',[$category_id]);
-//        if ($category==null||count($category)==0) {
-//            abort(404);
-//        }
-
-        //$categories=DBConnService::selectRowsSet('SELECT id,name FROM news_categories ORDER BY name');
-
         return view('customer.article-add',[
             'id'=>$category_id,
             'categoryList'=>$categories
@@ -40,12 +41,23 @@ class ArticlesController extends Controller
 
     public function insert(NewsProcessRequest $request) {
         $new=new Articles();
-        $new->title=$request->get('title');
-        $new->announcement=$request->get('announcement');
-        $new->article_body=$request->get('article_body');
-        $new->is_private=$request->get('is_private',0);
-        $new->category_id=$request->get('category_id');
-        $new->save();
+        $this->getFromForm($new, $request);
+        session()->flash('proceed_status','Новость добавлена');
         return redirect()->back();
+//        return 'Hello';
+    }
+
+    public function edit(Articles $article) {
+        $categories=NewsCategory::orderBy('name')->get();
+        return view('customer.article-add',[
+            'id'=>$article->category_id,
+            'categoryList'=>$categories
+        ]);
+    }
+
+    public function update(Articles $article, NewsProcessRequest $request) {
+        $this->getFromForm($article, $request);
+        session()->flash('proceed_status','Новость изменена');
+        return redirect()->route('categories.articlesOfCategory',['id'=>$article->category_id]);
     }
 }
