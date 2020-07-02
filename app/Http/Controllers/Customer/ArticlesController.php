@@ -6,7 +6,7 @@ use App\Articles;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\TmpServices\DBConnService;
 use App\Http\Requests\NewsProcessRequest;
-use App\NewsCategory;
+use App\ArticlesCategory;
 use Illuminate\Http\Response;
 
 
@@ -32,7 +32,7 @@ class ArticlesController extends Controller
     }
 
     public function add(int $category_id) {
-        $categories=NewsCategory::orderBy('name')->get();
+        $categories=ArticlesCategory::orderBy('name')->get();
         return view('customer.article-add',[
             'id'=>$category_id,
             'categoryList'=>$categories
@@ -48,7 +48,7 @@ class ArticlesController extends Controller
     }
 
     public function edit(Articles $article) {
-        $categories=NewsCategory::orderBy('name')->get();
+        $categories=ArticlesCategory::orderBy('name')->get();
         return view('customer.article-add',[
             'id'=>$article->category_id,
             'categoryList'=>$categories

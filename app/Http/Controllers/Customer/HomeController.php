@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\TmpServices\DBConnService;
-use App\NewsCategory;
+use App\ArticlesCategory;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -36,7 +36,7 @@ class HomeController extends Controller
 //            'categories' => $newsCategories
 //        ]);
         return view('customer.categories',[
-           'categories'=>NewsCategory::all()
+           'categories'=>ArticlesCategory::all()
         ]);
     }
 
