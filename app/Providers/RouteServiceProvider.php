@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Articles;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +32,8 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        Route::model('article',Article::class);
+        Route::model('article',Articles::class
+        );
         parent::boot();
     }
 

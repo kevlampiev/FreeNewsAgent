@@ -32,10 +32,12 @@ class ArticlesController extends Controller
     }
 
     public function add(int $category_id) {
+        $article = new Articles(); //Надеюсь garbage collector это уничтожит
         $categories=ArticlesCategory::orderBy('name')->get();
         return view('customer.article-add',[
             'id'=>$category_id,
-            'categoryList'=>$categories
+            'categoryList'=>$categories,
+            'article'=>$article
         ]);
     }
 
@@ -47,17 +49,18 @@ class ArticlesController extends Controller
 //        return 'Hello';
     }
 
-    public function edit(Articles $article) {
+    public function edit(int $id, Articles $article) {
         $categories=ArticlesCategory::orderBy('name')->get();
         return view('customer.article-add',[
             'id'=>$article->category_id,
-            'categoryList'=>$categories
+            'categoryList'=>$categories,
+            'article'=>$article
         ]);
     }
 
-    public function update(Articles $article, NewsProcessRequest $request) {
+    public function update(int $id, Articles $article, NewsProcessRequest $request) {
         $this->getFromForm($article, $request);
         session()->flash('proceed_status','Новость изменена');
-        return redirect()->route('categories.articlesOfCategory',['id'=>$article->category_id]);
+        return redirect()->route('articlesOfCategory',['id'=>$article->category_id]);
     }
 }

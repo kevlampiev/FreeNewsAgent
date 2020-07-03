@@ -1,3 +1,5 @@
+
+
 @extends('layouts.mainlayout')
 
 @section('content')
@@ -6,36 +8,17 @@
         <form method="POST">
             @csrf
 
-
-{{--            @if (count($errors) > 0)--}}
-{{--                <div class="alert alert-danger">--}}
-{{--                    <ul>--}}
-{{--                        @foreach ($errors->all() as $error)--}}
-{{--                            <li>{{ $error }}</li>--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            @endif--}}
-
             <div class="form-group">
-
                 <input type="checkbox" class="form-check-input" id="isprivate" name="is_private"
-                       @if (old('is_private')=="1")
+                       @if (old('is_private')=="1"||$article->is_private==1)
                            checked
                         @endif
                     value="1"
                 >
                 <label class="form-check-label" for="isprivate">Новость приватная</label>
-
             </div>
 
-            <div
-                 @if ($errors->has('title'))
-                    class="form-group has-error"
-                 @else
-                 class="form-group"
-                 @endif
-            >
+            <div class="form-group {{$errors->has('title')?'has-error':''}}">
 
                 <label for="title">Заголовок статьи</label>
                 @if ($errors->has('title'))
@@ -44,7 +27,7 @@
                     </div>
                 @endif
 
-                <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}">
+                <input type="text" class="form-control" id="title" name="title" value="{{$errors->has('title')?old('title'):$article->title}}">
             </div>
 
             <div class="form-group">
@@ -60,28 +43,24 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group {{$errors->has('announcement')?'has-error':''}}">
                 <label for="announcement">Аннотация</label>
                 @if ($errors->has('announcement'))
                     <div class="alert alert-danger" role="alert">
                         {{ $errors->first('announcement') }}
                     </div>
                 @endif
-                <textarea class="form-control" id="announcement" rows="3" name="announcement">{{old('announcement')}}</textarea>
+                <textarea class="form-control" id="announcement" rows="3" name="announcement">{{$errors->has('announcement')?old('announcement'):$article->announcement}}</textarea>
             </div>
 
-            <div class="form-group"
-{{--                @if ($errors->has('article_body'))--}}
-{{--                    has-error--}}
-{{--                @endif--}}
-            >
+            <div class="form-group {{$errors->has('article_body')?'has-error':''}}">
                 <label for="description">Текст статьи</label>
                 @if ($errors->has('article_body'))
                     <div class="alert alert-danger" role="alert">
                         {{ $errors->first('article_body') }}
                     </div>
                 @endif
-                <textarea class="form-control" id="description" rows="10" name="article_body">{{old('article_body')}}</textarea>
+                <textarea class="form-control" id="description" rows="10" name="article_body">{{$errors->has('article_body')?old('article_body'):$article->article_body}}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>

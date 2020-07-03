@@ -24,7 +24,7 @@ class CategoriesController extends Controller
 
             //DBConnService::selectRowsSet('SELECT * FROM v_news WHERE category_id=?', [$id]);
 
-        return view('customer.news-of-category', [
+        return view('customer.articles-of-category', [
             'news' => $newsOfCategory,
             'category' => $category
         ]);

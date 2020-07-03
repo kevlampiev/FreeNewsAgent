@@ -46,11 +46,11 @@ Route::group([
         Route::post('/{category_id}/articles/add',[
         'uses'=>'ArticlesController@insert' ]);
 
-        Route::get('/{article}/articles/edit', [
+        Route::get('/{category_id}/articles/{article}/edit', [
             'uses' => 'ArticlesController@edit'
         ])->name('editArticle');
 
-        Route::post('/{article}/articles/edit',[
+        Route::post('/{category_id}/articles/{article}/edit',[
             'uses'=>'ArticlesController@update' ]);
 
         Route::get('/{category_id}/articles/{id}', [
