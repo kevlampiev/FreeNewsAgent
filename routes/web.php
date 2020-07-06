@@ -24,6 +24,24 @@ Route::group([
         Route::get('/login', [
             'uses' => 'HomeController@login'
         ])->name('login');
+
+        Route::get('/feedback', [
+           'uses'=>"CustomerRequestsController@addFeedback"
+        ])->name('feedback');
+
+        Route::post('/feedback', [
+            'uses'=>"CustomerRequestsController@storeFeedback"
+        ]);
+
+        Route::get('/info-enquiery', [
+           'uses'=>"CustomerRequestsController@getInfoEnquiery"
+        ])->name('infoEnquiery');
+
+        Route::post('/info-enquiery', [
+            'uses'=>"CustomerRequestsController@storeInfoEnquiery"
+        ]);
+
+
     });
 
 Route::group([

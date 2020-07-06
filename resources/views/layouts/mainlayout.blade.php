@@ -52,15 +52,15 @@
                             aria-haspopup="true"
                             aria-expanded="false"
                         >
-                            Дополнительные действия
+                            Запросы и обратная связь
                         </a>
                         <div
                             class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink"
                         >
-                            <a class="dropdown-item" href="#">Действие 1</a>
-                            <a class="dropdown-item" href="#">Действие 2</a>
-                            <a class="dropdown-item" href="#">Действие 3</a>
+                            <a class="dropdown-item" href="{{route('infoEnquiery')}}">Запрос информации</a>
+                            <a class="dropdown-item" href="{{route('feedback')}}">Оставить отзыв о проекте</a>
+
                         </div>
                     </li>
                 </ul>
