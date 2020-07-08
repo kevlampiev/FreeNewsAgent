@@ -63,4 +63,10 @@ class ArticlesController extends Controller
         session()->flash('proceed_status','Новость изменена');
         return redirect()->route('articlesOfCategory',['id'=>$article->category_id]);
     }
+
+    public function delete(int $id, Articles $article) {
+        $article->delete();
+        session()->flash('Proceed_status','Новость удалена');
+        return redirect()->route('articlesOfCategory',['id'=>$id]);
+    }
 }

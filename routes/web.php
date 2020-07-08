@@ -71,9 +71,15 @@ Route::group([
         Route::post('/{category_id}/articles/{article}/edit',[
             'uses'=>'ArticlesController@update' ]);
 
+        Route::post('/{category_id}/articles/{article}/delete', [
+            'uses'=>'ArticlesController@delete'
+        ])->name('deleteArticle');
+
         Route::get('/{category_id}/articles/{id}', [
             'uses' => 'ArticlesController@index'
         ])->name('showArticle');
+
+
 
     }
 );
