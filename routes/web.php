@@ -83,3 +83,14 @@ Route::group([
 
     }
 );
+
+Route::group([
+    'prefix' => 'infosources',
+    'namespace' => 'Customer'
+],
+    function () {
+        Route::get('/list', [
+            'uses' => 'InfoSourcesController@list'
+        ])->name('infoSourcesList');
+    }
+);

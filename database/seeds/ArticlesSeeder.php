@@ -23,7 +23,7 @@ class ArticlesSeeder extends Seeder
             $rnd=rand(5,10);
             for ($j=0;$j<$rnd;$j++) {
                 $result[]=[
-                    'title'=>$faker->sentence(rand(3,10)),
+                    'title'=>$faker->sentence(rand(10,15)),
                     'announcement'=>$faker->sentence(rand(3,10)),
                     'article_body'=>$faker->realText(rand(100,300)),
                     'is_private'=>(boolean) rand(0,1),

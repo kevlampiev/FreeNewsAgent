@@ -43,6 +43,10 @@
                         <a class="nav-link" href="{{route('categories')}}">Категории новостей</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('infoSourcesList')}}">Источники информации</a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a
                             class="nav-link dropdown-toggle"
