@@ -53,34 +53,31 @@ Route::group([
             'uses' => 'HomeController@newsCategoriesList'
         ])->name('categories');
 
-        Route::get('/{id}/articles/list', [
+        Route::get('/{slug}/articles/list', [
             'uses' => 'CategoriesController@articlesOfCategory'
         ])->name('articlesOfCategory');
 
-        Route::get('/{category_id}/articles/add', [
+        Route::get('/{slug}/articles/add', [
             'uses' => 'ArticlesController@add'
         ])->name('addArticle');
 
-        Route::post('/{category_id}/articles/add',[
+        Route::post('/{slug}/articles/add',[
         'uses'=>'ArticlesController@insert' ]);
 
-        Route::get('/{category_id}/articles/{article}/edit', [
+        Route::get('/{slug}/articles/{article}/edit', [
             'uses' => 'ArticlesController@edit'
         ])->name('editArticle');
 
-        Route::post('/{category_id}/articles/{article}/edit',[
+        Route::post('/{slug}/articles/{article}/edit',[
             'uses'=>'ArticlesController@update' ]);
 
-        Route::post('/{category_id}/articles/{article}/delete', [
+        Route::post('/{slug}/articles/{article}/delete', [
             'uses'=>'ArticlesController@delete'
         ])->name('deleteArticle');
 
-        Route::get('/{category_id}/articles/{id}', [
+        Route::get('/{slug}/articles/{id}', [
             'uses' => 'ArticlesController@index'
         ])->name('showArticle');
-
-
-
     }
 );
 
@@ -92,5 +89,9 @@ Route::group([
         Route::get('/list', [
             'uses' => 'InfoSourcesController@list'
         ])->name('infoSourcesList');
+        Route::get('/listToKill', [    //потом убить это
+            'uses' => 'InfoSourcesController@listToKill'
+        ])->name('infoSourcesListToKill');
+
     }
 );

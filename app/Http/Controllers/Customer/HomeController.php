@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\TmpServices\DBConnService;
-use App\ArticlesCategory;
+use App\Models\ArticlesCategory;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller

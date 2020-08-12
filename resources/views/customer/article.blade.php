@@ -9,7 +9,7 @@
 
         <p> {{$new->article_body}}</p>
         <hr>
-        <a href="{{route('articlesOfCategory',[$new->category_id])}}">
+        <a href="{{route('articlesOfCategory',[$new->category->slug])}}">
             Ко всем новостям категории {{$new->category->name}}
         </a>
     </div>
