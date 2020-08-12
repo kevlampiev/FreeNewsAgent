@@ -6,7 +6,7 @@
     <div class="news-container">
         <div class="ordering-block">
             <div>
-                <a href="{{route('addArticle',[$category->id])}}" class="btn btn-secondary ">
+                <a href="{{route('addArticle',[$category->slug])}}" class="btn btn-secondary ">
                     <i class="fa fa-plus-square" aria-hidden="true"></i> Добавить новость от себя
                 </a>
             </div>
@@ -16,7 +16,7 @@
             <div class="article-box">
                 <div class="article-main-block">
                     <a href="{{route('showArticle',[
-                                                $new->category_id,
+                                                $category->slug,
                                                 $new->id
                                                 ])}}" class="mega-anchor">
                         <h5>
@@ -29,11 +29,11 @@
                     </p>
                 </div>
                 <div class="article-control-block">
-                    <a href="{{route('editArticle',['category_id'=>$new->category_id,'article'=>$new->id])}}" class="article-control-link">
+                    <a href="{{route('editArticle',['slug'=>$category->slug,'article'=>$new->id])}}" class="article-control-link">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                         Изменить
                     </a>
-                    <a href="{{route('deleteArticle',['category_id'=>$new->category_id,'article'=>$new->id])}}" class="article-control-link delete"
+                    <a href="{{route('deleteArticle',['slug'=>$category->slug,'article'=>$new->id])}}" class="article-control-link delete"
                        data-method="POST" data-confirm="Уверены, что хотите удалить эту запись?" data-token="{{ csrf_token() }}">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                         Удалить
@@ -47,20 +47,6 @@
         @endforeach
     </div>
 @endsection
-
-{{--<div class="confirmation-window shadowed-box hidden" id="delete-conf-window">--}}
-{{--    @csrf--}}
-{{--    <form method="POST">--}}
-{{--        <p>Вы действительно хотите удалить эту запись?</p>--}}
-{{--        <div class="controls">--}}
-{{--            <button type="submit" class="btn btn-secondary">Удалить</button>--}}
-{{--            <a href="#" class="btn btn-light">--}}
-{{--                Отмена--}}
-{{--            </a>--}}
-{{--        </div>--}}
-{{--    </form>--}}
-{{--</div>--}}
-
 
 @section('stylesheets')
     <link rel="stylesheet" href="{{asset('css/articles-list.css')}}">

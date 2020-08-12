@@ -2,26 +2,31 @@
 
 namespace App\Http\Controllers\Customer;
 
-use App\Articles;
+use App\Models\Articles;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\TmpServices\DBConnService;
 use App\Http\Requests\NewsProcessRequest;
-use App\ArticlesCategory;
+use App\Models\ArticlesCategory;
 use Illuminate\Http\Response;
 
 
 class ArticlesController extends Controller
 {
-    public function index(int $category_id, int $id):string {
+    public function index(string $slug, int $id):string {
 //        $new=DBConnService::selectSingleRow('SELECT * FROM v_news WHERE category_id=? AND id=?',[$category_id,$id]);
-        $new=Articles::whereCategoryId($category_id)->where('id',$id)->first();
-        if ($new==null) {
+        $category=ArticlesCategory::whereSlug($slug)->first();
+        if ($category==null) {
+            abort(404,'Группы новостей $slug не существует');
+        }
+        $article=Articles::all()->where('category_id',$category->id)->where('id',$id)->first();
+        if ($article==null) {
             abort(404,'Новость с таким идентификатором отсутствует');
         }
-        return view('customer.article',['new'=>$new]);
+        return view('customer.article',['new'=>$article]);
 
     }
 
+    //Вспомогательная функция, собирающая данные для редактирования/добавления статьи из формы ввода
     private function getFromForm(Articles $article, NewsProcessRequest $request) {
         $article->title=$request->get('title');
         $article->announcement=$request->get('announcement');
@@ -31,11 +36,15 @@ class ArticlesController extends Controller
         $article->save();
     }
 
-    public function add(int $category_id) {
+    public function add(string $slug) {
         $article = new Articles(); //Надеюсь garbage collector это уничтожит
+        $category=ArticlesCategory::whereSlug($slug)->first();
+        if ($category==null) {
+            abort(404,'Группы новостей $slug не существует');
+        }
         $categories=ArticlesCategory::orderBy('name')->get();
         return view('customer.article-add',[
-            'id'=>$category_id,
+            'id'=>$category->id,
             'categoryList'=>$categories,
             'article'=>$article
         ]);
@@ -46,7 +55,6 @@ class ArticlesController extends Controller
         $this->getFromForm($new, $request);
         session()->flash('proceed_status','Новость добавлена');
         return redirect()->back();
-//        return 'Hello';
     }
 
     public function edit(int $id, Articles $article) {
