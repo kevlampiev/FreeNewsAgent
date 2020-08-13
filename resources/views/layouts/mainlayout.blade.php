@@ -10,7 +10,8 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
         crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{{asset('css/main.css') }}"/>
+{{--    <link rel="stylesheet" href="{{asset('css/main.css') }}"/>--}}
+    <link rel="stylesheet" href="{{asset('css/app.css') }}"/>
     @yield('stylesheets')
 
 </head>
@@ -46,9 +47,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('infoSourcesList')}}">Источники информации</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('infoSourcesListToKill')}}">Липовые источники (убить пункт)</a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="{{route('infoSourcesListToKill')}}">Липовые источники (убить пункт)</a>--}}
+{{--                    </li>--}}
                     <li class="nav-item dropdown">
                         <a
                             class="nav-link dropdown-toggle"

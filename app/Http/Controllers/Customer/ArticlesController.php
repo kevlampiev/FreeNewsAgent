@@ -57,24 +57,29 @@ class ArticlesController extends Controller
         return redirect()->back();
     }
 
-    public function edit(int $id, Articles $article) {
+    public function edit(string $slug, Articles $article) {
+//        dd($article);
+        $category=ArticlesCategory::whereSlug($slug)->first();
+        if ($category==null) {
+            abort(404,'Группы новостей $slug не существует');
+        }
         $categories=ArticlesCategory::orderBy('name')->get();
         return view('customer.article-add',[
-            'id'=>$article->category_id,
+            'id'=>$article->category->id,
             'categoryList'=>$categories,
             'article'=>$article
         ]);
     }
 
-    public function update(int $id, Articles $article, NewsProcessRequest $request) {
+    public function update(string $slug, Articles $article, NewsProcessRequest $request) {
         $this->getFromForm($article, $request);
         session()->flash('proceed_status','Новость изменена');
-        return redirect()->route('articlesOfCategory',['id'=>$article->category_id]);
+        return redirect()->route('articlesOfCategory',['slug'=>$slug]);
     }
 
-    public function delete(int $id, Articles $article) {
+    public function delete(string $slug, Articles $article) {
         $article->delete();
         session()->flash('Proceed_status','Новость удалена');
-        return redirect()->route('articlesOfCategory',['id'=>$id]);
+        return redirect()->route('articlesOfCategory',['slug'=>$slug]);
     }
 }

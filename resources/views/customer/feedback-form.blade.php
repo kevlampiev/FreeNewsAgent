@@ -38,6 +38,6 @@
     </div>
 @endsection
 
-@section('stylesheets')
-    <link rel="stylesheet" href="{{asset('css/article.css')}}">
-@endsection
+{{--@section('stylesheets')--}}
+{{--    <link rel="stylesheet" href="{{asset('css/article.css')}}">--}}
+{{--@endsection--}}

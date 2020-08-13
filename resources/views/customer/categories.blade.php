@@ -20,6 +20,6 @@
     </div>
 @endsection
 
-@section('stylesheets')
-    <link rel="stylesheet" href="{{asset('css/categories.css')}}">
-@endsection
+{{--@section('stylesheets')--}}
+{{--    <link rel="stylesheet" href="{{asset('css/categories.css')}}">--}}
+{{--@endsection--}}

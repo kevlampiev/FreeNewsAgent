@@ -30,6 +30,6 @@
     </div>
 @endsection
 
-@section('stylesheets')
-    <link rel="stylesheet" href="{{asset('css/login.css')}}">
-@endsection
+{{--@section('stylesheets')--}}
+{{--    <link rel="stylesheet" href="{{asset('css/login.css')}}">--}}
+{{--@endsection--}}

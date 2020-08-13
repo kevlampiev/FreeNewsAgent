@@ -28,7 +28,7 @@
                 @foreach($news as $new)
                     <section>
                         <a href="{{route('showArticle',[
-                                                        $new->category_id,
+                                                        $new->slug,
                                                         $new->id
                                                         ])}}">
                             <h6>{{$new->title}}</h6>
