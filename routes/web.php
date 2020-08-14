@@ -49,3 +49,11 @@ Route::group([
         Route::get('/list','InfoSourcesController@list')->name('infoSourcesList');
     }
 );
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');

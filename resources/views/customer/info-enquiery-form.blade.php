@@ -2,6 +2,8 @@
 
 @extends('layouts.mainlayout')
 
+@section('title') @parent Запрос информации @show
+
 @section('content')
 
     <div class="article-container shadowed-box">

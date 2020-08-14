@@ -1,5 +1,7 @@
 @extends('layouts.mainlayout')
 
+@section('title') @parent Источники информации @show
+
 @section('content')
     <H3>Источники новостей</H3>
     <div class="categories-container">

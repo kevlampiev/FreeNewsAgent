@@ -33,7 +33,7 @@ body {
 }
 
 .content {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 20px;
     min-height: 50vh;
 }
@@ -104,4 +104,12 @@ a:hover {
     .content {
         width: 100%;
     }
+}
+
+.article-header {
+    color: #830536;
+}
+
+a>.article-header:hover {
+    color: #c51f1a;
 }

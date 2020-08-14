@@ -1,5 +1,8 @@
 @extends('layouts.mainlayout')
 
+
+@section('title') @parent Главная @show
+
 @section('content')
     <div class="row">
         <div class="col-md-8 ">
@@ -31,7 +34,7 @@
                                                         $new->slug,
                                                         $new->id
                                                         ])}}">
-                            <h6>{{$new->title}}</h6>
+                            <h6 class="article-header">{{$new->title}}</h6>
                         </a>
                         <h7>{{$new->created_at}} - {{$new->name}}</h7>
                     </section>

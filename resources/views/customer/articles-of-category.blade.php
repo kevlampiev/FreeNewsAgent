@@ -1,5 +1,7 @@
 @extends('layouts.mainlayout')
 
+@section('title') @parent Новости категории @show
+
 @section('content')
 
     <H3>Новости категории {{$category->name}}</H3>
@@ -19,7 +21,7 @@
                                                 $category->slug,
                                                 $new->id
                                                 ])}}" class="mega-anchor">
-                        <h5>
+                        <h5 class="article-header">
                             {{$new->title}}
                         </h5>
                     </a>

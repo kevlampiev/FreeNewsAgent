@@ -1,9 +1,11 @@
 @extends('layouts.mainlayout')
 
+@section('title') @parent Содержимое новости @show
+
 @section('content')
 
     <div class="article-container shadowed-box">
-        <H3>{{$new->title}}</H3>
+        <H3 class="article-header">{{$new->title}}</H3>
         <h5>{{$new->category->name}}</h5>
         <p> <i> {{$new->announcement}}</i></p>
 
