@@ -18,7 +18,7 @@ Route::group([
 ],
     function () {
         Route::get('/', 'HomeController@index')->name('home');
-        Route::get('/login', 'HomeController@login')->name('login');
+//        Route::get('/login', 'HomeController@login')->name('login');
         Route::get('/feedback', 'CustomerRequestsController@addFeedback')->name('feedback');
         Route::post('/feedback', 'CustomerRequestsController@storeFeedback');
         Route::get('/info-enquiery','CustomerRequestsController@getInfoEnquiery')->name('infoEnquiery');
@@ -42,18 +42,16 @@ Route::group([
 );
 
 Route::group([
-    'prefix' => 'infosources',
-    'namespace' => 'Customer'
+    'prefix' => 'admin',
+    'namespace' => 'Admin'
 ],
     function () {
-        Route::get('/list','InfoSourcesController@list')->name('infoSourcesList');
+        Route::get('/','HomeController@index')->name('admin');
+        Route::get('infosources/list','InfoSourcesController@list')->name('admin.infoSourcesList');
+        Route::get('categories/list','categoriesController@list')->name('admin.categoriesList');
     }
 );
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-//Auth::routes();
-//
 //Route::get('/home', 'HomeController@index')->name('home');

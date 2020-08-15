@@ -24,9 +24,9 @@ class HomeController extends Controller
         ]);
     }
 
-    public function login() {
-        return view('customer.login');
-    }
+//    public function login() {
+//        return view('customer.login');
+//    }
 
     public function newsCategoriesList()
     {

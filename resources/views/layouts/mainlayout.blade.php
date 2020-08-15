@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@section('title') Агрегатор| @show</title>
+    <title>
+        @section('title') Агрегатор| @show
+    </title>
     <link
         rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
         crossorigin="anonymous"
     />
-{{--    <link rel="stylesheet" href="{{asset('css/main.css') }}"/>--}}
     <link rel="stylesheet" href="{{asset('css/app.css') }}"/>
-    @yield('stylesheets')
+    <link rel="stylesheet" href="{{asset('css/customer.css') }}"/>
+{{--    @yield('stylesheets')--}}
 
 </head>
 <body>
@@ -20,7 +22,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
-                <img src="{{asset('img/logo-burst.png')}}">
+                <img src="{{asset('img/logo-customer.jpg')}}" class="main-logo-img">
             </a>
             <button
                 class="navbar-toggler"
@@ -36,20 +38,12 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{route('home')}}"
-                        >Главная <span class="sr-only">(current)</span></a
-                        >
+                        <a class="nav-link" href="{{route('home')}}">Главная </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('categories')}}">Категории новостей</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('infoSourcesList')}}">Источники информации</a>
-                    </li>
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="{{route('infoSourcesListToKill')}}">Липовые источники (убить пункт)</a>--}}
-{{--                    </li>--}}
                     <li class="nav-item dropdown">
                         <a
                             class="nav-link dropdown-toggle"
@@ -124,7 +118,7 @@
                     placeholder="Текст для поиска"
                     aria-label="Search"
                 />
-                <button class="btn btn-primary " type="submit">
+                <button class="btn btn-dark " type="submit">
                     Поиск
                 </button>
             </form>
