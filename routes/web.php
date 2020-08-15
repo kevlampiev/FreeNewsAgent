@@ -48,7 +48,7 @@ Route::group([
     function () {
         Route::get('/','HomeController@index')->name('admin');
         Route::get('infosources/list','InfoSourcesController@list')->name('admin.infoSourcesList');
-        Route::get('categories/list','categoriesController@list')->name('admin.categoriesList');
+        Route::get('categories/list','CategoriesController@list')->name('admin.categoriesList');
     }
 );
 
