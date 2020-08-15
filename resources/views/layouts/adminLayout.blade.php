@@ -22,10 +22,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar navbar-light bg-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('admin') }}">
-                        <img src="{{asset('img/logo-admin.jpg')}}" class="main-logo-img">
+                        <img src="{{asset('img/logo-customer.jpg')}}" class="main-logo-img">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -93,7 +93,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="content">
             @yield('content')
         </main>
     </div>
