@@ -2,6 +2,8 @@
 
 @extends('layouts.mainlayout')
 
+@section('title') @parent Запрос информации @show
+
 @section('content')
 
     <div class="article-container shadowed-box">
@@ -51,6 +53,6 @@
 
 @endsection
 
-@section('scripts')
-    <script src="{{asset('js/bootstrap-formhelpers-phone.js')}}"></script>
-@endsection
+{{--@section('scripts')--}}
+{{--    <script src="{{asset('js/bootstrap-formhelpers-phone.js')}}"></script>--}}
+{{--@endsection--}}

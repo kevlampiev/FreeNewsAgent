@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         $latestNews=DB::table('articles')
             ->join('news_categories','articles.category_id','=','news_categories.id')
-            ->select('articles.*','news_categories.name')
+            ->select('articles.*','news_categories.name','news_categories.slug')
             ->orderByDesc('articles.created_at')
             ->limit(5)
             ->get();
@@ -24,9 +24,9 @@ class HomeController extends Controller
         ]);
     }
 
-    public function login() {
-        return view('customer.login');
-    }
+//    public function login() {
+//        return view('customer.login');
+//    }
 
     public function newsCategoriesList()
     {

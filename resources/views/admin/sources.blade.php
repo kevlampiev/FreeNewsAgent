@@ -1,11 +1,14 @@
-@extends('layouts.mainlayout')
+@extends('layouts.adminLayout')
+
+@section('title') @parent Источники информации @show
 
 @section('content')
-    <H3>Источники новостей</H3>
-    <div class="categories-container">
+
+    <div class="source-container">
+
         @foreach ($sources as $source)
 
-            <div class="newscategory shadowed-box">
+            <div class="source-card shadowed-box">
 {{--                <a href="{{route('articlesOfCategory',[$category->id])}}" class="mega-anchor">--}}
                     <h5>
                         {{$source->name}}
@@ -23,6 +26,6 @@
     </div>
 @endsection
 
-@section('stylesheets')
-    <link rel="stylesheet" href="{{asset('css/categories.css')}}">
-@endsection
+{{--@section('stylesheets')--}}
+{{--    <link rel="stylesheet" href="{{asset('css/categories.css')}}">--}}
+{{--@endsection--}}

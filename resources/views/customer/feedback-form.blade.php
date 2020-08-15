@@ -2,6 +2,8 @@
 
 @extends('layouts.mainlayout')
 
+@section('title') @parent Обратная связь @show
+
 @section('content')
 
     <div class="article-container shadowed-box">
@@ -38,6 +40,6 @@
     </div>
 @endsection
 
-@section('stylesheets')
-    <link rel="stylesheet" href="{{asset('css/article.css')}}">
-@endsection
+{{--@section('stylesheets')--}}
+{{--    <link rel="stylesheet" href="{{asset('css/article.css')}}">--}}
+{{--@endsection--}}

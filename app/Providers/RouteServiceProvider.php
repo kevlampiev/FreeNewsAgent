@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Articles;
+use App\Models\Articles;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +22,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/';   //Значение консантны изменено. Прежнее значение константы /home
 
     /**
      * Define your route model bindings, pattern filters, etc.

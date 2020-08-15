@@ -1,0 +1,12 @@
+body {
+    background: url('/img/background-admin.jpg');
+    background-size: cover;
+    -webkit-backdrop-filter: grayscale(70%);
+    backdrop-filter: grayscale(70%);
+}
+
+.dashboard-block {
+    margin: 15px;
+    padding: 15px;
+    background-color: #fff;
+}

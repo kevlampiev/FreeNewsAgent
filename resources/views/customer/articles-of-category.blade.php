@@ -1,5 +1,7 @@
 @extends('layouts.mainlayout')
 
+@section('title') @parent Новости категории @show
+
 @section('content')
 
     <H3>Новости категории {{$category->name}}</H3>
@@ -19,7 +21,7 @@
                                                 $category->slug,
                                                 $new->id
                                                 ])}}" class="mega-anchor">
-                        <h5>
+                        <h5 class="article-header">
                             {{$new->title}}
                         </h5>
                     </a>
@@ -49,7 +51,7 @@
 @endsection
 
 @section('stylesheets')
-    <link rel="stylesheet" href="{{asset('css/articles-list.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('css/articles-list.css')}}">--}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 @endsection
 
