@@ -115,6 +115,12 @@ a > .article-header:hover {
   color: #c51f1a;
 }
 
+.current-menu {
+  font-weight: 700;
+  color: maroon;
+  text-decoration: underline;
+}
+
 .article-container {
   background-color: #fff;
   padding: 25px;

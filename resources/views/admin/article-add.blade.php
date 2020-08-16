@@ -1,6 +1,4 @@
-
-
-@extends('layouts.mainlayout')
+@extends('layouts.adminLayout')
 
 @section('title') @parent Изменение новости @show
 
@@ -29,7 +27,8 @@
                     </div>
                 @endif
 
-                <input type="text" class="form-control" id="title" name="title" value="{{$errors->has('title')?old('title'):$article->title}}">
+                <input class="form-control" id="title" name="title" type="text"
+                       value="{{$errors->has('title')?old('title'):$article->title}}">
             </div>
 
             <div class="form-group">
@@ -66,7 +65,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>
-            <a href="{{route('articlesOfCategory',[$id])}}"
+            <a href="{{route('admin.articlesOfCategory',[$slug])}}"
                class="btn btn-secondary ">
                 Отмена
             </a>

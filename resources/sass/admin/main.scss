@@ -1,8 +1,8 @@
 body {
-    background: url('/img/background-admin.jpg');
-    background-size: cover;
+    background: url('/img/background-admin.png');
+    background-repeat: repeat;
     -webkit-backdrop-filter: grayscale(70%);
-    backdrop-filter: grayscale(90%) brightness(75%);
+    backdrop-filter: grayscale(120%) brightness(50%);
 }
 
 .dashboard-block {
@@ -11,7 +11,16 @@ body {
     background-color: #fff;
 }
 
+.content {
+    background-color: rgba(255,255,255,0.5);
+}
+
 #app {
     width: 1300px;
     margin: 0 auto;
+}
+.current-menu {
+    font-weight: 700;
+    color: maroon;
+    text-decoration: underline;
 }

@@ -1,0 +1,38 @@
+.news-container {
+    background-color: #ffffff;
+    margin:25px;
+    padding: 15px;
+}
+
+.article-box {
+    margin-top:25px;
+    border-bottom: 1px dashed #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-main-block {
+    /*width:80%;*/
+}
+
+.article-control-block {
+    width: 100px;
+    padding-top:30px;
+}
+
+.article-control-link {
+    display: block;
+    width: 95px;
+    height:24px;
+    color: gray;
+    /*border:1px solid gray;*/
+    /*border-radius: 12px;*/
+    text-align: left;
+}
+.ordering-block {
+    height: 25px;
+}
+
+.ordering-block div {
+    float: right ;
+}

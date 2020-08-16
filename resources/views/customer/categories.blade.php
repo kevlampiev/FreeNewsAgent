@@ -8,7 +8,7 @@
         @foreach ($categories as $category)
 
             <div class="newscategory shadowed-box">
-                <a href="{{route('articlesOfCategory',[$category->slug])}}" class="mega-anchor">
+                <a href="{{route('customer.articlesOfCategory',[$category->slug])}}" class="mega-anchor">
                     <h5 class="article-header">
                         {{$category->name}}
                     </h5>

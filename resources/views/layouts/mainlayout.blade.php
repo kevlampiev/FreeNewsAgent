@@ -37,17 +37,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
+                    <li class="nav-item {{request()->routeIs('home')?'current-menu':''}}">
                         <a class="nav-link" href="{{route('home')}}">Главная </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('categories')}}">Категории новостей</a>
+                    <li class="nav-item {{request()->routeIs('customer.categories')?'current-menu':''}}">
+                        <a class="nav-link" href="{{route('customer.categories')}}">Категории новостей</a>
                     </li>
 
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown {{(request()->routeIs('customer.infoEnquiery')||request()->routeIs('customer.feedback'))?'current-menu':''}}">
                         <a
                             class="nav-link dropdown-toggle"
-                            href="{{route('categories')}}"
+                            href="{{route('customer.categories')}}"
                             id="navbarDropdownMenuLink"
                             data-toggle="dropdown"
                             aria-haspopup="true"
@@ -59,11 +59,17 @@
                             class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink"
                         >
-                            <a class="dropdown-item" href="{{route('infoEnquiery')}}">Запрос информации</a>
-                            <a class="dropdown-item" href="{{route('feedback')}}">Оставить отзыв о проекте</a>
+                            <a class="dropdown-item" href="{{route('customer.infoEnquiery')}}">Запрос информации</a>
+                            <a class="dropdown-item" href="{{route('customer.feedback')}}">Оставить отзыв о проекте</a>
 
                         </div>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin')}}">Панель администратора</a>
+                    </li>
+
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -177,8 +183,7 @@
                                 <dl class="contact-list">
                                     <dt>Телефоны для связи:</dt>
                                     <dd>
-                                        <ul class="" unmarked
-                                        ">
+                                        <ul class="unmarked">
                                         <li>+7 (3432) 88-8888</li>
                                         <li>_7 (983) 221-0274</li>
                                         </ul>
@@ -226,8 +231,8 @@
                 </div>
             </div> <!-- row-->
 
-</div>
-</div>
+{{--</div>--}}
+{{--</div>--}}
 </footer>
 @show
 </div>
@@ -240,8 +245,7 @@
     <script
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"
-    ></script>
+        crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

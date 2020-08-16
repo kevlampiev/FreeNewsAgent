@@ -19,9 +19,9 @@ Route::group([
     function () {
         Route::get('/', 'HomeController@index')->name('home');
 //        Route::get('/login', 'HomeController@login')->name('login');
-        Route::get('/feedback', 'CustomerRequestsController@addFeedback')->name('feedback');
+        Route::get('/feedback', 'CustomerRequestsController@addFeedback')->name('customer.feedback');
         Route::post('/feedback', 'CustomerRequestsController@storeFeedback');
-        Route::get('/info-enquiery','CustomerRequestsController@getInfoEnquiery')->name('infoEnquiery');
+        Route::get('/info-enquiery','CustomerRequestsController@getInfoEnquiery')->name('customer.infoEnquiery');
         Route::post('/info-enquiery', 'CustomerRequestsController@storeInfoEnquiery');
     });
 
@@ -30,14 +30,9 @@ Route::group([
     'namespace' => 'Customer'
 ],
     function () {
-        Route::get('/list',  'HomeController@newsCategoriesList')->name('categories');
-        Route::get('/{slug}/articles/list', 'CategoriesController@articlesOfCategory')->name('articlesOfCategory');
-        Route::get('/{slug}/articles/add','ArticlesController@add')->name('addArticle');
-        Route::post('/{slug}/articles/add','ArticlesController@insert');
-        Route::get('/{slug}/articles/{article}/edit', 'ArticlesController@edit')->name('editArticle');
-        Route::post('/{slug}/articles/{article}/edit','ArticlesController@update' );
-        Route::post('/{slug}/articles/{article}/delete', 'ArticlesController@delete')->name('deleteArticle');
-        Route::get('/{slug}/articles/{id}','ArticlesController@index')->name('showArticle');
+        Route::get('/',  'HomeController@newsCategoriesList')->name('customer.categories');
+        Route::get('/{slug}/articles', 'CategoriesController@articlesOfCategory')->name('customer.articlesOfCategory');
+        Route::get('/{slug}/articles/{id}','ArticlesController@index')->name('customer.showArticle');
     }
 );
 
@@ -47,8 +42,14 @@ Route::group([
 ],
     function () {
         Route::get('/','HomeController@index')->name('admin');
-        Route::get('infosources/list','InfoSourcesController@list')->name('admin.infoSourcesList');
-        Route::get('categories/list','CategoriesController@list')->name('admin.categoriesList');
+        Route::get('infosources','InfoSourcesController@list')->name('admin.infoSourcesList');
+        Route::get('categories','CategoriesController@index')->name('admin.categoriesList');
+        Route::get('/{slug}/articles','CategoriesController@articlesOfCategory')->name('admin.articlesOfCategory');
+        Route::get('/{slug}/articles/add','ArticlesController@add')->name('admin.addArticle');
+        Route::post('/{slug}/articles/add','ArticlesController@insert');
+        Route::get('/{slug}/articles/{article}/edit', 'ArticlesController@edit')->name('admin.editArticle');
+        Route::post('/{slug}/articles/{article}/edit','ArticlesController@update' );
+        Route::post('/{slug}/articles/{article}/delete', 'ArticlesController@delete')->name('admin.deleteArticle');
     }
 );
 

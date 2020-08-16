@@ -11,7 +11,7 @@
 
         <p> {{$new->article_body}}</p>
         <hr>
-        <a href="{{route('articlesOfCategory',[$new->category->slug])}}">
+        <a href="{{route('customer.articlesOfCategory',[$new->category->slug])}}">
             Ко всем новостям категории {{$new->category->name}}
         </a>
     </div>
