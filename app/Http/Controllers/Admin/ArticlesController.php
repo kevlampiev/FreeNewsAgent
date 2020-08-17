@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Articles;
 use App\Http\Controllers\Controller;
-//use App\Http\Controllers\TmpServices\DBConnService;
-use App\Http\Requests\NewsProcessRequest;
+use App\Http\Requests\NewsRequest;
 use App\Models\ArticlesCategory;
 use Illuminate\Http\Response;
 
@@ -26,7 +25,7 @@ class ArticlesController extends Controller
     }
 
     //Вспомогательная функция, собирающая данные для редактирования/добавления статьи из формы ввода
-    private function getFromForm(Articles $article, NewsProcessRequest $request) {
+    private function getFromForm(Articles $article, NewsRequest $request) {
         $article->title=$request->get('title');
         $article->announcement=$request->get('announcement');
         $article->article_body=$request->get('article_body');
@@ -50,7 +49,7 @@ class ArticlesController extends Controller
         ]);
     }
 
-    public function insert(string $slug, NewsProcessRequest $request) {
+    public function insert(string $slug, NewsRequest $request) {
         $new=new Articles();
         $this->getFromForm($new, $request);
         session()->flash('proceed_status','Новость добавлена');
@@ -72,7 +71,7 @@ class ArticlesController extends Controller
         ]);
     }
 
-    public function update(string $slug, Articles $article, NewsProcessRequest $request) {
+    public function update(string $slug, Articles $article, NewsRequest $request) {
         $this->getFromForm($article, $request);
         session()->flash('proceed_status','Новость изменена');
         return redirect()->route('admin.articlesOfCategory',['slug'=>$slug]);

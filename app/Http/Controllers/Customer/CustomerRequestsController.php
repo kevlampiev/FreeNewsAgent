@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\TmpServices\DBConnService;
 use App\Http\Requests\FeedbackRequest;
 use App\Http\Requests\InfoEnquieryRequest;
-use App\Http\Requests\NewsProcessRequest;
+use App\Http\Requests\NewsRequest;
 use App\Models\ArticlesCategory;
 use Illuminate\Http\Response;
 

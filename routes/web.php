@@ -45,6 +45,11 @@ Route::group([
         Route::get('infosources','InfoSourcesController@list')->name('admin.infoSourcesList');
         Route::get('categories','CategoriesController@index')->name('admin.categoriesList');
         Route::get('/{slug}/articles','CategoriesController@articlesOfCategory')->name('admin.articlesOfCategory');
+        Route::get('/categories/add','CategoriesController@create')->name('admin.addCategory');
+        Route::post('categories/add','CategoriesController@insert');
+        Route::get('/categories/{category}/edit','CategoriesController@edit')->name('admin.editCategory');
+        Route::post('categories/{category}/edit','CategoriesController@update');
+
         Route::get('/{slug}/articles/add','ArticlesController@add')->name('admin.addArticle');
         Route::post('/{slug}/articles/add','ArticlesController@insert');
         Route::get('/{slug}/articles/{article}/edit', 'ArticlesController@edit')->name('admin.editArticle');
