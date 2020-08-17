@@ -15,6 +15,7 @@
         </div>
         @foreach ($news as $new)
 
+{{--            <div>--}}
             <div class="article-box">
                 <div class="article-main-block">
 {{--                    <a href="{{route('showArticle',[--}}

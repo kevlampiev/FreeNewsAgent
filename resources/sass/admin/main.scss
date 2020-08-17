@@ -13,11 +13,12 @@ body {
 
 .content {
     background-color: rgba(255,255,255,0.5);
+    padding: 15px;
 }
 
 #app {
-    width: 1300px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: 25px auto;
 }
 .current-menu {
     font-weight: 700;

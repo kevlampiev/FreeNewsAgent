@@ -13,11 +13,12 @@ body {
 
 .content {
   background-color: rgba(255, 255, 255, 0.5);
+  padding: 15px;
 }
 
 #app {
-  width: 1300px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 25px auto;
 }
 
 .current-menu {
@@ -106,7 +107,7 @@ a:hover {
   .newscategory {
     padding: 15px;
     margin: 15px;
-    width: 590px;
+    width: 100%;
     /*heigh: 100%;*/
     overflow: hidden;
     background-color: #fff;
@@ -166,12 +167,8 @@ a:hover {
 }
 
 .article-control-link {
-  display: block;
-  width: 95px;
   height: 24px;
   color: gray;
-  /*border:1px solid gray;*/
-  /*border-radius: 12px;*/
   text-align: left;
 }
 
@@ -186,5 +183,7 @@ a:hover {
 .article-container {
   background-color: #fff;
   padding: 25px;
+  margin: 15px auto;
+  max-width: 800px;
 }
 

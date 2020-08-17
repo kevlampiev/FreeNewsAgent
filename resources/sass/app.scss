@@ -12,3 +12,8 @@
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+.shadowed-box {
+    box-shadow: 4px 4px 10px 2px rgba(150, 150, 150, 0.43);
+}
