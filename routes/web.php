@@ -50,6 +50,12 @@ Route::group([
         Route::get('/categories/{category}/edit','CategoriesController@edit')->name('admin.editCategory');
         Route::post('categories/{category}/edit','CategoriesController@update');
 
+        Route::get('/alt-sources','AlternativeSourcesController@list')->name('admin.alternativeSourcesList');
+        Route::match(['get','post'],'/alt-sources/add','AlternativeSourcesController@create')->name('admin.AddAlternativeSource');
+        Route::match(['get','post'],'/alt-sources/{id}/edit','AlternativeSourcesController@edit')->name('admin.EditAlternativeSource');
+        Route::post('/alt-sources/{id}/delete','AlternativeSourcesController@delete')->name('admin.DeleteAlternativeSource');
+
+
         Route::get('/{slug}/articles/add','ArticlesController@add')->name('admin.addArticle');
         Route::post('/{slug}/articles/add','ArticlesController@insert');
         Route::get('/{slug}/articles/{article}/edit', 'ArticlesController@edit')->name('admin.editArticle');

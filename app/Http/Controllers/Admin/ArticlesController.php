@@ -80,6 +80,7 @@ class ArticlesController extends Controller
     public function delete(string $slug, Articles $article) {
         $article->delete();
         session()->flash('Proceed_status','Новость удалена');
+        
         return redirect()->route('admin.articlesOfCategory',['slug'=>$slug]);
     }
 }
