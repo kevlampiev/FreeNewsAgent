@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*****************************************/
+/*********** КЛИЕНТСКАЯ ЧАСТЬ ************/
+/*****************************************/
 Route::group([
     'namespace' => 'Customer'
 ],
@@ -23,47 +26,69 @@ Route::group([
         Route::post('/feedback', 'CustomerRequestsController@storeFeedback');
         Route::get('/info-enquiery','CustomerRequestsController@getInfoEnquiery')->name('customer.infoEnquiery');
         Route::post('/info-enquiery', 'CustomerRequestsController@storeInfoEnquiery');
+
+        //данные по статьям и категориям /categories+
+        Route::group([
+            'prefix'=>'categories'
+        ],
+            function() {
+                Route::get('/',  'HomeController@newsCategoriesList')->name('customer.categories');
+                Route::get('/{slug}/articles', 'CategoriesController@articlesOfCategory')->name('customer.articlesOfCategory');
+                Route::get('/{slug}/articles/{id}','ArticlesController@index')->name('customer.showArticle');
+            }
+        );
     });
 
-Route::group([
-    'prefix' => 'categories',
-    'namespace' => 'Customer'
-],
-    function () {
-        Route::get('/',  'HomeController@newsCategoriesList')->name('customer.categories');
-        Route::get('/{slug}/articles', 'CategoriesController@articlesOfCategory')->name('customer.articlesOfCategory');
-        Route::get('/{slug}/articles/{id}','ArticlesController@index')->name('customer.showArticle');
-    }
-);
 
+/*****************************************/
+/****** АДМИНИСТРАТИВНАЯ ЧАСТЬ ***********/
+/*****************************************/
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin'
 ],
     function () {
         Route::get('/','HomeController@index')->name('admin');
+
+        //категории новостей /admin/categories +
+        Route::group([
+            'prefix'=>'categories'
+        ],
+            function() {
+                Route::get('/','CategoriesController@index')->name('admin.categoriesList');
+                Route::get('add','CategoriesController@create')->name('admin.addCategory');
+                Route::post('add','CategoriesController@insert');
+                Route::get('{category}/edit','CategoriesController@edit')->name('admin.editCategory');
+                Route::post('{category}/edit','CategoriesController@update');
+                //статьи конкретной категории   /admin/categories/{slug}/articles +
+                Route::group([
+                    'prefix'=>'{slug}/articles'
+                ], function() {
+                    Route::get('/','CategoriesController@articlesOfCategory')->name('admin.articlesOfCategory');
+                    Route::get('add','ArticlesController@add')->name('admin.addArticle');
+                    Route::post('add','ArticlesController@insert');
+                    Route::get('{article}/edit', 'ArticlesController@edit')->name('admin.editArticle');
+                    Route::post('{article}/edit','ArticlesController@update' );
+                    Route::post('{article}/delete', 'ArticlesController@delete')->name('admin.deleteArticle');
+                });
+            }
+        );
+
+        //Нормальные источники новостей (из базы данных)  /admin/infosources +
         Route::get('infosources','InfoSourcesController@list')->name('admin.infoSourcesList');
-        Route::get('categories','CategoriesController@index')->name('admin.categoriesList');
-        Route::get('/{slug}/articles','CategoriesController@articlesOfCategory')->name('admin.articlesOfCategory');
-        Route::get('/categories/add','CategoriesController@create')->name('admin.addCategory');
-        Route::post('categories/add','CategoriesController@insert');
-        Route::get('/categories/{category}/edit','CategoriesController@edit')->name('admin.editCategory');
-        Route::post('categories/{category}/edit','CategoriesController@update');
 
-        Route::get('/alt-sources','AlternativeSourcesController@list')->name('admin.alternativeSourcesList');
-        Route::match(['get','post'],'/alt-sources/add','AlternativeSourcesController@create')->name('admin.AddAlternativeSource');
-        Route::match(['get','post'],'/alt-sources/{id}/edit','AlternativeSourcesController@edit')->name('admin.EditAlternativeSource');
-        Route::post('/alt-sources/{id}/delete','AlternativeSourcesController@delete')->name('admin.DeleteAlternativeSource');
-
-
-        Route::get('/{slug}/articles/add','ArticlesController@add')->name('admin.addArticle');
-        Route::post('/{slug}/articles/add','ArticlesController@insert');
-        Route::get('/{slug}/articles/{article}/edit', 'ArticlesController@edit')->name('admin.editArticle');
-        Route::post('/{slug}/articles/{article}/edit','ArticlesController@update' );
-        Route::post('/{slug}/articles/{article}/delete', 'ArticlesController@delete')->name('admin.deleteArticle');
+        //Альтернативные источники новостей (из базы данных)  /admin/infosources +
+        Route::group([
+            'prefix'=>'alt-sources'
+        ],
+            function() {
+                Route::get('/','AlternativeSourcesController@list')->name('admin.alternativeSourcesList');
+                Route::match(['get','post'],'add','AlternativeSourcesController@create')->name('admin.AddAlternativeSource');
+                Route::match(['get','post'],'{id}/edit','AlternativeSourcesController@edit')->name('admin.EditAlternativeSource');
+                Route::post('{id}/delete','AlternativeSourcesController@delete')->name('admin.DeleteAlternativeSource');
+            });
     }
 );
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
