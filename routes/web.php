@@ -60,6 +60,7 @@ Route::group([
                 Route::post('add','CategoriesController@insert');
                 Route::get('{category}/edit','CategoriesController@edit')->name('admin.editCategory');
                 Route::post('{category}/edit','CategoriesController@update');
+                Route::post('{category}/delete','CategoriesController@delete')->name('admin.deleteCategory');
                 //статьи конкретной категории   /admin/categories/{slug}/articles +
                 Route::group([
                     'prefix'=>'{slug}/articles'
