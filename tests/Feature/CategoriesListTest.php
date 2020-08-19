@@ -15,7 +15,7 @@ class CategoriesListTest extends TestCase
      */
     public function testExample()
     {
-        $response = $this->get('categories/list');
+        $response = $this->get('/categories');
 
         $response->assertStatus(200);
         $response->assertHeader('Content-Type','text/html; charset=UTF-8');
