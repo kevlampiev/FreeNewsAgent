@@ -131,8 +131,8 @@ a:hover {
   text-decoration: none;
 }
 
-.newscategory p {
-  heigh: 150px;
+.description_block {
+  height: 100px;
   overflow: hidden;
   font-style: italic;
   color: #999;
@@ -140,8 +140,28 @@ a:hover {
 }
 
 .category-control-block {
-  text-align: right;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   border-top: 1px solid #ccc;
+}
+
+.control-block-item-left {
+  width: 200px;
+  text-align: left;
+}
+
+.control-block-item-right {
+  width: 200px;
+  text-align: right;
+}
+
+.disabled-btn {
+  color: #c8cbcf !important;
+}
+
+.disabled-btn:hover {
+  color: #c8cbcf !important;
 }
 
 .news-container {

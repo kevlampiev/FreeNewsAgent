@@ -7,6 +7,7 @@ use App\Models\Articles;
 use App\Models\ArticlesCategory;
 use App\Http\Requests\CategoriesRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoriesController extends Controller
 {
@@ -14,7 +15,11 @@ class CategoriesController extends Controller
 
     public function index()
     {
-        return view('admin.categories',['categories'=>ArticlesCategory::all()]);
+//        $categories=DB::select('SELECT * FROM v_categories');
+//        $categories=ArticlesCategory::all();
+          $categories=ArticlesCategory::withCount('articles')->get();
+//        dd($categories);
+        return view('admin.categories',['categories'=>$categories]);
     }
 
     private function getFromForm(ArticlesCategory $category, CategoriesRequest $request)
@@ -51,12 +56,12 @@ class CategoriesController extends Controller
         session()->flash('proceed_status','Категория изменена');
         return redirect()->route('admin.categoriesList');
     }
-//
-//    public function delete(string $slug, Articles $article) {
-//        $article->delete();
-//        session()->flash('Proceed_status','Новость удалена');
-//        return redirect()->route('admin.articlesOfCategory',['slug'=>$slug]);
-//    }
+
+    public function delete(ArticlesCategory $category) {
+        $category->delete();
+        session()->flash('Proceed_status','Катеория новостей удалена');
+        return redirect()->route('admin.categoriesList');
+    }
 
 
     public function articlesOfCategory(string $slug)
