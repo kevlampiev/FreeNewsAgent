@@ -15,7 +15,7 @@ class ArticleViewTest extends TestCase
      */
     public function testProperPath()
     {
-        $response = $this->get('/categories/1/articles/1');
+        $response = $this->get('/categories/test/articles/1');
         $response->assertStatus(200);
         $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');
         $response->assertSee('article-container shadowed-box');

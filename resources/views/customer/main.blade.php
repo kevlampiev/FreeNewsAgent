@@ -30,7 +30,7 @@
                 <h5> Последние новости </h5>
                 @foreach($news as $new)
                     <section>
-                        <a href="{{route('showArticle',[
+                        <a href="{{route('customer.showArticle',[
                                                         $new->slug,
                                                         $new->id
                                                         ])}}">

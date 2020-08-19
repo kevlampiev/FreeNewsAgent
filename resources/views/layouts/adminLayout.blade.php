@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -33,15 +33,19 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{route('admin')}}">Главная <span class="sr-only">(current)</span></a>
+                        <li class="nav-item {{request()->routeIs('admin')?"current-menu":""}}">
+                            <a class="nav-link" href="{{route('admin')}}">Главная</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{request()->routeIs('admin.infoSourcesList')?"current-menu":""}}">
                             <a class="nav-link" href="{{route('admin.infoSourcesList')}}">Источники новостей</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item {{request()->routeIs('admin.categoriesList')?"current-menu":""}}">
                             <a class="nav-link" href="{{route('admin.categoriesList')}}">Категории новостей</a>
+                        </li>
+
+                        <li class="nav-item {{request()->routeIs('admin.alternativeSourcesList')?"current-menu":""}}">
+                            <a class="nav-link" href="{{route('admin.alternativeSourcesList')}}">Источники новостей JSON-формат</a>
                         </li>
 
                         <li class="nav-item">
@@ -97,5 +101,10 @@
             @yield('content')
         </main>
     </div>
+
+    @section('scripts')
+    @show
+
+
 </body>
 </html>

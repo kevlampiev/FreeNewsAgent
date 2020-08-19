@@ -1,8 +1,8 @@
 body {
-  background: url("/img/background-admin.jpg");
-  background-size: cover;
+  background: url("/img/background-admin.png");
+  background-repeat: repeat;
   -webkit-backdrop-filter: grayscale(70%);
-  backdrop-filter: grayscale(90%) brightness(75%);
+  backdrop-filter: grayscale(120%) brightness(50%);
 }
 
 .dashboard-block {
@@ -11,9 +11,20 @@ body {
   background-color: #fff;
 }
 
+.content {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 15px;
+}
+
 #app {
-  width: 1300px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 25px auto;
+}
+
+.current-menu {
+  font-weight: 700;
+  color: maroon;
+  text-decoration: underline;
 }
 
 .source-container {
@@ -96,7 +107,7 @@ a:hover {
   .newscategory {
     padding: 15px;
     margin: 15px;
-    width: 590px;
+    width: 100%;
     /*heigh: 100%;*/
     overflow: hidden;
     background-color: #fff;
@@ -126,5 +137,53 @@ a:hover {
   font-style: italic;
   color: #999;
   font-size: small;
+}
+
+.category-control-block {
+  text-align: right;
+  border-top: 1px solid #ccc;
+}
+
+.news-container {
+  background-color: #ffffff;
+  margin: 25px;
+  padding: 15px;
+}
+
+.article-box {
+  margin-top: 25px;
+  border-bottom: 1px dashed #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-main-block {
+  /*width:80%;*/
+}
+
+.article-control-block {
+  width: 100px;
+  padding-top: 30px;
+}
+
+.article-control-link {
+  height: 24px;
+  color: gray;
+  text-align: left;
+}
+
+.ordering-block {
+  height: 25px;
+}
+
+.ordering-block div {
+  float: right;
+}
+
+.article-container {
+  background-color: #fff;
+  padding: 25px;
+  margin: 15px auto;
+  max-width: 800px;
 }
 

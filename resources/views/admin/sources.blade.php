@@ -20,6 +20,17 @@
                         {{$source->description}}
                     </p>
 {{--                </a>--}}
+                <div class="category-control-block">
+                    <a href="#" class="article-control-link">
+                        <i class="fa fa-edit" aria-hidden="true"></i>
+                        Изменить
+                    </a>
+                    <a href="#" class="article-control-link delete"
+                        {{--                           data-method="POST" data-confirm="Уверены, что хотите удалить эту запись?" data-token="{{ csrf_token() }}"--}} >
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        Удалить
+                    </a>
+                </div>
             </div>
 
         @endforeach

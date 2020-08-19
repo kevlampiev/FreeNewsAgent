@@ -4,9 +4,10 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
-class ArticlesOfCategoryTest extends TestCase
+class AddCategoryTest extends TestCase
 {
     /**
      * A basic feature test example.
@@ -15,12 +16,12 @@ class ArticlesOfCategoryTest extends TestCase
      */
     public function testExample()
     {
-        $response = $this->get('/admin/categories/test/articles');
-
+//        $slug=DB::selectOne('SELECT slug FROM articles.news_categories LIMIT 1');
+        $slug='test';
+        $response = $this->get("/admin/categories/add");
         $response->assertStatus(200);
         $response->assertHeader('Content-Type','text/html; charset=UTF-8');
-        $response->assertSee('article-box');
-        $response->assertSeeInOrder(['article-box','article-main-bloc','article-control-block','article-control-link']);
-        $response->assertDontSee('Rails');
+        $response->assertSee('submit');
+        $response->assertDontSee('alert');
     }
 }
