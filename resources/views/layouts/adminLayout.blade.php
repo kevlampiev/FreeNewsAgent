@@ -44,9 +44,9 @@
                             <a class="nav-link" href="{{route('admin.categoriesList')}}">Категории новостей</a>
                         </li>
 
-                        <li class="nav-item {{request()->routeIs('admin.alternativeSourcesList')?"current-menu":""}}">
-                            <a class="nav-link" href="{{route('admin.alternativeSourcesList')}}">Источники новостей JSON-формат</a>
-                        </li>
+{{--                        <li class="nav-item {{request()->routeIs('admin.alternativeSourcesList')?"current-menu":""}}">--}}
+{{--                            <a class="nav-link" href="{{route('admin.alternativeSourcesList')}}">Источники новостей JSON-формат</a>--}}
+{{--                        </li>--}}
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('home')}}">На основной сайт</a>
