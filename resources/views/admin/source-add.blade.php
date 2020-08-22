@@ -7,7 +7,7 @@
     <div class="article-container shadowed-box">
         <form method="POST">
             @csrf
-
+{{--            @dd($source)--}}
             <div class="form-group {{$errors->has('name')?'has-error':''}}">
 
                 <label for="name">Название источника новостей</label>
@@ -43,7 +43,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>
-            <a href="{{route('admin.source')}}"
+            <a href="{{route('admin.infoSourcesList')}}"
                class="btn btn-secondary ">
                 Отмена
             </a>

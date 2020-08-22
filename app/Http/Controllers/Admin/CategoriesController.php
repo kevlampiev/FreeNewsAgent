@@ -21,12 +21,12 @@ class CategoriesController extends Controller
         return view('admin.categories',['categories'=>$categories]);
     }
 
-    private function getFromForm(InfoSources $source, InfoSourcesRequest $request)
+    private function getFromForm(ArticlesCategory $category, CategoriesRequest $request)
     {
-        $source->name=$request->get('name');
-        $source->slug=$request->get('http_address');
-        $source->description=$request->get('description');
-        $source->save();
+        $category->name=$request->get('name');
+        $category->slug=$request->get('slug');
+        $category->description=$request->get('description');
+        $category->save();
     }
 
     public function create()
@@ -35,12 +35,12 @@ class CategoriesController extends Controller
         return view('admin.sources',['source'=>$source]);
     }
 
-    public function insert(InfoSourcesRequest $request)
+    public function insert(CategoriesRequest $request)
     {
-        $source=new InfoSources();
-            $this->getFromForm($source, $request);
-            session()->flash('proceed_status','Источник новостей добавлен');
-            return redirect()->route('admin.sources');
+        $category=new ArticlesCategory();
+            $this->getFromForm($category, $request);
+            session()->flash('proceed_status','Категория новостей добавлена');
+            return redirect()->route('admin.categories');
     }
 
 

@@ -80,11 +80,11 @@ Route::group([
             'prefix'=>'infosources'
         ],function () {
             Route::get('/','InfoSourcesController@index')->name('admin.infoSourcesList');
-            Route::get('add','InfoSources@create')->name('admin.addInfoSource');
-
-            Route::get('{id}/edit','InfoSources@edit')->name('admin.editInfoSource');
-
-            Route::post('{id}/delete','InfoSources@delete')->name('admin.deleteInfoSource');
+            Route::get('add','InfoSourcesController@add')->name('admin.addInfoSource');
+            Route::post('add','InfoSourcesController@insert');
+            Route::get('{source}/edit','InfoSourcesController@edit')->name('admin.editInfoSource');
+            Route::post('{source}/edit','InfoSourcesController@update');
+            Route::post('{source}/delete','InfoSourcesController@delete')->name('admin.deleteInfoSource');
 
         });
 
