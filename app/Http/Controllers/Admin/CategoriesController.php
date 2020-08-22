@@ -58,7 +58,7 @@ class CategoriesController extends Controller
 
     public function delete(ArticlesCategory $category) {
         $category->delete();
-        session()->flash('Proceed_status','Катеория новостей удалена');
+        session()->flash('proceed_status','Катеория новостей удалена');
         return redirect()->route('admin.categoriesList');
     }
 

@@ -27,8 +27,9 @@ class InfoSourcesController extends Controller
         ]);
     }
 
-    public function create(InfoSourcesRequest $request)
+    public function create()
     {
+//        dd($request);
         $source = new InfoSources();
         return view('admin.source-add',['source'=>$source]);
     }
@@ -38,7 +39,7 @@ class InfoSourcesController extends Controller
         $source=new InfoSources();
         $this->getFromForm($source, $request);
         session()->flash('proceed_status','Источник новостей добавлен');
-        return redirect()->route('admin.sources');
+        return redirect()->route('admin.infoSourcesList');
     }
 
 
@@ -56,7 +57,7 @@ class InfoSourcesController extends Controller
 
     public function delete(InfoSources $source) {
         $source->delete();
-        session()->flash('Proceed_status','Источник новостей удален');
+        session()->flash('proceed_status','Источник новостей удален');
         return redirect()->route('admin.infoSourcesList');
     }
 
