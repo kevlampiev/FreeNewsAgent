@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Articles;
+use App\Models\InfoSources;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ class RouteServiceProvider extends ServiceProvider
         //
         Route::model('article',Articles::class
         );
+        Route::model('source', InfoSources::class);
         parent::boot();
     }
 

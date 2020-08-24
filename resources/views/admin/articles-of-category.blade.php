@@ -18,6 +18,7 @@
 {{--            <div>--}}
             <div class="article-box">
                 <div class="article-main-block">
+                    <img src="{{asset('storage/images/articles/no_image.jpg')}}" alt="Иллюстриция к новости" class="article-illustration">
 {{--                    <a href="{{route('showArticle',[--}}
 {{--                                                $category->slug,--}}
 {{--                                                $new->id--}}

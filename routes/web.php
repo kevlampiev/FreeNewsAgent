@@ -76,7 +76,18 @@ Route::group([
         );
 
         //Нормальные источники новостей (из базы данных)  /admin/infosources +
-        Route::get('infosources','InfoSourcesController@list')->name('admin.infoSourcesList');
+        Route::group([
+            'prefix'=>'infosources'
+        ],function () {
+            Route::get('/','InfoSourcesController@index')->name('admin.infoSourcesList');
+            Route::get('add','InfoSourcesController@create')->name('admin.addInfoSource');
+            Route::post('add','InfoSourcesController@insert');
+            Route::get('{source}/edit','InfoSourcesController@edit')->name('admin.editInfoSource');
+            Route::post('{source}/edit','InfoSourcesController@update');
+            Route::post('{source}/delete','InfoSourcesController@delete')->name('admin.deleteInfoSource');
+
+        });
+
 
         //Альтернативные источники новостей (из базы данных)  /admin/infosources +
         Route::group([

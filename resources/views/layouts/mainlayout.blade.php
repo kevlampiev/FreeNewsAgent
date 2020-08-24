@@ -112,9 +112,6 @@
         <div class="subheader">
             <div>
 
-{{--                <img src="{{asset('img/unknown-user.jpg')}}" alt="Аватар пользователя" class="user-img">--}}
-{{--                <a href="#" class="user-link"> Зарегистрироваться </a>--}}
-{{--                <a href="{{route('login')}}" class="user-link"> Войти </a>--}}
             </div>
 
             <form class="form-inline">

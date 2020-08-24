@@ -44,9 +44,9 @@
                             <a class="nav-link" href="{{route('admin.categoriesList')}}">Категории новостей</a>
                         </li>
 
-                        <li class="nav-item {{request()->routeIs('admin.alternativeSourcesList')?"current-menu":""}}">
-                            <a class="nav-link" href="{{route('admin.alternativeSourcesList')}}">Источники новостей JSON-формат</a>
-                        </li>
+{{--                        <li class="nav-item {{request()->routeIs('admin.alternativeSourcesList')?"current-menu":""}}">--}}
+{{--                            <a class="nav-link" href="{{route('admin.alternativeSourcesList')}}">Источники новостей JSON-формат</a>--}}
+{{--                        </li>--}}
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('home')}}">На основной сайт</a>
@@ -98,6 +98,15 @@
         </nav>
 
         <main class="content">
+            @if (session()->has('proceed_status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{session()->get('proceed_status')}}
+                </div>
+            @endif
+
             @yield('content')
         </main>
     </div>
