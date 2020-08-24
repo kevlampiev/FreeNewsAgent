@@ -172,13 +172,18 @@ a:hover {
 
 .article-box {
   margin-top: 25px;
-  border-bottom: 1px dashed #ccc;
+  border-top: 1px dashed #ccc;
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
+  max-height: 300px;
 }
 
 .article-main-block {
-  /*width:80%;*/
+  width: 80%;
+  padding: 25px;
+  overflow: hidden;
+  max-height: 300px;
 }
 
 .article-control-block {
@@ -205,5 +210,14 @@ a:hover {
   padding: 25px;
   margin: 15px auto;
   max-width: 800px;
+}
+
+.article-illustration {
+  float: left;
+  width: 300px;
+  height: 196px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-right: 25px;
 }
 

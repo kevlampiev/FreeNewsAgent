@@ -9,7 +9,7 @@
 
     </div>
     <div class="article-container shadowed-box">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
@@ -65,6 +65,10 @@
                     </div>
                 @endif
                 <textarea class="form-control" id="description" rows="10" name="article_body">{{(count($errors)>0)?old('article_body'):$article->article_body}}</textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="file" name="img">
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>

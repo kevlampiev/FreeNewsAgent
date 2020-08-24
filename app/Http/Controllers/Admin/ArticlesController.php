@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsRequest;
 use App\Models\ArticlesCategory;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 
 class ArticlesController extends Controller
@@ -26,11 +27,16 @@ class ArticlesController extends Controller
 
     //Вспомогательная функция, собирающая данные для редактирования/добавления статьи из формы ввода
     private function getFromForm(Articles $article, NewsRequest $request) {
-        $article->title=$request->get('title');
-        $article->announcement=$request->get('announcement');
-        $article->article_body=$request->get('article_body');
-        $article->is_private=$request->get('is_private',0);
-        $article->category_id=$request->get('category_id');
+        $article->fill($request->except(['_token','img']));
+//        $article->title=$request->get('title');
+//        $article->announcement=$request->get('announcement');
+//        $article->article_body=$request->get('article_body');
+//        $article->is_private=$request->get('is_private',0);
+//        $article->category_id=$request->get('category_id');
+        if ($request->file('img')) {
+            $newPath=Storage::put('public/images/articles', $request->file('img'));
+            $article->img=Storage::url($newPath);
+        }
         $article->save();
     }
 
@@ -80,7 +86,7 @@ class ArticlesController extends Controller
     public function delete(string $slug, Articles $article) {
         $article->delete();
         session()->flash('Proceed_status','Новость удалена');
-        
+
         return redirect()->route('admin.articlesOfCategory',['slug'=>$slug]);
     }
 }

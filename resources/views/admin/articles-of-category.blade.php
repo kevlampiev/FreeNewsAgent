@@ -4,6 +4,7 @@
 
 @section('content')
 
+
     <H3>Новости категории {{$category->name}}</H3>
     <div class="news-container">
         <div class="ordering-block">
@@ -15,21 +16,18 @@
         </div>
         @foreach ($news as $new)
 
-{{--            <div>--}}
             <div class="article-box">
                 <div class="article-main-block">
-                    <img src="{{asset('storage/images/articles/no_image.jpg')}}" alt="Иллюстриция к новости" class="article-illustration">
-{{--                    <a href="{{route('showArticle',[--}}
-{{--                                                $category->slug,--}}
-{{--                                                $new->id--}}
-{{--                                                ])}}" class="mega-anchor">--}}
-                        <h5 class="article-header">
+                    <img src="{{asset('storage/images/articles/'.(basename($new->img)?basename($new->img):'no_image.jpg'))}}" alt="Иллюстриция к новости" class="article-illustration">
+                        <h3 class="article-header">
                             {{$new->title}}
-                        </h5>
-{{--                    </a>--}}
-                    <h6>{{$new->created_at}} - {{$category->name}}</h6>
-                    <p>
+                        </h3>
+                    <h4>{{$new->created_at}} - {{$category->name}}</h4>
+                    <h5>
                         {{$new->announcement}}
+                    </h5>
+                    <p>
+                        {{$new->article_body}}
                     </p>
                 </div>
                 <div class="article-control-block">
@@ -37,6 +35,7 @@
                         <i class="fa fa-edit" aria-hidden="true"></i>
                         Изменить
                     </a>
+                    <br>
                     <a href="{{route('admin.deleteArticle',['slug'=>$category->slug,'article'=>$new->id])}}" class="article-control-link delete"
                        data-method="POST" data-confirm="Уверены, что хотите удалить эту запись?" data-token="{{ csrf_token() }}">
                         <i class="fa fa-trash" aria-hidden="true"></i>
