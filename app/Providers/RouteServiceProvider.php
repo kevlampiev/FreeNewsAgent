@@ -33,7 +33,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        Route::model('article',Articles::class
+        Route::model('article', Articles::class
         );
         Route::model('source', InfoSources::class);
         parent::boot();

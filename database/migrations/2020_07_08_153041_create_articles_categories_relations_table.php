@@ -20,7 +20,7 @@ class CreateArticlesCategoriesRelationsTable extends Migration
             $table->timestamps();
             $table->foreign('article_id')->on('articles')->references('id');
             $table->foreign('category_id')->on('news_categories')->references('id');
-            $table->unique(['article_id','category_id'],'article_category_indx');
+            $table->unique(['article_id', 'category_id'], 'article_category_indx');
         });
     }
 

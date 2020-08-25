@@ -27,67 +27,73 @@ class ArticlesController extends Controller
 //    }
 
     //Вспомогательная функция, собирающая данные для редактирования/добавления статьи из формы ввода
-    private function getFromForm(Articles $article, NewsRequest $request) {
-        $article->fill($request->except(['_token','img']));
+    private function getFromForm(Articles $article, NewsRequest $request)
+    {
+        $article->fill($request->except(['_token', 'img']));
 //        $article->title=$request->get('title');
 //        $article->announcement=$request->get('announcement');
 //        $article->article_body=$request->get('article_body');
 //        $article->is_private=$request->get('is_private',0);
 //        $article->category_id=$request->get('category_id');
         if ($request->file('img')) {
-            $newPath=Storage::put('public/images/articles', $request->file('img'));
-            $article->img=Storage::url($newPath);
+            $newPath = Storage::put('public/images/articles', $request->file('img'));
+            $article->img = Storage::url($newPath);
         }
         $article->save();
     }
 
-    public function add(string $slug) {
+    public function add(string $slug)
+    {
         $article = new Articles(); //Надеюсь garbage collector это уничтожит
-        $category=ArticlesCategory::whereSlug($slug)->first();
-        if ($category==null) {
-            abort(404,'Группы новостей $slug не существует');
+        $category = ArticlesCategory::whereSlug($slug)->first();
+        if ($category == null) {
+            abort(404, 'Группы новостей $slug не существует');
         }
-        $categories=ArticlesCategory::orderBy('name')->get();
-        return view('admin.article-add',[
-            'id'=>$category->id,
-            'categoryList'=>$categories,
-            'article'=>$article,
-            'slug'=>$slug
+        $categories = ArticlesCategory::orderBy('name')->get();
+        return view('admin.article-add', [
+            'id' => $category->id,
+            'categoryList' => $categories,
+            'article' => $article,
+            'slug' => $slug
         ]);
     }
 
-    public function insert(string $slug, NewsRequest $request) {
-        $new=new Articles();
+    public function insert(string $slug, NewsRequest $request)
+    {
+        $new = new Articles();
         $this->getFromForm($new, $request);
-        session()->flash('proceed_status','Новость добавлена');
-        return redirect()->route('admin.articlesOfCategory',['slug'=>$slug]);
+        session()->flash('proceed_status', 'Новость добавлена');
+        return redirect()->route('admin.articlesOfCategory', ['slug' => $slug]);
     }
 
-    public function edit(string $slug, Articles $article) {
+    public function edit(string $slug, Articles $article)
+    {
 //        dd($article);
-        $category=ArticlesCategory::whereSlug($slug)->first();
-        if ($category==null) {
-            abort(404,'Группы новостей $slug не существует');
+        $category = ArticlesCategory::whereSlug($slug)->first();
+        if ($category == null) {
+            abort(404, 'Группы новостей $slug не существует');
         }
-        $categories=ArticlesCategory::orderBy('name')->get();
-        return view('admin.article-add',[
-            'id'=>$article->category->id,
-            'categoryList'=>$categories,
-            'article'=>$article,
-            'slug'=>$slug
+        $categories = ArticlesCategory::orderBy('name')->get();
+        return view('admin.article-add', [
+            'id' => $article->category->id,
+            'categoryList' => $categories,
+            'article' => $article,
+            'slug' => $slug
         ]);
     }
 
-    public function update(string $slug, Articles $article, NewsRequest $request) {
+    public function update(string $slug, Articles $article, NewsRequest $request)
+    {
         $this->getFromForm($article, $request);
-        session()->flash('proceed_status','Новость изменена');
-        return redirect()->route('admin.articlesOfCategory',['slug'=>$slug]);
+        session()->flash('proceed_status', 'Новость изменена');
+        return redirect()->route('admin.articlesOfCategory', ['slug' => $slug]);
     }
 
-    public function delete(string $slug, Articles $article) {
+    public function delete(string $slug, Articles $article)
+    {
         $article->delete();
-        session()->flash('Proceed_status','Новость удалена');
+        session()->flash('Proceed_status', 'Новость удалена');
 
-        return redirect()->route('admin.articlesOfCategory',['slug'=>$slug]);
+        return redirect()->route('admin.articlesOfCategory', ['slug' => $slug]);
     }
 }

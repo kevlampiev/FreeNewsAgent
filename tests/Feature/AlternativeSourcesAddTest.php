@@ -18,7 +18,7 @@ class AlternativeSourcesAddTest extends TestCase
         $response = $this->get('/admin/alt-sources/add');
 
         $response->assertStatus(200);
-        $response->assertHeader('Content-Type','text/html; charset=UTF-8');
+        $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');
         $response->assertSee('article-container shadowed-box'); //есть хотя бы одна категория новостей
     }
 }

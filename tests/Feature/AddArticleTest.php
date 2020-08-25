@@ -17,10 +17,10 @@ class AddArticleTest extends TestCase
     public function testExample()
     {
 //        $slug=DB::selectOne('SELECT slug FROM articles.news_categories LIMIT 1');
-        $slug='test';
+        $slug = 'test';
         $response = $this->get("admin/categories/test/articles/add");
         $response->assertStatus(200);
-        $response->assertHeader('Content-Type','text/html; charset=UTF-8');
+        $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');
         $response->assertSee('submit');
         $response->assertDontSee('alert');
     }

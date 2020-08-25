@@ -39,7 +39,8 @@
                         {{ $errors->first('description') }}
                     </div>
                 @endif
-                <textarea class="form-control" id="description" rows="3" name="description">{{(count($errors)>0)?old('description'):$category->description}}</textarea>
+                <textarea class="form-control" id="description" rows="3"
+                          name="description">{{(count($errors)>0)?old('description'):$category->description}}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>

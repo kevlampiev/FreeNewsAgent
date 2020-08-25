@@ -15,7 +15,7 @@
 
                 <input type="checkbox" id="isprivate" name="is_private"
                        {{((old('is_private')=='1')||($article->is_private==1))?'checked':''}}
-                    value="1">
+                       value="1">
 
                 <label class="form-check-label" for="isprivate">
                     Новость приватная
@@ -53,7 +53,8 @@
                         {{ $errors->first('announcement') }}
                     </div>
                 @endif
-                <textarea class="form-control" id="announcement" rows="3" name="announcement">{{(count($errors)>0)?old('announcement'):$article->announcement}}</textarea>
+                <textarea class="form-control" id="announcement" rows="3"
+                          name="announcement">{{(count($errors)>0)?old('announcement'):$article->announcement}}</textarea>
             </div>
 
             <div class="form-group {{$errors->has('article_body')?'has-error':''}}">
@@ -63,11 +64,14 @@
                         {{ $errors->first('article_body') }}
                     </div>
                 @endif
-                <textarea class="form-control" id="description" rows="10" name="article_body">{{(count($errors)>0)?old('article_body'):$article->article_body}}</textarea>
+                <textarea class="form-control" id="description" rows="10"
+                          name="article_body">{{(count($errors)>0)?old('article_body'):$article->article_body}}</textarea>
             </div>
 
             <div class="form-group">
-                <img src="{{asset('storage/images/articles/'.(basename($article->img)?basename($article->img):'no_image.jpg'))}}" alt="Иллюстриция к новости" class="icon-img">
+                <img
+                    src="{{asset('storage/images/articles/'.(basename($article->img)?basename($article->img):'no_image.jpg'))}}"
+                    alt="Иллюстриция к новости" class="icon-img">
                 <input type="file" name="img" onchange="showNewImg(e)">
             </div>
 
@@ -81,9 +85,9 @@
 @endsection
 
 @section('scripts')
-    <script >
+    <script>
         function showNewImg(ev) {
-            document.getElementsByName('img').src=ev.target.value
+            document.getElementsByName('img').src = ev.target.value
 
         }
     </script>

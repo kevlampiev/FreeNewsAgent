@@ -23,9 +23,9 @@ class RootTest extends TestCase
      */
     public function testLoaded()
     {
-        $response=$this->get('/');
+        $response = $this->get('/');
         $response->assertStatus(200);
-        $response->assertHeader('Content-Type','text/html; charset=UTF-8');
+        $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');
         $response->assertSeeText('Последние новости');
     }
 

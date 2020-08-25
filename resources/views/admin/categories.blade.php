@@ -25,7 +25,7 @@
 
                     <div class="category-control-block">
                         <div class="control-block-item-left">
-                           Количество статей: <em>{{$category->articles_count}}</em>
+                            Количество статей: <em>{{$category->articles_count}}</em>
                         </div>
 
                         <div class="control-block-item-right">
@@ -35,13 +35,14 @@
                             </a>
                             <a
                                 @if ($category->articles_count==0)
-                                   href="{{route('admin.deleteCategory',[$category])}}"
-                                   class="article-control-link delete"
-                                   data-method="POST" data-confirm="Уверены, что хотите удалить эту запись?" data-token="{{ csrf_token() }}"
+                                href="{{route('admin.deleteCategory',[$category])}}"
+                                class="article-control-link delete"
+                                data-method="POST" data-confirm="Уверены, что хотите удалить эту запись?"
+                                data-token="{{ csrf_token() }}"
                                 @else
-                                    href="#"
-                                    class="article-control-link disabled-btn"
-                                    onclick="alert('Нельзя удалить категорию: есть дочерие записи')"
+                                href="#"
+                                class="article-control-link disabled-btn"
+                                onclick="alert('Нельзя удалить категорию: есть дочерие записи')"
                                 @endif
                             >
                                 <i class="fa fa-trash" aria-hidden="true"></i>
@@ -61,5 +62,5 @@
 
 
 @section('scripts')
-    <script src="{{asset('js/laravel-post-button.js')}}"  defer>  </script>
+    <script src="{{asset('js/laravel-post-button.js')}}" defer></script>
 @endsection

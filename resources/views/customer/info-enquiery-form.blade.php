@@ -1,5 +1,3 @@
-
-
 @extends('layouts.mainlayout')
 
 @section('title') @parent Запрос информации @show
@@ -25,7 +23,8 @@
 
             <div class="form-group">
                 <label for="phone">Телефон для связи:</label>
-                <input type="tel" name="phone" id="phone" class="form-control bfh-phone" data-format="+7dddddddddd" value="{{old('phone')}}" pattern="(\+[\d\ \(\)\-]{16})" />
+                <input type="tel" name="phone" id="phone" class="form-control bfh-phone" data-format="+7dddddddddd"
+                       value="{{old('phone')}}" pattern="(\+[\d\ \(\)\-]{16})"/>
             </div>
 
             <div class="form-group">
@@ -36,7 +35,8 @@
 
             <div class="form-group">
                 <label for="description">Описание требуемой информации:</label>
-                <textarea class="form-control" id="description" rows="7" name="description">{{old('description')}}</textarea>
+                <textarea class="form-control" id="description" rows="7"
+                          name="description">{{old('description')}}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Отправить</button>

@@ -18,7 +18,7 @@ class FeedbackTest extends TestCase
         $response = $this->get('/feedback');
 
         $response->assertStatus(200);
-        $response->assertHeader('Content-Type','text/html; charset=UTF-8');
+        $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');
         $response->assertSee('submit');
         $response->assertDontSee('alert');
     }

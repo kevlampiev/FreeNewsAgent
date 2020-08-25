@@ -11,17 +11,17 @@ use Illuminate\Support\Facades\DB;
 class InfoSourcesController extends Controller
 {
 
-    private function getFromForm(InfoSources $source, InfoSourcesRequest $request)
-    {
-        $source->name=$request->get('name');
-        $source->http_address=$request->get('http_address');
-        $source->description=$request->get('description');
-        $source->save();
-    }
+//    private function getFromForm(InfoSources $source, InfoSourcesRequest $request)
+//    {
+//        $source->name=$request->get('name');
+//        $source->http_address=$request->get('http_address');
+//        $source->description=$request->get('description');
+//        $source->save();
+//    }
 
     public function index()
     {
-        $sources=InfoSources::all();
+        $sources = InfoSources::all();
         return view('admin.sources', [
             'sources' => $sources
         ]);
@@ -31,36 +31,38 @@ class InfoSourcesController extends Controller
     {
 //        dd($request);
         $source = new InfoSources();
-        return view('admin.source-add',['source'=>$source]);
+        return view('admin.source-add', ['source' => $source]);
     }
 
     public function insert(InfoSourcesRequest $request)
     {
-        $source=new InfoSources();
-        $this->getFromForm($source, $request);
-        session()->flash('proceed_status','Источник новостей добавлен');
+        $source = new InfoSources();
+        $source->fill($request->toArray())->save();
+        session()->flash('proceed_status', 'Источник новостей добавлен');
         return redirect()->route('admin.infoSourcesList');
     }
 
 
-    public function edit(InfoSources $source) {
-        return view('admin.source-add',[
-            'source'=>$source,
+    public function edit(InfoSources $source)
+    {
+        return view('admin.source-add', [
+            'source' => $source,
         ]);
     }
 
-    public function update(InfoSources $source, InfoSourcesRequest $request) {
-        $this->getFromForm($source, $request);
-        session()->flash('proceed_status','Данные об источнике обновлены');
+    public function update(InfoSources $source, InfoSourcesRequest $request)
+    {
+        $source->fill($request->toArray())->save();
+        session()->flash('proceed_status', 'Данные об источнике обновлены');
         return redirect()->route('admin.infoSourcesList');
     }
 
-    public function delete(InfoSources $source) {
+    public function delete(InfoSources $source)
+    {
         $source->delete();
-        session()->flash('proceed_status','Источник новостей удален');
+        session()->flash('proceed_status', 'Источник новостей удален');
         return redirect()->route('admin.infoSourcesList');
     }
-
 
 
 }

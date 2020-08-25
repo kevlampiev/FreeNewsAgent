@@ -25,9 +25,9 @@ class CategoriesRequest extends FormRequest
     {
         return [
 
-            'name'=>'required|string|between:5,60',
-            'slug'=>'required|string|between: 3,50|regex:/^[a-z]+$/i',
-            'description'=>'required|string|between: 10,1000'
+            'name' => 'required|string|between:5,60',
+            'slug' => 'required|string|between: 3,50|regex:/^[a-z]+$/i',
+            'description' => 'required|string|between: 10,1000'
         ];
     }
 }

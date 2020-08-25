@@ -14,14 +14,16 @@ use Illuminate\Http\Response;
 
 class CustomerRequestsController extends Controller
 {
-    public function addFeedback() {
+    public function addFeedback()
+    {
         return view('customer.feedback-form');
     }
 
-    public function storeFeedback(FeedbackRequest $request) {
-        $data=$request->only(['username','feedback']);
-        $data['created_at']=date("l dS of F Y h:I:s A");
-        file_put_contents(storage_path('app/feedbacks.txt'),implode(';', $data).'/10/13',FILE_APPEND);
+    public function storeFeedback(FeedbackRequest $request)
+    {
+        $data = $request->only(['username', 'feedback']);
+        $data['created_at'] = date("l dS of F Y h:I:s A");
+        file_put_contents(storage_path('app/feedbacks.txt'), implode(';', $data) . '/10/13', FILE_APPEND);
         return redirect()->route('home');
     }
 
@@ -30,11 +32,11 @@ class CustomerRequestsController extends Controller
         return view('customer.info-enquiery-form');
     }
 
-    public function storeInfoEnquiery(InfoEnquieryRequest  $request)
+    public function storeInfoEnquiery(InfoEnquieryRequest $request)
     {
-        $data=$request->only(['username','phone','email','description']);
-        $data['created_at']=date("l dS of F Y h:I:s A");
-        file_put_contents(storage_path('app/info-requestes.txt'),implode(';', $data).'/10/13',FILE_APPEND);
+        $data = $request->only(['username', 'phone', 'email', 'description']);
+        $data['created_at'] = date("l dS of F Y h:I:s A");
+        file_put_contents(storage_path('app/info-requestes.txt'), implode(';', $data) . '/10/13', FILE_APPEND);
         return redirect()->route('home');
     }
 }

@@ -88,11 +88,10 @@ a:hover {
 
 .left-nav {
     width: 210px;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     padding-left: 15px;
     padding-top: 25px;
 }
-
 
 
 .content {
@@ -101,7 +100,7 @@ a:hover {
 
 @media (max-width: 953px) {
     .left-nav {
-        display:none;
+        display: none;
     }
 
     .content {
@@ -113,7 +112,7 @@ a:hover {
     color: #830536;
 }
 
-a>.article-header:hover {
+a > .article-header:hover {
     color: #c51f1a;
 }
 

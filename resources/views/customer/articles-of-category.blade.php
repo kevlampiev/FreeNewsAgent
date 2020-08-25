@@ -15,10 +15,12 @@
                                                 ])}}" class="mega-anchor">
                     <div class="article-main-block">
 
-                            <img src="{{asset('storage/images/articles/'.(basename($new->img)?basename($new->img):'no_image.jpg'))}}" alt="Иллюстриция к новости" class="article-img">
-                            <h5 class="article-header">
-                                {{$new->title}}
-                            </h5>
+                        <img
+                            src="{{asset('storage/images/articles/'.(basename($new->img)?basename($new->img):'no_image.jpg'))}}"
+                            alt="Иллюстриция к новости" class="article-img">
+                        <h5 class="article-header">
+                            {{$new->title}}
+                        </h5>
 
                         <h6>{{$new->created_at}} - {{$category->name}}</h6>
                         <p>
@@ -37,8 +39,9 @@
 @endsection
 
 @section('stylesheets')
-{{--    <link rel="stylesheet" href="{{asset('css/articles-list.css')}}">--}}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    {{--    <link rel="stylesheet" href="{{asset('css/articles-list.css')}}">--}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 @endsection
 
 @section('scripts')
