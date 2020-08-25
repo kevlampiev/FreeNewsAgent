@@ -69,7 +69,7 @@ class CategoriesController extends Controller
         if ($category==null) {
             abort(404);
         }
-        $newsOfCategory = Articles::where('category_id',$category->id)->get();
+        $newsOfCategory = Articles::where('category_id',$category->id)->paginate(5);
         return view('admin.articles-of-category', [
             'news' => $newsOfCategory,
             'category' => $category

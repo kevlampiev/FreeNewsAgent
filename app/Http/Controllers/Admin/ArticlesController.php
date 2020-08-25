@@ -12,18 +12,19 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticlesController extends Controller
 {
-    public function index(string $slug) {
-        $category=ArticlesCategory::whereSlug($slug)->first();
-        if ($category==null) {
-            abort(404,'Группы новостей $slug не существует');
-        }
-        $articles=Articles::all()->where('category_id',$category->id);
-        if ($articles==null) {
-            abort(404,'Новость с таким идентификатором отсутствует');
-        }
-        return view('admin.articles-of-category',['new'=>$articles]);
-
-    }
+//    public function index(string $slug) {
+//        $category=ArticlesCategory::whereSlug($slug)->first();
+//        if ($category==null) {
+//            abort(404,'Группы новостей $slug не существует');
+//        }
+//        $articles=Articles::query()->where('category_id',$category->id)->paginate(5);
+//        if ($articles==null) {
+//            abort(404,'Новость с таким идентификатором отсутствует');
+//        }
+//        dd($articles);
+//        return view('admin.articles-of-category',['news'=>$articles]);
+//
+//    }
 
     //Вспомогательная функция, собирающая данные для редактирования/добавления статьи из формы ввода
     private function getFromForm(Articles $article, NewsRequest $request) {

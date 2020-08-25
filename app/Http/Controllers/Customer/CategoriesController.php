@@ -19,7 +19,7 @@ class CategoriesController extends Controller
         if ($category==null) {
             abort(404);
         }
-        $newsOfCategory = Articles::where('category_id',$category->id)->get();
+        $newsOfCategory = Articles::where('category_id',$category->id)->paginate(5);
 //            DB::select('SELECT * FROM articles WHERE category_id=?', [$id]);
 
             //DBConnService::selectRowsSet('SELECT * FROM v_news WHERE category_id=?', [$id]);

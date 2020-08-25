@@ -9,37 +9,30 @@
         @foreach ($news as $new)
 
             <div class="article-box">
-                <div class="article-main-block">
-                    <a href="{{route('customer.showArticle',[
+                <a href="{{route('customer.showArticle',[
                                                 $category->slug,
                                                 $new->id
                                                 ])}}" class="mega-anchor">
-                        <h5 class="article-header">
-                            {{$new->title}}
-                        </h5>
-                    </a>
-                    <h6>{{$new->created_at}} - {{$category->name}}</h6>
-                    <p>
-                        {{$new->announcement}}
-                    </p>
-                </div>
-{{--                <div class="article-control-block">--}}
-{{--                    <a href="{{route('editArticle',['slug'=>$category->slug,'article'=>$new->id])}}" class="article-control-link">--}}
-{{--                        <i class="fa fa-pencil" aria-hidden="true"></i>--}}
-{{--                        Изменить--}}
-{{--                    </a>--}}
-{{--                    <a href="{{route('deleteArticle',['slug'=>$category->slug,'article'=>$new->id])}}" class="article-control-link delete"--}}
-{{--                       data-method="POST" data-confirm="Уверены, что хотите удалить эту запись?" data-token="{{ csrf_token() }}">--}}
-{{--                        <i class="fa fa-trash" aria-hidden="true"></i>--}}
-{{--                        Удалить--}}
-{{--                    </a>--}}
-{{--                </div>--}}
+                    <div class="article-main-block">
 
+                            <img src="{{asset('storage/images/articles/'.(basename($new->img)?basename($new->img):'no_image.jpg'))}}" alt="Иллюстриция к новости" class="article-img">
+                            <h5 class="article-header">
+                                {{$new->title}}
+                            </h5>
 
+                        <h6>{{$new->created_at}} - {{$category->name}}</h6>
+                        <p>
+                            {{$new->announcement}}
+                        </p>
+                    </div>
+                </a>
 
             </div>
 
         @endforeach
+        <div class="pages-nav-block">
+            {{$news->links()}}
+        </div>
     </div>
 @endsection
 

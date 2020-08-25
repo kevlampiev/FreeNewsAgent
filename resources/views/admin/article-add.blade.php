@@ -4,7 +4,6 @@
 
 @section('content')
 
-{{--    @dump($errors)--}}
     <div>
 
     </div>

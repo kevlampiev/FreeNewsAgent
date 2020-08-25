@@ -20,6 +20,13 @@
     max-height: 300px;
 }
 
+.article-box:hover {
+    background-color: #efefef;
+    .article-illustration {
+        filter: grayscale(0);
+    }
+}
+
 .article-control-block {
     width: 100px;
     padding-top:30px;

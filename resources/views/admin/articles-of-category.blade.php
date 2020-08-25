@@ -4,7 +4,7 @@
 
 @section('content')
 
-
+{{--    @dd($news)--}}
     <H3>Новости категории {{$category->name}}</H3>
     <div class="news-container">
         <div class="ordering-block">
@@ -45,6 +45,7 @@
             </div>
 
         @endforeach
+        {{ $news->links() }}
     </div>
 @endsection
 

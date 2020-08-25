@@ -122,3 +122,20 @@ a>.article-header:hover {
     color: maroon;
     text-decoration: underline;
 }
+
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #555; // use your own color here
+    background-color: #fff;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #550a17 !important;
+    border-color: #ccc !important;
+}
