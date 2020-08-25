@@ -136,6 +136,7 @@ a > .article-header:hover {
 .article-container {
   background-color: #fff;
   padding: 25px;
+  overflow: hidden;
 }
 
 .article-img {
@@ -301,6 +302,7 @@ a:hover {
 .article-container {
   background-color: #fff;
   padding: 25px;
+  overflow: hidden;
 }
 
 .article-img {

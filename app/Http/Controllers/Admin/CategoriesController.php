@@ -31,8 +31,7 @@ class CategoriesController extends Controller
 
     public function create()
     {
-        $source=new InfoSources();
-        return view('admin.sources',['source'=>$source]);
+        return view('admin.category-add',['category'=>new ArticlesCategory()]);
     }
 
     public function insert(CategoriesRequest $request)
@@ -40,7 +39,7 @@ class CategoriesController extends Controller
         $category=new ArticlesCategory();
             $this->getFromForm($category, $request);
             session()->flash('proceed_status','Категория новостей добавлена');
-            return redirect()->route('admin.categories');
+            return redirect()->route('admin.categoriesList');
     }
 
 

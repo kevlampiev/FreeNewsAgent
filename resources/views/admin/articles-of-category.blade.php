@@ -16,7 +16,7 @@
         </div>
         @foreach ($news as $new)
 
-            <div class="article-box">
+            <div class="article-box" v-pre>
                 <div class="article-main-block">
                     <img src="{{asset('storage/images/articles/'.(basename($new->img)?basename($new->img):'no_image.jpg'))}}" alt="Иллюстриция к новости" class="article-illustration">
                         <h3 class="article-header">
@@ -51,4 +51,5 @@
 
 @section('scripts')
     <script src="{{asset('js/laravel-post-button.js')}}"  defer>  </script>
+
 @endsection

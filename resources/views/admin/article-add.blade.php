@@ -4,10 +4,10 @@
 
 @section('content')
 
-    <div>
+    <div v-pre>
 
     </div>
-    <div class="article-container shadowed-box">
+    <div class="article-container shadowed-box" v-pre>
         <form method="POST" enctype="multipart/form-data">
             @csrf
 
@@ -67,7 +67,8 @@
             </div>
 
             <div class="form-group">
-                <input type="file" name="img">
+                <img src="{{asset('storage/images/articles/'.(basename($article->img)?basename($article->img):'no_image.jpg'))}}" alt="Иллюстриция к новости" class="icon-img">
+                <input type="file" name="img" onchange="showNewImg(e)">
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>
@@ -79,6 +80,11 @@
     </div>
 @endsection
 
-{{--@section('stylesheets')--}}
-{{--    <link rel="stylesheet" href="{{asset('css/article.css')}}">--}}
-{{--@endsection--}}
+@section('scripts')
+    <script >
+        function showNewImg(ev) {
+            document.getElementsByName('img').src=ev.target.value
+
+        }
+    </script>
+@endsection
