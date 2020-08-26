@@ -44,7 +44,7 @@
                         <a class="nav-link" href="{{route('customer.categories')}}">Категории новостей</a>
                     </li>
 
-                    <li class="nav-item dropdown {{(request()->routeIs('customer.infoEnquiery')||request()->routeIs('customer.feedback'))?'current-menu':''}}">
+                    <li class="nav-item dropdown {{(request()->routeIs('infoRequest.create')||request()->routeIs('customer.feedback'))?'current-menu':''}}">
                         <a
                             class="nav-link dropdown-toggle"
                             href="{{route('customer.categories')}}"
@@ -59,7 +59,7 @@
                             class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink"
                         >
-                            <a class="dropdown-item" href="{{route('customer.infoEnquiery')}}">Запрос информации</a>
+                            <a class="dropdown-item" href="{{route('infoRequest.create')}}">Запрос информации</a>
                             <a class="dropdown-item" href="{{route('customer.feedback')}}">Оставить отзыв о проекте</a>
 
                         </div>

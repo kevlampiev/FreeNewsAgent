@@ -1,12 +1,14 @@
-@extends('layouts.mainlayout')
+@extends('layouts.adminLayout')
 
 @section('title') @parent Запрос информации @show
 
 @section('content')
 
     <div class="article-container shadowed-box">
-        <form method="POST" action="{{route('infoRequest.store')}}">
+        <form method="POST" action="{{route('infoRequest.update',[$id])}}">
             @csrf
+
+            {{ method_field('PATCH') }}
 
             @if(count($errors->all())>0)
                 <div class="alert alert-danger">
