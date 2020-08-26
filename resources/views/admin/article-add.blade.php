@@ -70,9 +70,18 @@
 
             <div class="form-group">
                 <img
-                    src="{{asset('storage/images/articles/'.(basename($article->img)?basename($article->img):'no_image.jpg'))}}"
-                    alt="Иллюстриция к новости" class="icon-img">
-                <input type="file" name="img" onchange="showNewImg(e)">
+                    {{--                    src="{{asset('storage/images/articles/'.(basename($article->img)?basename($article->img):'no_image.jpg'))}}"--}}
+                    @if (old('tmp_imp_path'))
+                        src="{{old('tmp_imp_path')}}"
+                    @elseif ($article->img)
+                        src="{{asset('storage/images/articles/'.basename($article->img))}}"
+                    @else
+                        src="{{asset('storage/images/articles/no_image.jpg')}}"
+                    @endif
+                    alt="Иллюстриция к новости" class="icon-img" id="atclImg">
+
+                <input type="file" accept="img/*" onchange="loadFile(event)">
+                <input type="hidden" name="tmp_imp_path" id="tmp_imp_path">
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>
@@ -86,9 +95,16 @@
 
 @section('scripts')
     <script>
-        function showNewImg(ev) {
-            document.getElementsByName('img').src = ev.target.value
 
+        function loadFile(event) {
+            let output = document.getElementById('atclImg')
+            output.src = URL.createObjectURL(event.target.files[0])
+            let hiddenInp = document.getElementById('tmp_imp_path')
+            hiddenInp.value = URL.createObjectURL(event.target.files[0])
+
+            output.onload = function () {
+                URL.revokeObjectURL(output.src) // free memory
+            }
         }
     </script>
 @endsection
