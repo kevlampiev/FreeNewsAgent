@@ -22,7 +22,8 @@
 
             <div class="form-group">
                 <label for="description">Аннотация</label>
-                <textarea class="form-control" id="description" rows="3" name="description">{{(count($errors)>0)?old('description'):$source->description}}</textarea>
+                <textarea class="form-control" id="description" rows="3"
+                          name="description">{{(count($errors)>0)?old('description'):$source->description}}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>

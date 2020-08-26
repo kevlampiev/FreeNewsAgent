@@ -18,9 +18,9 @@ class ArticlesOfCategoryTest extends TestCase
         $response = $this->get('/admin/categories/test/articles');
 
         $response->assertStatus(200);
-        $response->assertHeader('Content-Type','text/html; charset=UTF-8');
+        $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');
         $response->assertSee('article-box');
-        $response->assertSeeInOrder(['article-box','article-main-bloc','article-control-block','article-control-link']);
+        $response->assertSeeInOrder(['article-box', 'article-main-bloc', 'article-control-block', 'article-control-link']);
         $response->assertDontSee('Rails');
     }
 }

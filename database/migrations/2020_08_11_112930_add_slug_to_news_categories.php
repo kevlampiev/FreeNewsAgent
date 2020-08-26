@@ -14,9 +14,9 @@ class AddSlugToNewsCategories extends Migration
      */
     public function up()
     {
-            DB::statement('ALTER TABLE news_categories ADD COLUMN slug VARCHAR(50) AFTER id');
-            DB::statement('UPDATE news_categories SET slug=REPLACE(RIGHT(name,50)," ","_")');
-            DB::statement('ALTER TABLE articles.news_categories MODIFY COLUMN slug VARCHAR(50) UNIQUE NOT NULL');
+        DB::statement('ALTER TABLE news_categories ADD COLUMN slug VARCHAR(50) AFTER id');
+        DB::statement('UPDATE news_categories SET slug=REPLACE(RIGHT(name,50)," ","_")');
+        DB::statement('ALTER TABLE articles.news_categories MODIFY COLUMN slug VARCHAR(50) UNIQUE NOT NULL');
     }
 
     /**

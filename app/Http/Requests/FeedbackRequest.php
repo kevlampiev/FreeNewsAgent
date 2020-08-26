@@ -24,8 +24,8 @@ class FeedbackRequest extends FormRequest
     public function rules()
     {
         return [
-            'username'=>'required|string|between:2,60',
-            'feedback'=>'required|string|between: 20,1000'
+            'username' => 'required|string|between:2,60',
+            'feedback' => 'required|string|between: 20,1000'
         ];
     }
 }

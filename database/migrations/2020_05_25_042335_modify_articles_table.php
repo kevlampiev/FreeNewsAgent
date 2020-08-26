@@ -13,9 +13,9 @@ class ModifyArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function(Blueprint $table) {
+        Schema::table('articles', function (Blueprint $table) {
             $table->bigInteger('category_id')->unsigned();
-            $table->foreign('category_id','fk_categories_id')->references('id')->on('news_categories')->onDelete('cascade');
+            $table->foreign('category_id', 'fk_categories_id')->references('id')->on('news_categories')->onDelete('cascade');
         });
     }
 
@@ -27,7 +27,7 @@ class ModifyArticlesTable extends Migration
     public function down()
     {
         //
-        Schema::table('articles',  function(Blueprint $table) {
+        Schema::table('articles', function (Blueprint $table) {
             $table->dropForeign('fk__categories_id');
             $table->dropColumn('catgegory_id');
         });

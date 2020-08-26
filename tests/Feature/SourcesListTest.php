@@ -18,7 +18,7 @@ class SourcesListTest extends TestCase
         $response = $this->get('/admin/infosources');
 
         $response->assertStatus(200);
-        $response->assertHeader('Content-Type','text/html; charset=UTF-8');
+        $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');
         $response->assertSee('source-card shadowed-box'); //есть хотя бы одна категория новостей
     }
 }

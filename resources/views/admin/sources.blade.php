@@ -37,7 +37,8 @@
                         @if($source->articles_count==0)
                         href="{{route('admin.deleteInfoSource',[$source])}}"
                         class="article-control-link delete"
-                        data-method="POST" data-confirm="Уверены, что хотите удалить эту запись?" data-token="{{ csrf_token() }}"
+                        data-method="POST" data-confirm="Уверены, что хотите удалить эту запись?"
+                        data-token="{{ csrf_token() }}"
                         @else
                         href="#"
                         class="article-control-link disabled-btn"
@@ -56,5 +57,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset('js/laravel-post-button.js')}}"  defer>  </script>
+    <script src="{{asset('js/laravel-post-button.js')}}" defer></script>
 @endsection

@@ -14,7 +14,7 @@
     />
     <link rel="stylesheet" href="{{asset('css/app.css') }}"/>
     <link rel="stylesheet" href="{{asset('css/customer.css') }}"/>
-{{--    @yield('stylesheets')--}}
+    {{--    @yield('stylesheets')--}}
 
 </head>
 <body>
@@ -44,7 +44,7 @@
                         <a class="nav-link" href="{{route('customer.categories')}}">Категории новостей</a>
                     </li>
 
-                    <li class="nav-item dropdown {{(request()->routeIs('customer.infoEnquiery')||request()->routeIs('customer.feedback'))?'current-menu':''}}">
+                    <li class="nav-item dropdown {{(request()->routeIs('infoRequest.create')||request()->routeIs('customer.feedback'))?'current-menu':''}}">
                         <a
                             class="nav-link dropdown-toggle"
                             href="{{route('customer.categories')}}"
@@ -59,7 +59,7 @@
                             class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink"
                         >
-                            <a class="dropdown-item" href="{{route('customer.infoEnquiery')}}">Запрос информации</a>
+                            <a class="dropdown-item" href="{{route('infoRequest.create')}}">Запрос информации</a>
                             <a class="dropdown-item" href="{{route('customer.feedback')}}">Оставить отзыв о проекте</a>
 
                         </div>
@@ -86,7 +86,8 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -97,7 +98,8 @@
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
                                     @csrf
                                 </form>
                             </div>
@@ -181,8 +183,8 @@
                                     <dt>Телефоны для связи:</dt>
                                     <dd>
                                         <ul class="unmarked">
-                                        <li>+7 (3432) 88-8888</li>
-                                        <li>_7 (983) 221-0274</li>
+                                            <li>+7 (3432) 88-8888</li>
+                                            <li>_7 (983) 221-0274</li>
                                         </ul>
 
                                     </dd>
@@ -228,10 +230,10 @@
                 </div>
             </div> <!-- row-->
 
-{{--</div>--}}
-{{--</div>--}}
-</footer>
-@show
+            {{--</div>--}}
+            {{--</div>--}}
+        </footer>
+    @show
 </div>
 
 @section('scripts')

@@ -13,9 +13,10 @@ class ArticlesCategory extends Model
      * @var string
      */
     protected $table = 'news_categories';
+    protected $fillable = ['slug', 'name', 'description'];
 
     public function articles()
     {
-        return $this->hasMany(Articles::class,'category_id','id');
+        return $this->hasMany(Articles::class, 'category_id', 'id');
     }
 }

@@ -16,18 +16,19 @@ class ArticlesSeeder extends Seeder
         //
     }
 
-    private function getData(): array {
-        $result=[];
-        $faker=Faker\Factory::create('ru_RU');
-        for ($i=1;$i<11;$i++) {
-            $rnd=rand(5,10);
-            for ($j=0;$j<$rnd;$j++) {
-                $result[]=[
-                    'title'=>$faker->sentence(rand(10,15)),
-                    'announcement'=>$faker->sentence(rand(3,10)),
-                    'article_body'=>$faker->realText(rand(100,300)),
-                    'is_private'=>(boolean) rand(0,1),
-                    'category_id'=>$i
+    private function getData(): array
+    {
+        $result = [];
+        $faker = Faker\Factory::create('ru_RU');
+        for ($i = 1; $i < 11; $i++) {
+            $rnd = rand(5, 10);
+            for ($j = 0; $j < $rnd; $j++) {
+                $result[] = [
+                    'title' => $faker->sentence(rand(10, 15)),
+                    'announcement' => $faker->sentence(rand(3, 10)),
+                    'article_body' => $faker->realText(rand(100, 300)),
+                    'is_private' => (boolean)rand(0, 1),
+                    'category_id' => $i
                 ];
             }
         }

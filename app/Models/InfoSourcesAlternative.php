@@ -13,19 +13,19 @@ class InfoSourcesAlternative
     public $url;
     public $description;
 
-    public function __construct($name ='', $url='https://', $description='')
+    public function __construct($name = '', $url = 'https://', $description = '')
     {
-        $this->name=$name;
-        $this->url=$url;
-        $this->description=$description;
+        $this->name = $name;
+        $this->url = $url;
+        $this->description = $description;
     }
 
-    private static $fname='info_sources.json';
+    private static $fname = 'info_sources.json';
 
-    public static function getAll(): ? array
+    public static function getAll(): ?array
     {
         try {
-            $disk=Storage::disk('local');
+            $disk = Storage::disk('local');
             if (!$disk->exists(static::$fname)) {
                 Storage::disk('local')->put(static::$fname, '[]');
                 return [];
@@ -37,22 +37,23 @@ class InfoSourcesAlternative
         }
     }
 
-    private static function save(array $allSources):void
+    private static function save(array $allSources): void
     {
         Storage::disk('local')->put(static::$fname, json_encode($allSources));
     }
 
-    public static function getOne(int $id) {
-         return static::getAll()[$id];
+    public static function getOne(int $id)
+    {
+        return static::getAll()[$id];
     }
 
     public static function addSource($data)
     {
-        $allSources=static ::getAll();
-        $allSources[]=$data;
+        $allSources = static::getAll();
+        $allSources[] = $data;
         try {
             static::save($allSources);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             echo $e->getMessage();
         }
         return $allSources;
@@ -60,11 +61,10 @@ class InfoSourcesAlternative
 
     public static function deleteSource($index)
     {
-        $allSources=static::getAll();
-        $result=[];
-        foreach($allSources as $key=>$el)
-        {
-            if ($key!=$index) $result[]=$el;
+        $allSources = static::getAll();
+        $result = [];
+        foreach ($allSources as $key => $el) {
+            if ($key != $index) $result[] = $el;
         }
         static::save($result);
         return $result;
@@ -72,9 +72,9 @@ class InfoSourcesAlternative
 
     public static function editSource($index, $data)
     {
-        $allSources=static::getAll();
+        $allSources = static::getAll();
         if (isset($allSources[$index])) {
-            $allSources[$index]=$data;
+            $allSources[$index] = $data;
             static::save($allSources);
         }
         return $allSources;

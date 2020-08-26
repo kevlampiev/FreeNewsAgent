@@ -24,10 +24,10 @@ class InfoEnquieryRequest extends FormRequest
     public function rules()
     {
         return [
-            'username'=>'required|string|between:2,60',
-            'phone'=>'required|regex:/^\+\d(\d{3})(\d{3})(\d{4})$/',
+            'username' => 'required|string|between:2,60',
+            'phone' => 'required|regex:/^\+\d(\d{3})(\d{3})(\d{4})$/',
             'email' => 'required|email',
-            'description'=>'required|string|between: 20,1000'
+            'description' => 'required|string|between: 20,1000'
 
         ];
     }

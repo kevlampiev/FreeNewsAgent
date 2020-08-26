@@ -88,11 +88,10 @@ a:hover {
 
 .left-nav {
     width: 210px;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     padding-left: 15px;
     padding-top: 25px;
 }
-
 
 
 .content {
@@ -101,7 +100,7 @@ a:hover {
 
 @media (max-width: 953px) {
     .left-nav {
-        display:none;
+        display: none;
     }
 
     .content {
@@ -113,7 +112,7 @@ a:hover {
     color: #830536;
 }
 
-a>.article-header:hover {
+a > .article-header:hover {
     color: #c51f1a;
 }
 
@@ -121,4 +120,21 @@ a>.article-header:hover {
     font-weight: 700;
     color: maroon;
     text-decoration: underline;
+}
+
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #555; // use your own color here
+    background-color: #fff;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #550a17 !important;
+    border-color: #ccc !important;
 }

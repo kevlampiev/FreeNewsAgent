@@ -18,7 +18,7 @@ class AdminCategoriesTest extends TestCase
         $response = $this->get('/admin/categories');
 
         $response->assertStatus(200);
-        $response->assertHeader('Content-Type','text/html; charset=UTF-8');
+        $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');
 //        $response->assertSee('newscategory shadowed-box'); //есть хотя бы одна категория новостей
     }
 }

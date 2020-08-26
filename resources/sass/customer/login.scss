@@ -12,10 +12,10 @@
 }
 
 .blocker {
-    background-color: rgba(50,50,50,0.7);
-    position:fixed;
-    top:0;
-    left:0;
+    background-color: rgba(50, 50, 50, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     z-index: 18;
@@ -23,6 +23,6 @@
 
 .controls {
     margin: 15px 0 0 0;
-    display:flex;
+    display: flex;
     justify-content: space-around;
 }

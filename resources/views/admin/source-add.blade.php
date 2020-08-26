@@ -7,7 +7,7 @@
     <div class="article-container shadowed-box">
         <form method="POST">
             @csrf
-{{--            @dd($source)--}}
+            {{--            @dd($source)--}}
             <div class="form-group {{$errors->has('name')?'has-error':''}}">
 
                 <label for="name">Название источника новостей</label>
@@ -39,7 +39,8 @@
                         {{ $errors->first('description') }}
                     </div>
                 @endif
-                <textarea class="form-control" id="description" rows="3" name="description">{{(count($errors)>0)?old('description'):$source->description}}</textarea>
+                <textarea class="form-control" id="description" rows="3"
+                          name="description">{{(count($errors)>0)?old('description'):$source->description}}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>

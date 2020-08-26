@@ -19,9 +19,9 @@ class AlternativeSourcesController extends Controller
     private function getFromForm()
     {
         return new InfoSourcesAlternative(
-            request()->get('name',''),
-            request()->get('url','https://google.com'),
-            request()->get('description',''));
+            request()->get('name', ''),
+            request()->get('url', 'https://google.com'),
+            request()->get('description', ''));
     }
 
     public function create()
@@ -29,7 +29,7 @@ class AlternativeSourcesController extends Controller
         $source = new InfoSourcesAlternative();
         if (request()->isMethod('GET')) {
             return view('admin.alternative-source-add', [
-                'source' => $source ]);
+                'source' => $source]);
         } else {
             InfoSourcesAlternative::addSource($this->getFromForm());
             return redirect()->route('admin.alternativeSourcesList');
@@ -39,7 +39,7 @@ class AlternativeSourcesController extends Controller
     public function edit($id)
     {
         if (request()->isMethod('GET')) {
-            return view('admin.alternative-source-add', ['source'=>InfoSourcesAlternative::getOne((int) $id)]);
+            return view('admin.alternative-source-add', ['source' => InfoSourcesAlternative::getOne((int)$id)]);
         } else {
             InfoSourcesAlternative::editSource($id, $this->getFromForm());
             return redirect()->route('admin.alternativeSourcesList');
