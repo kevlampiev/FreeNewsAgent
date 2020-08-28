@@ -72,15 +72,15 @@
                 <img
                     {{--                    src="{{asset('storage/images/articles/'.(basename($article->img)?basename($article->img):'no_image.jpg'))}}"--}}
                     @if (old('tmp_imp_path'))
-                        src="{{old('tmp_imp_path')}}"
+                    src="{{old('tmp_imp_path')}}"
                     @elseif ($article->img)
-                        src="{{asset('storage/images/articles/'.basename($article->img))}}"
+                    src="{{asset('storage/images/articles/'.basename($article->img))}}"
                     @else
-                        src="{{asset('storage/images/articles/no_image.jpg')}}"
+                    src="{{asset('storage/images/articles/no_image.jpg')}}"
                     @endif
                     alt="Иллюстриция к новости" class="icon-img" id="atclImg">
 
-                <input type="file" accept="img/*" onchange="loadFile(event)">
+                <input type="file" accept="image/*" onchange="loadFile(event)" name="img">
                 <input type="hidden" name="tmp_imp_path" id="tmp_imp_path">
             </div>
 

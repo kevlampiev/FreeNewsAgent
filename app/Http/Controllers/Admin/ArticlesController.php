@@ -29,12 +29,8 @@ class ArticlesController extends Controller
     //Вспомогательная функция, собирающая данные для редактирования/добавления статьи из формы ввода
     private function getFromForm(Articles $article, NewsRequest $request)
     {
+//        dd($request->files);
         $article->fill($request->except(['_token', 'img']));
-//        $article->title=$request->get('title');
-//        $article->announcement=$request->get('announcement');
-//        $article->article_body=$request->get('article_body');
-//        $article->is_private=$request->get('is_private',0);
-//        $article->category_id=$request->get('category_id');
         if ($request->file('img')) {
             $newPath = Storage::put('public/images/articles', $request->file('img'));
             $article->img = Storage::url($newPath);
