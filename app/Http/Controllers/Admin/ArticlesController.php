@@ -48,6 +48,7 @@ class ArticlesController extends Controller
 
     public function edit(string $slug, Articles $article)
     {
+        session()->start();
         return view('admin.article-add', [
             'categoryList' => ArticlesCategory::orderBy('name')->get(),
             'sourcesList' => InfoSources::orderBy('name')->get(),
