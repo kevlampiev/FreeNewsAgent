@@ -25,9 +25,18 @@ class InfoSourcesRequest extends FormRequest
     {
         return [
 
-            'name' => 'required|string|between:5,60',
-            'http_address' => 'required|string|between: 3,60',
+            'name' => 'required|string|between:5,255',
+            'http_address' => 'required|string|max: 255|regex:/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi',
             'description' => 'required|string|between: 10,1000'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'Название источника',
+            'http_address' => 'Http адрес',
+            'description' => 'Краткая информация об источнике',
         ];
     }
 }

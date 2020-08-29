@@ -24,10 +24,18 @@ class CategoriesRequest extends FormRequest
     public function rules()
     {
         return [
-
-            'name' => 'required|string|between:5,60',
-            'slug' => 'required|string|between: 3,50|regex:/^[a-z]+$/i',
+            'name' => 'required|string|between:5,255',
+            'slug' => 'required|alpha_dash|between: 3,50|unique:news_categories,slug',
             'description' => 'required|string|between: 10,1000'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'Наименование каьегории',
+            'slug' => 'slug',
+            'description' => 'Краткое описание'
         ];
     }
 }

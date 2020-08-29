@@ -24,8 +24,16 @@ class FeedbackRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|string|between:2,60',
+            'username' => 'required|alpha_dash|between:2,60',
             'feedback' => 'required|string|between: 20,1000'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'username' => 'Имя',
+            'feedback' => 'Содержание отзыва'
         ];
     }
 }

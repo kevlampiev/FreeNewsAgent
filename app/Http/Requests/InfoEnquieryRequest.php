@@ -31,4 +31,14 @@ class InfoEnquieryRequest extends FormRequest
 
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'username' => 'Имя',
+            'phone' => 'Номер телефон',
+            'email' => 'Адрес электронной почты',
+            'description' => 'Описание запрашиваемой информации'
+        ];
+    }
 }

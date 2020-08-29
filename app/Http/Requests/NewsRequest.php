@@ -24,11 +24,23 @@ class NewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|between:5,60',
+            'title' => 'required|string|between:5,255',
             'is_private' => 'nullable|integer|between:0,1',
-            'announcement' => 'required|string|between: 20,60',
+            'announcement' => 'required|string|between: 20,255',
             'article_body' => 'required|string|between: 100,1000',
-            'category_id' => 'required|integer|exists:news_categories,id'
+            'category_id' => 'required|integer|exists:news_categories,id',
+            'source_id' => 'required|integer|exists:news_sources,id'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'Заголовок статьи',
+            'announcement' => 'Аннотация',
+            'article_body' => 'Содержание статьи',
+            'category_id' => 'Категория статьи',
+            'source_id' => 'Источник статьи',
         ];
     }
 }

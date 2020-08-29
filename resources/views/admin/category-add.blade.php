@@ -13,7 +13,9 @@
                 <label for="name">Название категории</label>
                 @if ($errors->has('name'))
                     <div class="alert alert-danger" role="alert">
-                        {{ $errors->first('name') }}
+                        @foreach ($errors->get('name') as $err)
+                            {{ $err}} <br>
+                        @endforeach
                     </div>
                 @endif
                 <input class="form-control" id="name" name="name" type="text"
@@ -25,7 +27,9 @@
                 <label for="slug">Slug</label>
                 @if ($errors->has('slug'))
                     <div class="alert alert-danger" role="alert">
-                        {{ $errors->first('slug') }}
+                        @foreach ($errors->get('slug') as $err)
+                            {{ $err}} <br>
+                        @endforeach
                     </div>
                 @endif
                 <input class="form-control" id="slug" name="slug" type="text"
@@ -36,7 +40,9 @@
                 <label for="description">Аннотация</label>
                 @if ($errors->has('description'))
                     <div class="alert alert-danger" role="alert">
-                        {{ $errors->first('description') }}
+                        @foreach ($errors->get('description') as $err)
+                            {{ $err}} <br>
+                        @endforeach
                     </div>
                 @endif
                 <textarea class="form-control" id="description" rows="3"
