@@ -72,6 +72,8 @@ class CategoriesController extends Controller
             abort(404);
         }
         $newsOfCategory = Articles::where('category_id', $category->id)->paginate(5);
+        session()->start();
+        session()->put('work_sector', 'admin.articlesOfCategory');
         return view('admin.articles-of-category', [
             'news' => $newsOfCategory,
             'category' => $category

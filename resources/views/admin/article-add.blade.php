@@ -7,6 +7,7 @@
     <div v-pre>
 
     </div>
+
     <div class="article-container shadowed-box" v-pre>
         <form method="POST" enctype="multipart/form-data">
             @csrf
@@ -27,7 +28,9 @@
                 <label for="title">Заголовок статьи</label>
                 @if ($errors->has('title'))
                     <div class="alert alert-danger" role="alert">
-                        {{ $errors->first('title') }}
+                        @foreach ($errors->get('title') as $err)
+                            {{ $err}} <br>
+                        @endforeach
                     </div>
                 @endif
 
@@ -39,7 +42,7 @@
                 <label for="category">Категория новости</label>
                 <select class="form-control" id="category" name="category_id">
                     @foreach($categoryList as $cat)
-                        <option value="{{$cat->id}}" @if ($cat->id==$id) selected @endif>
+                        <option value="{{$cat->id}}" @if ($cat->id==$article->category_id) selected @endif>
                             {{$cat->name}}
                         </option>
                     @endforeach
@@ -50,7 +53,10 @@
                 <label for="announcement">Аннотация</label>
                 @if ($errors->has('announcement'))
                     <div class="alert alert-danger" role="alert">
-                        {{ $errors->first('announcement') }}
+                        @foreach ($errors->get('announcement') as $err)
+                            {{ $err}} <br>
+                        @endforeach
+
                     </div>
                 @endif
                 <textarea class="form-control" id="announcement" rows="3"
@@ -61,7 +67,9 @@
                 <label for="description">Текст статьи</label>
                 @if ($errors->has('article_body'))
                     <div class="alert alert-danger" role="alert">
-                        {{ $errors->first('article_body') }}
+                        @foreach ($errors->get('article_body') as $err)
+                            {{ $err}} <br>
+                        @endforeach
                     </div>
                 @endif
                 <textarea class="form-control" id="description" rows="10"
@@ -69,14 +77,38 @@
             </div>
 
             <div class="form-group">
+                <label for="source_id">Источник информации</label>
+
+                <select class="form-control" id="source_id" name="source_id">
+                    @foreach($sourcesList as $source)
+                        <option
+                            value="{{$source->id}}"
+                            @if ($source->id==$article->source_id) selected @endif>
+                            {{$source->name}}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
                 <img
-                    src="{{asset('storage/images/articles/'.(basename($article->img)?basename($article->img):'no_image.jpg'))}}"
-                    alt="Иллюстриция к новости" class="icon-img">
-                <input type="file" name="img" onchange="showNewImg(e)">
+                    {{--                    src="{{asset('storage/images/articles/'.(basename($article->img)?basename($article->img):'no_image.jpg'))}}"--}}
+                    @if (old('tmp_imp_path'))
+                    src="{{old('tmp_imp_path')}}"
+                    @elseif ($article->img)
+                    src="{{asset('storage/images/articles/'.basename($article->img))}}"
+                    @else
+                    src="{{asset('storage/images/articles/no_image.jpg')}}"
+                    @endif
+                    alt="Иллюстриция к новости" class="icon-img" id="atclImg">
+
+                <input type="file" accept="image/*" onchange="loadFile(event)" name="img">
+                <input type="hidden" name="tmp_imp_path" id="tmp_imp_path">
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>
-            <a href="{{route('admin.articlesOfCategory',[$slug])}}"
+
+            <a href="{{redirect()->back()->getTargetUrl()}}"
                class="btn btn-secondary ">
                 Отмена
             </a>
@@ -86,9 +118,16 @@
 
 @section('scripts')
     <script>
-        function showNewImg(ev) {
-            document.getElementsByName('img').src = ev.target.value
 
+        function loadFile(event) {
+            let output = document.getElementById('atclImg')
+            output.src = URL.createObjectURL(event.target.files[0])
+            let hiddenInp = document.getElementById('tmp_imp_path')
+            hiddenInp.value = URL.createObjectURL(event.target.files[0])
+
+            output.onload = function () {
+                URL.revokeObjectURL(output.src) // free memory
+            }
         }
     </script>
 @endsection

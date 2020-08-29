@@ -6,7 +6,7 @@ body {
 }
 
 .dashboard-block {
-    margin: 15px;
+    margin: 15px 5px;
     padding: 15px;
     background-color: #fff;
 }
@@ -14,10 +14,12 @@ body {
 .content {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 15px;
+    height: calc(100vh - 112px);
+    overflow: scroll;
 }
 
 #app {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 25px auto;
 }
 
@@ -31,6 +33,10 @@ body {
 .pagination > li > span {
     color: #555; // use your own color here
     background-color: #fff;
+}
+
+.pagination {
+    margin: 15px auto;
 }
 
 .pagination > .active > a,
