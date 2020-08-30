@@ -15,7 +15,9 @@ class AddArticleTest extends DuskTestCase
      */
     public function testAddCorrectArticle()
     {
+
         $this->browse(function (Browser $browser) {
+            $browser->visit('/admin/categories/russian_policy/articles');
             $browser->visit('/admin/categories/russian_policy/articles/add')
                 ->type('title', 'Новость сформирована тестом')
                 ->type('announcement', 'Новость сформирована тестом, xnj tcnm nj tcnm')
@@ -23,7 +25,7 @@ class AddArticleTest extends DuskTestCase
                 ->select('category_id')
                 ->select('source_id')
                 ->press('Сохранить')
-                ->assertPathIs('http://laravel.local/admin/categories/russian_policy/articlesgit ');
+                ->assertPathIs('/admin/categories/russian_policy/articles');
         });
     }
 

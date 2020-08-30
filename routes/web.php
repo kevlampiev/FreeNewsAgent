@@ -45,7 +45,8 @@ Route::group([
 /*****************************************/
 Route::group([
     'prefix' => 'admin',
-    'namespace' => 'Admin'
+    'namespace' => 'Admin',
+    'middleware'=>'auth'
 ],
     function () {
         Route::get('/', 'HomeController@index')->name('admin');
@@ -90,22 +91,24 @@ Route::group([
 
 
         //Альтернативные источники новостей (из базы данных)  /admin/infosources +
-        Route::group([
-            'prefix' => 'alt-sources'
-        ],
-            function () {
-                Route::get('/', 'AlternativeSourcesController@list')->name('admin.alternativeSourcesList');
-                Route::match(['get', 'post'], 'add', 'AlternativeSourcesController@create')->name('admin.AddAlternativeSource');
-                Route::match(['get', 'post'], '{id}/edit', 'AlternativeSourcesController@edit')->name('admin.EditAlternativeSource');
-                Route::post('{id}/delete', 'AlternativeSourcesController@delete')->name('admin.DeleteAlternativeSource');
-            });
+//        Route::group([
+//            'prefix' => 'alt-sources'
+//        ],
+//            function () {
+//                Route::get('/', 'AlternativeSourcesController@list')->name('admin.alternativeSourcesList');
+//                Route::match(['get', 'post'], 'add', 'AlternativeSourcesController@create')->name('admin.AddAlternativeSource');
+//                Route::match(['get', 'post'], '{id}/edit', 'AlternativeSourcesController@edit')->name('admin.EditAlternativeSource');
+//                Route::post('{id}/delete', 'AlternativeSourcesController@delete')->name('admin.DeleteAlternativeSource');
+//            });
+
+        Route::resource('infoRequest', 'InfoRequestsController');
     }
 );
 
 /*****************************************/
 /*ЗАПРОСЫ ПОЛЬЗОВАТЕЛЕЙ (ни то,ни другое)*/
 /*****************************************/
-Route::resource('infoRequest', 'InfoRequestsController');
+
 
 
 Auth::routes();

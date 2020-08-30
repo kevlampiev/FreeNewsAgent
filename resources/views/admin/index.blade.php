@@ -4,12 +4,15 @@
 @section('content')
     <div class="row">
         {{--        <div class="col-md-1"></div>--}}
-        <div class="col-md-7  dashboard-block">
-            <h2> Последние опубликованные статьи</h2>
-            @include('admin.articles-template')
+        <div class="col-md-8">
+            <div class="dashboard-block">
+                <h2> Последние опубликованн </h2>
+`               @include('admin.articles-template')
+            </div>
+
         </div>
-        <div class="col-md-4 dashboard-block">
-            <div>
+        <div class="col-md-4">
+            <div class="dashboard-block">
                 <h4>Control block 2</h4>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium corporis dignissimos et
@@ -23,7 +26,7 @@
                 </p>
             </div>
 
-            <div>
+            <div class="dashboard-block">
                 <h4>Control block 3</h4>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium corporis dignissimos et
