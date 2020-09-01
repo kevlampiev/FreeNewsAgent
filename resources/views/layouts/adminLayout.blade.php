@@ -33,6 +33,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item {{request()->routeIs('admin')?"current-menu":""}}">
@@ -46,8 +47,8 @@
                         <a class="nav-link" href="{{route('admin.categoriesList')}}">Категории новостей</a>
                     </li>
 
-                    <li class="nav-item {{request()->routeIs('infoRequest.index')?"current-menu":""}}">
-                        <a class="nav-link" href="{{route('infoRequest.index')}}">Запросы пользователей</a>
+                    <li class="nav-item {{request()->routeIs('infoEnquiries.index')?"current-menu":""}}">
+                        <a class="nav-link" href="{{route('infoEnquiries.index')}}">Запросы пользователей</a>
                     </li>
 
                     <li class="nav-item">
@@ -110,6 +111,16 @@
                 {{session()->get('proceed_status')}}
             </div>
         @endif
+
+        @if (session()->has('error_message'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{session()->get('error_message')}}
+            </div>
+        @endif
+
 
         @yield('content')
     </main>

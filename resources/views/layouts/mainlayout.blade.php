@@ -44,7 +44,7 @@
                         <a class="nav-link" href="{{route('customer.categories')}}">Категории новостей</a>
                     </li>
 
-                    <li class="nav-item dropdown {{(request()->routeIs('infoRequest.create')||request()->routeIs('customer.feedback'))?'current-menu':''}}">
+                    <li class="nav-item dropdown {{(request()->routeIs('infoEnquieries.create')||request()->routeIs('customer.feedback'))?'current-menu':''}}">
                         <a
                             class="nav-link dropdown-toggle"
                             href="{{route('customer.categories')}}"
@@ -59,7 +59,7 @@
                             class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink"
                         >
-                            <a class="dropdown-item" href="{{route('infoRequest.create')}}">Запрос информации</a>
+                            <a class="dropdown-item" href="{{route('customer.infoEnquiery')}}">Запрос информации</a>
                             <a class="dropdown-item" href="{{route('customer.feedback')}}">Оставить отзыв о проекте</a>
 
                         </div>
@@ -152,10 +152,23 @@
 
         <div class="content">
             @if (session()->has('proceed_status'))
-                <div class="alert alert-success">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     {{session()->get('proceed_status')}}
                 </div>
             @endif
+
+            @if (session()->has('error_message'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{session()->get('error_message')}}
+                </div>
+            @endif
+
             @yield('content')
         </div>
 

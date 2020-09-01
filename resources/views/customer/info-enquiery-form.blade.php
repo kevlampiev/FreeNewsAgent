@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="article-container shadowed-box">
-        <form method="POST" action="{{route('infoRequest.store')}}">
+        <form method="POST">
             @csrf
 
             @if(count($errors->all())>0)
@@ -24,13 +24,15 @@
 
             <div class="form-group">
                 <label for="phone">Телефон для связи:</label>
-                <input type="tel" name="phone" id="phone" class="form-control bfh-phone" data-format="+7dddddddddd"
+                <input type="tel" name="phone" id="phone" class="form-control bfh-phone"
+                       data-format="+7dddddddddd"
                        value="{{$ireq->phone ?? old('phone')}}" pattern="(\+[\d\ \(\)\-]{16})"/>
             </div>
 
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                <input type="email" class="form-control" id="email" name="email" value="{{$ireq->email??old('email')}}">
+                <input type="email" class="form-control" id="email" name="email"
+                       value="{{$ireq->email??old('email')}}">
             </div>
 
 

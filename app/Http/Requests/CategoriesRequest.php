@@ -25,10 +25,11 @@ class CategoriesRequest extends FormRequest
     {
         return [
             'name' => 'required|string|between:5,255',
-            'slug' => 'required|alpha_dash|between: 3,50|unique:news_categories,slug',
+            'slug' => 'required|alpha_dash|between:3,50|unique:news_categories,slug,' . $this->get('id'),
             'description' => 'required|string|between: 10,1000'
         ];
     }
+
 
     public function attributes()
     {

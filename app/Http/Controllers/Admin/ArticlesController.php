@@ -24,7 +24,7 @@ class ArticlesController extends Controller
         $article->save();
     }
 
-    public function add(string $slug)
+    public function add(string $slug = null)
     {
         $article = new Articles([], $slug);
         return view('admin.article-add', [
@@ -34,15 +34,20 @@ class ArticlesController extends Controller
         ]);
     }
 
-    public function insert(string $slug, NewsRequest $request)
+//    public function insert(string $slug, NewsRequest $request)
+    public function insert(NewsRequest $request)
     {
         $new = new Articles();
-        $this->getFromForm($new, $request);
-        session()->flash('proceed_status', 'Новость добавлена');
+        try {
+            $this->getFromForm($new, $request);
+            session()->flash('proceed_status', 'Новость добавлена');
+        } catch (\Exception $e) {
+            session()->flash('error_message', "Ошибка сервера. {$e->getMessage()}");
+        }
         if (session()->get('work_sector') == 'admin') {
             return redirect()->route(session()->get('work_sector'));
         } else {
-            return redirect()->route(session()->get('work_sector'), ['slug' => $slug]);
+            return redirect()->route(session()->get('work_sector'), ['slug' => $new->category->slug]);
         }
     }
 
@@ -58,8 +63,13 @@ class ArticlesController extends Controller
 
     public function update(string $slug, Articles $article, NewsRequest $request)
     {
-        $this->getFromForm($article, $request);
-        session()->flash('proceed_status', 'Новость изменена');
+
+        try {
+            $this->getFromForm($article, $request);
+            session()->flash('proceed_status', 'Новость изменена');
+        } catch (\Exception $e) {
+            session()->flash('error_message', "Ошибка сервера. {$e->getMessage()}");
+        }
 
         if (session()->get('work_sector') == 'admin') {
             return redirect()->route(session()->get('work_sector'));
@@ -70,9 +80,16 @@ class ArticlesController extends Controller
 
     public function delete(string $slug, Articles $article)
     {
-        $article->delete();
-        session()->flash('Proceed_status', 'Новость удалена');
-
-        return redirect()->route('admin.articlesOfCategory', ['slug' => $slug]);
+        try {
+            $article->delete();
+            session()->flash('proceed_status', 'Новость удалена');
+        } catch (\Exception $e) {
+            session()->flash('error_message', "Ошибка сервера. {$e->getMessage()}");
+        }
+        if (session()->get('work_sector') == 'admin') {
+            return redirect()->route(session()->get('work_sector'));
+        } else {
+            return redirect()->route(session()->get('work_sector'), ['slug' => $slug]);
+        }
     }
 }

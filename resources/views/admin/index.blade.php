@@ -6,7 +6,14 @@
         {{--        <div class="col-md-1"></div>--}}
         <div class="col-md-8">
             <div class="dashboard-block">
-                <h2> Последние опубликованн </h2>
+                <h2> Последние опубликованные новости </h2>
+                <div class="ordering-block">
+                    <div>
+                        <a href="{{route('admin.addArticle','_')}}" class="btn btn-secondary ">
+                            <i class="fa fa-plus-square" aria-hidden="true"></i> Добавить
+                        </a>
+                    </div>
+                </div>
 `               @include('admin.articles-template')
             </div>
 
@@ -43,5 +50,11 @@
         </div>
     </div>
 
+
+@endsection
+
+
+@section('scripts')
+    <script src="{{asset('js/laravel-post-button.js')}}" defer></script>
 
 @endsection
