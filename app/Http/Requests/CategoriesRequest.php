@@ -23,6 +23,7 @@ class CategoriesRequest extends FormRequest
      */
     public function rules()
     {
+//        dd($this->get('id'));
         return [
             'name' => 'required|string|between:5,255',
             'slug' => 'required|alpha_dash|between:3,50|unique:news_categories,slug,' . $this->get('id'),

@@ -26,6 +26,7 @@ Route::group([
         Route::post('/feedback', 'CustomerRequestsController@storeFeedback');
         Route::get('/info-enquiery', 'InfoEnquiriesController@create')->name('customer.infoEnquiery');
         Route::post('/info-enquiery', 'InfoEnquiriesController@store');
+        Route::get('/personal-account','HomeController@showPersonalAccount')->name('customer.personalAccount')->middleware('auth');
 
         //данные по статьям и категориям /categories+
         Route::group([

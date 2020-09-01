@@ -8,6 +8,8 @@
         <form method="POST">
             @csrf
 
+            <input type="hidden" value="{{$category->id}}" name="id">
+
             <div class="form-group {{$errors->has('name')?'has-error':''}}">
 
                 <label for="name">Название категории</label>
