@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Support\Facades\DB;
 
 class ArticlesOfCategoryTest extends TestCase
 {
@@ -15,7 +16,8 @@ class ArticlesOfCategoryTest extends TestCase
      */
     public function testExample()
     {
-        $response = $this->get('/admin/categories/test/articles');
+        $slug=DB::table('news_categories')->first()->slug;
+        $response = $this->get("/admin/categories/{{$slug}}/articles");
 
         $response->assertStatus(200);
         $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');
