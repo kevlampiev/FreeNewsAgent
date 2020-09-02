@@ -59,15 +59,22 @@
                             class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink"
                         >
-                            <a class="dropdown-item" href="{{route('customer.infoEnquiery')}}">Запрос информации</a>
+                            <a @guest
+                               class="dropdown-item disabled"
+                               @else
+                               class="dropdown-item"
+                               @endguest
+                               href="{{route('customer.infoEnquiery')}}">Запрос информации</a>
                             <a class="dropdown-item" href="{{route('customer.feedback')}}">Оставить отзыв о проекте</a>
 
                         </div>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin')}}">Панель администратора</a>
-                    </li>
+                    @if (Auth::user()&&Auth::user()->is_admin)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin')}}">Панель администратора</a>
+                        </li>
+                    @endif
 
 
                 </ul>
@@ -95,7 +102,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                                 <a class="dropdown-item" href="{{route('customer.personalAccount')}}">
-                                   Личный кабинет
+                                    Личный кабинет
                                 </a>
 
 

@@ -47,6 +47,10 @@
                         <a class="nav-link" href="{{route('admin.categoriesList')}}">Категории новостей</a>
                     </li>
 
+                    <li class="nav-item {{request()->routeIs('admin.usersList')?"current-menu":""}}">
+                        <a class="nav-link" href="{{route('admin.usersList')}}">Пользователи</a>
+                    </li>
+
                     <li class="nav-item {{request()->routeIs('infoEnquiries.index')?"current-menu":""}}">
                         <a class="nav-link" href="{{route('infoEnquiries.index')}}">Запросы пользователей</a>
                     </li>

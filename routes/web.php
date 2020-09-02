@@ -26,7 +26,8 @@ Route::group([
         Route::post('/feedback', 'CustomerRequestsController@storeFeedback');
         Route::get('/info-enquiery', 'InfoEnquiriesController@create')->name('customer.infoEnquiery');
         Route::post('/info-enquiery', 'InfoEnquiriesController@store');
-        Route::get('/personal-account','HomeController@showPersonalAccount')->name('customer.personalAccount')->middleware('auth');
+        Route::get('/personal-account','ManageProfileController@showPersonalAccount')->name('customer.personalAccount')->middleware('auth');
+        Route::post('/personal-account','ManageProfileController@updateAccountInfo');
 
         //данные по статьям и категориям /categories+
         Route::group([
@@ -48,7 +49,7 @@ Route::group([
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
-    'middleware'=>'auth'
+    'middleware'=>['auth','is.admin']
 ],
     function () {
         Route::get('/', 'HomeController@index')->name('admin');
@@ -92,6 +93,9 @@ Route::group([
         });
 
         Route::resource('infoEnquiries', 'InfoEnquiriesController');
+
+        Route::get('users','UsersController@index')->name('admin.usersList');
+        Route::post('users','UsersController@switchRole');
     }
 );
 

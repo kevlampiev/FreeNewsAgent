@@ -41,8 +41,5 @@ class HomeController extends Controller
     }
 
 
-    public function showPersonalAccount() {
-        return view('customer.personal-account');
-    }
 
 }
