@@ -12,7 +12,7 @@ use App\Models\ArticlesCategory;
 use Illuminate\Http\Response;
 
 
-class CustomerRequestsController extends Controller
+class CustomerRequestController extends Controller
 {
     public function addFeedback()
     {

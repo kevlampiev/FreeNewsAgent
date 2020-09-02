@@ -10,7 +10,7 @@ use App\Models\ArticlesCategory;
 use Illuminate\Http\Response;
 
 
-class ArticlesController extends Controller
+class ArticleController extends Controller
 {
     public function index(string $slug, int $id)
     {

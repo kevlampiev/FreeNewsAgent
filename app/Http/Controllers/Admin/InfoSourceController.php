@@ -8,7 +8,7 @@ use App\Http\Requests\InfoSourcesRequest;
 use App\Models\InfoSources;
 use Illuminate\Support\Facades\DB;
 
-class InfoSourcesController extends Controller
+class InfoSourceController extends Controller
 {
 
 //    private function getFromForm(InfoSources $source, InfoSourcesRequest $request)

@@ -8,7 +8,7 @@ use App\Models\ArticlesCategory;
 use App\Models\Articles;
 use Illuminate\Support\Facades\DB;
 
-class CategoriesController extends Controller
+class CategoryController extends Controller
 {
     public function articlesOfCategory(string $slug)
     {

@@ -11,7 +11,7 @@ use App\Models\InfoSources;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class CategoriesController extends Controller
+class CategoryController extends Controller
 {
 
 

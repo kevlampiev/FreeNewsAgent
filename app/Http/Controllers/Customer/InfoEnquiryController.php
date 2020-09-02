@@ -6,7 +6,7 @@ use App\Models\InfoEnquiery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class InfoEnquiriesController extends Controller
+class InfoEnquiryController extends Controller
 {
     public function create()
     {

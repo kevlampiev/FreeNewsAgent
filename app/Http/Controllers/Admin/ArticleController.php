@@ -11,7 +11,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 
 
-class ArticlesController extends Controller
+class ArticleController extends Controller
 {
     //Вспомогательная функция, собирающая данные для редактирования/добавления статьи из формы ввода
     private function getFromForm(Articles $article, NewsRequest $request)
