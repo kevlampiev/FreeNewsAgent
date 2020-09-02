@@ -44,7 +44,7 @@
                         <a class="nav-link" href="{{route('customer.categories')}}">Категории новостей</a>
                     </li>
 
-                    <li class="nav-item dropdown {{(request()->routeIs('infoRequest.create')||request()->routeIs('customer.feedback'))?'current-menu':''}}">
+                    <li class="nav-item dropdown {{(request()->routeIs('infoEnquieries.create')||request()->routeIs('customer.feedback'))?'current-menu':''}}">
                         <a
                             class="nav-link dropdown-toggle"
                             href="{{route('customer.categories')}}"
@@ -59,15 +59,22 @@
                             class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink"
                         >
-                            <a class="dropdown-item" href="{{route('infoRequest.create')}}">Запрос информации</a>
+                            <a @guest
+                               class="dropdown-item disabled"
+                               @else
+                               class="dropdown-item"
+                               @endguest
+                               href="{{route('customer.infoEnquiery')}}">Запрос информации</a>
                             <a class="dropdown-item" href="{{route('customer.feedback')}}">Оставить отзыв о проекте</a>
 
                         </div>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin')}}">Панель администратора</a>
-                    </li>
+                    @if (Auth::user()&&Auth::user()->is_admin)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin')}}">Панель администратора</a>
+                        </li>
+                    @endif
 
 
                 </ul>
@@ -85,6 +92,7 @@
                             </li>
                         @endif
                     @else
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -92,6 +100,12 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                <a class="dropdown-item" href="{{route('customer.personalAccount')}}">
+                                    Личный кабинет
+                                </a>
+
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -103,6 +117,8 @@
                                     @csrf
                                 </form>
                             </div>
+
+
                         </li>
                     @endguest
                 </ul>
@@ -152,10 +168,23 @@
 
         <div class="content">
             @if (session()->has('proceed_status'))
-                <div class="alert alert-success">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     {{session()->get('proceed_status')}}
                 </div>
             @endif
+
+            @if (session()->has('error_message'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{session()->get('error_message')}}
+                </div>
+            @endif
+
             @yield('content')
         </div>
 

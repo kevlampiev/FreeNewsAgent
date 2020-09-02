@@ -6,6 +6,27 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 ">
+            <div class="latest-news-panel">
+
+                <h5> Последние новости </h5>
+                @foreach($news as $new)
+                    <section>
+                        <a href="{{route('customer.showArticle',[
+                                                        $new->slug,
+                                                        $new->id
+                                                        ])}}">
+                            <h6 class="article-header">{{$new->title}}</h6>
+                        </a>
+                        <h7>{{$new->created_at}} - {{$new->name}}</h7>
+                    </section>
+                @endforeach
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 ">
+
             <div class="about-panel">
                 <h5> О проекте </h5>
                 <p>
@@ -23,24 +44,6 @@
                 </p>
             </div>
 
-        </div>
-        <div class="col-md-4 ">
-            <div class="latest-news-panel">
-
-                <h5> Последние новости </h5>
-                @foreach($news as $new)
-                    <section>
-                        <a href="{{route('customer.showArticle',[
-                                                        $new->slug,
-                                                        $new->id
-                                                        ])}}">
-                            <h6 class="article-header">{{$new->title}}</h6>
-                        </a>
-                        <h7>{{$new->created_at}} - {{$new->name}}</h7>
-                    </section>
-                @endforeach
-
-            </div>
 
         </div>
 

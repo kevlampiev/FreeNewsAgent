@@ -9,7 +9,8 @@
     </div>
 
     <div class="article-container shadowed-box" v-pre>
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST"
+              enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">

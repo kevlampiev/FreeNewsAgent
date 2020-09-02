@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
-class InfoSourcesRequest extends FormRequest
+class ProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,19 +25,17 @@ class InfoSourcesRequest extends FormRequest
     public function rules()
     {
         return [
-
-            'name' => 'required|string|between:5,255',
-            'http_address' => 'required|string|max: 255',
-            'description' => 'required|string|between: 10,1000'
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,'.Auth::id(),
+            'password' => 'required',
+            'newPassword' => 'nullable|string|min:8',
         ];
     }
 
     public function attributes()
     {
         return [
-            'name' => 'Название источника',
-            'http_address' => 'Http адрес',
-            'description' => 'Краткая информация об источнике',
+            'newPassword' => 'Новый пароль',
         ];
     }
 }

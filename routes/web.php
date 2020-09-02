@@ -24,8 +24,10 @@ Route::group([
 //        Route::get('/login', 'HomeController@login')->name('login');
         Route::get('/feedback', 'CustomerRequestsController@addFeedback')->name('customer.feedback');
         Route::post('/feedback', 'CustomerRequestsController@storeFeedback');
-        Route::get('/info-enquiery', 'CustomerRequestsController@getInfoEnquiery')->name('customer.infoEnquiery');
-        Route::post('/info-enquiery', 'CustomerRequestsController@storeInfoEnquiery');
+        Route::get('/info-enquiery', 'InfoEnquiriesController@create')->name('customer.infoEnquiery');
+        Route::post('/info-enquiery', 'InfoEnquiriesController@store');
+        Route::get('/personal-account','ManageProfileController@showPersonalAccount')->name('customer.personalAccount')->middleware('auth');
+        Route::post('/personal-account','ManageProfileController@updateAccountInfo');
 
         //данные по статьям и категориям /categories+
         Route::group([
@@ -37,6 +39,7 @@ Route::group([
                 Route::get('/{slug}/articles/{id}', 'ArticlesController@index')->name('customer.showArticle');
             }
         );
+
     });
 
 
@@ -45,7 +48,8 @@ Route::group([
 /*****************************************/
 Route::group([
     'prefix' => 'admin',
-    'namespace' => 'Admin'
+    'namespace' => 'Admin',
+    'middleware'=>['auth','is.admin']
 ],
     function () {
         Route::get('/', 'HomeController@index')->name('admin');
@@ -63,7 +67,7 @@ Route::group([
                 Route::post('{category}/delete', 'CategoriesController@delete')->name('admin.deleteCategory');
                 //статьи конкретной категории   /admin/categories/{slug}/articles +
                 Route::group([
-                    'prefix' => '{slug}/articles'
+                    'prefix' => '{slug?}/articles'
                 ], function () {
                     Route::get('/', 'CategoriesController@articlesOfCategory')->name('admin.articlesOfCategory');
                     Route::get('add', 'ArticlesController@add')->name('admin.addArticle');
@@ -88,24 +92,13 @@ Route::group([
 
         });
 
+        Route::resource('infoEnquiries', 'InfoEnquiriesController');
 
-        //Альтернативные источники новостей (из базы данных)  /admin/infosources +
-        Route::group([
-            'prefix' => 'alt-sources'
-        ],
-            function () {
-                Route::get('/', 'AlternativeSourcesController@list')->name('admin.alternativeSourcesList');
-                Route::match(['get', 'post'], 'add', 'AlternativeSourcesController@create')->name('admin.AddAlternativeSource');
-                Route::match(['get', 'post'], '{id}/edit', 'AlternativeSourcesController@edit')->name('admin.EditAlternativeSource');
-                Route::post('{id}/delete', 'AlternativeSourcesController@delete')->name('admin.DeleteAlternativeSource');
-            });
+        Route::get('users','UsersController@index')->name('admin.usersList');
+        Route::post('users','UsersController@switchRole');
     }
 );
 
-/*****************************************/
-/*ЗАПРОСЫ ПОЛЬЗОВАТЕЛЕЙ (ни то,ни другое)*/
-/*****************************************/
-Route::resource('infoRequest', 'InfoRequestsController');
 
 
 Auth::routes();

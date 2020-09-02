@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\InfoRequest;
+use App\Models\InfoEnquiery;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class InfoRequestsController extends Controller
+class InfoEnquiriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class InfoRequestsController extends Controller
      */
     public function index()
     {
-        return view('admin.info-request', ['irequests' => InfoRequest::query()->paginate(15)]);
+        return view('admin.info-enqueries', ['irequests' => InfoEnquiery::query()->paginate(15)]);
     }
 
     /**
@@ -24,7 +25,7 @@ class InfoRequestsController extends Controller
      */
     public function create()
     {
-        return view('customer.info-enquiery-form', ['ireq' => new InfoRequest()]);
+        return view('admin.info-enquiery-form', ['ireq' => new InfoEnquiery()]);
     }
 
     /**
@@ -35,11 +36,10 @@ class InfoRequestsController extends Controller
      */
     public function store(Request $request)
     {
-        $infoReq = new InfoRequest();
-//        dd($request);
+        $infoReq = new InfoEnquiery();
         $infoReq->fill($request->except(['_token']))->save();
-        session()->flash('proceed_status', 'Запрос направлен на обработку');
-        return redirect()->route('home');
+        session()->flash('proceed_status', 'Запрос добавлен');
+        return redirect()->route('infoEnquiries.index');
     }
 
     /**
@@ -62,7 +62,7 @@ class InfoRequestsController extends Controller
     public function edit($id)
     {
         return view('admin.info-enquiery-form', [
-                'ireq' => InfoRequest::get()->where('id', $id)->first(),
+                'ireq' => InfoEnquiery::get()->where('id', $id)->first(),
                 'id' => $id
             ]
         );
@@ -78,11 +78,11 @@ class InfoRequestsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $infoReq = InfoRequest::get()->where('id', $id)->first();
+        $infoReq = InfoEnquiery::get()->where('id', $id)->first();
 //        dd($infoReq);
         $infoReq->fill($request->except(['_token', 'id']))->save();
         session()->flash('proceed_status', 'Данные запроса обновлены');
-        return redirect()->route('infoRequest.index');
+        return redirect()->route('infoEnquiries.index');
     }
 
     /**
@@ -93,10 +93,10 @@ class InfoRequestsController extends Controller
      */
     public function destroy($id)
     {
-        $infoReq = InfoRequest::get()->where('id', $id)->first();
+        $infoReq = InfoEnquiery::get()->where('id', $id)->first();
         $infoReq->delete();
         session()->flash('Proceed_status', 'Информаця о запросе удалена');
 
-        return redirect()->route('infoRequest.index');
+        return redirect()->route('infoEnquiries.index');
     }
 }
