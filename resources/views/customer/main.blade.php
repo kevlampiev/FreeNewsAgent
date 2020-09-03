@@ -11,6 +11,9 @@
                 <h5> Последние новости </h5>
                 @foreach($news as $new)
                     <section>
+                        <img src="{{asset('storage/images/articles/'.(basename($new->img)?basename($new->img):'no_image.jpg'))}}"
+                             alt="{{'Изобржение '.$new->title}}"
+                            class="front-page-img">
                         <a href="{{route('customer.showArticle',[
                                                         $new->slug,
                                                         $new->id
@@ -18,6 +21,9 @@
                             <h6 class="article-header">{{$new->title}}</h6>
                         </a>
                         <h7>{{$new->created_at}} - {{$new->name}}</h7>
+                        <div class="clear-div">
+
+                        </div>
                     </section>
                 @endforeach
 

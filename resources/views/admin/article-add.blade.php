@@ -43,7 +43,7 @@
                 <label for="category">Категория новости</label>
                 <select class="form-control" id="category" name="category_id">
                     @foreach($categoryList as $cat)
-                        <option value="{{$cat->id}}" @if ($cat->id==$article->category_id) selected @endif>
+                        <option value="{{$cat->id}}" @if ($cat->id==(old('category_id')??$article->category_id)) selected @endif>
                             {{$cat->name}}
                         </option>
                     @endforeach
@@ -84,7 +84,7 @@
                     @foreach($sourcesList as $source)
                         <option
                             value="{{$source->id}}"
-                            @if ($source->id==$article->source_id) selected @endif>
+                            @if ($source->id==(old('source_id')??$article->source_id)) selected @endif>
                             {{$source->name}}
                         </option>
                     @endforeach
@@ -93,7 +93,6 @@
 
             <div class="form-group">
                 <img
-                    {{--                    src="{{asset('storage/images/articles/'.(basename($article->img)?basename($article->img):'no_image.jpg'))}}"--}}
                     @if (old('tmp_imp_path'))
                     src="{{old('tmp_imp_path')}}"
                     @elseif ($article->img)
@@ -109,7 +108,7 @@
 
             <button type="submit" class="btn btn-primary">Сохранить</button>
 
-            <a href="{{redirect()->back()->getTargetUrl()}}"
+            <a href="{{session()->get('work_sector')}}"
                class="btn btn-secondary ">
                 Отмена
             </a>

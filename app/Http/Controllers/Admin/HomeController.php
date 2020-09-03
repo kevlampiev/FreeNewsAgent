@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Articles;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,9 +12,9 @@ class HomeController extends Controller
     public function index()
     {
 //        session()->start();
-        session()->put('work_sector', 'admin');
+        session()->put('work_sector', url()->current());
         return view('admin.index', [
-                'news' => Articles::query()->orderBy('created_at', 'desc')->paginate(5)
+                'news' => Article::query()->orderBy('created_at', 'desc')->paginate(5)
             ]
         );
     }

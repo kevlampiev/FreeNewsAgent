@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class InfoSources extends Model
+class InfoSource extends Model
 {
     //
     protected $table = 'news_sources'; //Исторически так сложилось
@@ -12,6 +12,6 @@ class InfoSources extends Model
 
     public function articles()
     {
-        return $this->hasMany(Articles::class, 'source_id', 'id');
+        return $this->hasMany(Article::class, 'source_id', 'id');
     }
 }

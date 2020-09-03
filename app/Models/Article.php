@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Articles extends Model
+class Article extends Model
 {
     protected $fillable = ['title', 'announcement', 'article_body', 'is_private', 'category_id', 'source_id'];
 
@@ -26,7 +26,7 @@ class Articles extends Model
 
     public function source()
     {
-        return $this->hasOne(InfoSources::class, 'id', 'source_id');
+        return $this->hasOne(InfoSource::class, 'id', 'source_id');
     }
 
 }

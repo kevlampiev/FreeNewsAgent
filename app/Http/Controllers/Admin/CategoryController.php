@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InfoSourcesRequest;
-use App\Models\Articles;
+use App\Models\Article;
 use App\Models\ArticlesCategory;
 use App\Http\Requests\CategoriesRequest;
-use App\Models\InfoSources;
+use App\Models\InfoSource;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
@@ -71,9 +72,10 @@ class CategoryController extends Controller
         if ($category == null) {
             abort(404);
         }
-        $newsOfCategory = Articles::where('category_id', $category->id)->paginate(5);
-        session()->start();
-        session()->put('work_sector', 'admin.articlesOfCategory');
+        $newsOfCategory = Article::where('category_id', $category->id)->paginate(5);
+//        session()->start();
+//        session()->put('work_sector', 'admin.articlesOfCategory');
+        session()->put('work_sector', url()->current());
         return view('admin.articles-of-category', [
             'news' => $newsOfCategory,
             'category' => $category

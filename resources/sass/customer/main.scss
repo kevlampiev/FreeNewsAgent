@@ -138,3 +138,15 @@ a > .article-header:hover {
     background-color: #550a17 !important;
     border-color: #ccc !important;
 }
+
+.front-page-img {
+    height: 100px;
+    width: 100px;
+    float:left;
+    object-fit: contain;
+    margin-right: 15px;
+}
+
+.clear-div {
+    clear: both;
+}

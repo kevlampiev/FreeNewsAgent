@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Customer;
 
-use App\Models\Articles;
+use App\Models\Article;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\TmpServices\DBConnService;
 use App\Http\Requests\NewsRequest;
@@ -19,7 +19,7 @@ class ArticleController extends Controller
         if ($category == null) {
             abort(404, 'Группы новостей $slug не существует');
         }
-        $article = Articles::all()->where('category_id', $category->id)->where('id', $id)->first();
+        $article = Article::all()->where('category_id', $category->id)->where('id', $id)->first();
         if ($article == null) {
             abort(404, 'Новость с таким идентификатором отсутствует');
         }

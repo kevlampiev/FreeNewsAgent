@@ -133,6 +133,19 @@ a > .article-header:hover {
   border-color: #ccc !important;
 }
 
+.front-page-img {
+  height: 100px;
+  width: 100px;
+  float: left;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-right: 15px;
+}
+
+.clear-div {
+  clear: both;
+}
+
 .article-container {
   background-color: #fff;
   padding: 25px;
