@@ -79,6 +79,10 @@ Route::group([
             }
         );
 
+        Route::group(['prefix'=>'parse'],function(){
+            Route::get('lenta','ParserController@index')->name('admin.lentaRSS');
+        });
+
         //Нормальные источники новостей (из базы данных)  /admin/infosources +
         Route::group([
             'prefix' => 'infosources'

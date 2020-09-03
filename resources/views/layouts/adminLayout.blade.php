@@ -22,7 +22,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar navbar-light bg-light shadow-sm">
+    <nav class="navbar navbar-expand-xl navbar navbar-light bg-light shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ route('admin') }}">
                 <img src="{{asset('img/logo-customer.jpg')}}" class="main-logo-img">
@@ -39,26 +39,40 @@
                     <li class="nav-item {{request()->routeIs('admin')?"current-menu":""}}">
                         <a class="nav-link" href="{{route('admin')}}">Главная</a>
                     </li>
-                    <li class="nav-item {{request()->routeIs('admin.infoSourcesList')?"current-menu":""}}">
-                        <a class="nav-link" href="{{route('admin.infoSourcesList')}}">Источники новостей</a>
-                    </li>
 
-                    <li class="nav-item {{request()->routeIs('admin.categoriesList')?"current-menu":""}}">
-                        <a class="nav-link" href="{{route('admin.categoriesList')}}">Категории новостей</a>
-                    </li>
+                    <li class="nav-item dropdown">
+                        <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Получить статьи по RSS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{route('admin.lentaRSS')}}"> Lenta.ru </a>
 
-                    <li class="nav-item {{request()->routeIs('admin.usersList')?"current-menu":""}}">
-                        <a class="nav-link" href="{{route('admin.usersList')}}">Пользователи</a>
+                        </div>
                     </li>
 
                     <li class="nav-item {{request()->routeIs('infoEnquiries.index')?"current-menu":""}}">
                         <a class="nav-link" href="{{route('infoEnquiries.index')}}">Запросы пользователей</a>
                     </li>
 
+                    <li class="nav-item dropdown">
+                        <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Справочники
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="nav-link" href="{{route('admin.infoSourcesList')}}">Источники новостей</a>
+                            <a class="nav-link" href="{{route('admin.categoriesList')}}">Категории новостей</a>
+                            <a class="nav-link" href="{{route('admin.usersList')}}">Пользователи</a>
+                        </div>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('home')}}">На основной сайт</a>
                     </li>
                 </ul>
+
+
             </div>
 
 
