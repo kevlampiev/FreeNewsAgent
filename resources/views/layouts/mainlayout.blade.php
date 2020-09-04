@@ -96,7 +96,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{route('fbLogin')}}">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                 </a>
                             </li>
