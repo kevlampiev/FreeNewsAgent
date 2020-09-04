@@ -33,7 +33,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        $user = UserOAuth::driver('facebook')->user();
+        $user = Socialite::driver('facebook')->user();
         session(['soc.token' => $user->token]);
         $userInSystem = $userRepository->getUserBySocId($user, 'fb');
         Auth::login($userInSystem);
