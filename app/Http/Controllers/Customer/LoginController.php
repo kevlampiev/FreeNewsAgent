@@ -7,6 +7,7 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Auth;
+use SocialiteProviders\Manager\OAuth2\User as UserOAuth;
 
 class LoginController extends Controller
 {
@@ -32,7 +33,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        $user = Socialite::driver('facebook')->user();
+        $user = UserOAuth::driver('facebook')->user();
         session(['soc.token' => $user->token]);
         $userInSystem = $userRepository->getUserBySocId($user, 'fb');
         Auth::login($userInSystem);
