@@ -3,21 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\ArticleRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 
 class ParserController extends Controller
 {
     public function index() {
-        $xml=XmlParser::load('https://news.yandex.ru/politics.rss');
-        $data=$xml->parse(
-            [
-                'category'=>['uses'=>'channel.title'],
-                'source'=>['uses'=>'channel.link'],
-                'category_description'=>['uses'=>'channel.description'],
-                'news'=>['uses'=>'channel.item[title,link,guid,description,pubDate]'],
-            ]
-        );
-        dd($data);
+       $data=ArticleRepository::getLentaArticles();
+        ArticleRepository::storeArticles($data);
+        DB::unprepared('CALL parse_articles()');
+        session()->flash('proceed_status','Произведена зазрузка данных Lenta.ru');
+        return back();
     }
 }
