@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Customer;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Controller;
+use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -24,9 +26,17 @@ class LoginController extends Controller
         return Socialite::driver('facebook')->redirect();
     }
 
-    public function responseFB()
+    public function responseFB(UserRepository $userRepository)
     {
+        if (Auth::id()) {
+            return redirect()->route('home');
+        }
+
         $user = Socialite::driver('facebook')->user();
-        dd($user);
+        session(['soc.token' => $user->token]);
+        $userInSystem = $userRepository->getUserBySocId($user, 'fb');
+        Auth::login($userInSystem);
+
+        return redirect()->route('home');
     }
 }
