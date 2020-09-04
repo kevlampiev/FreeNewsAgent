@@ -19,7 +19,7 @@
                         <div class="card shadowed-box">
 
                             <div class="card-body">
-                                <form method="POST" >
+                                <form method="POST">
                                     @csrf
 
                                     <div class="form-group row">
@@ -29,7 +29,8 @@
                                         <div class="col-md-6">
                                             <input id="name" type="text"
                                                    class="form-control @error('name') is-invalid @enderror" name="name"
-                                                   value="{{ old('name')??$user->name }}" required autocomplete="name" autofocus>
+                                                   value="{{ old('name')??$user->name }}" required autocomplete="name"
+                                                   autofocus>
 
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -47,7 +48,8 @@
                                             <input id="email" type="email"
                                                    class="form-control @error('email') is-invalid @enderror"
                                                    name="email"
-                                                   value="{{ old('email')??$user->email }}" required autocomplete="email">
+                                                   value="{{ old('email')??$user->email }}" required
+                                                   autocomplete="email">
 
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -81,7 +83,8 @@
 
                                         <div class="col-md-6">
                                             <input id="new-password" type="password" class="form-control"
-                                                   name="newPassword" autocomplete="new-password" value="{{old('newPassword')}}">
+                                                   name="newPassword" autocomplete="new-password"
+                                                   value="{{old('newPassword')}}">
                                         </div>
                                     </div>
 

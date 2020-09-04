@@ -14,7 +14,7 @@
                         </a>
                     </div>
                 </div>
-`               @include('admin.articles-template')
+                ` @include('admin.articles-template')
             </div>
 
         </div>

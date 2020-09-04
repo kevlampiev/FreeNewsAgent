@@ -19,9 +19,10 @@ class UserController extends Controller
         return view('admin.users', ['users' => User::query()->paginate(15)]);
     }
 
-    public function switchRole(Request $request) {
-        $user=User::where('id',$request->post('id'))->first();
-        $user->is_admin=!$user->is_admin;
+    public function switchRole(Request $request)
+    {
+        $user = User::where('id', $request->post('id'))->first();
+        $user->is_admin = !$user->is_admin;
         $user->save();
         return back();
     }

@@ -24,6 +24,6 @@ $factory->define(User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => \Illuminate\Support\Facades\Hash::make('12345678'), // password
         'remember_token' => Str::random(10),
-        'is_admin'=>false
+        'is_admin' => false
     ];
 });

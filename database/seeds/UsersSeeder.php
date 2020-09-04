@@ -14,15 +14,15 @@ class UsersSeeder extends Seeder
     {
         //admin
         DB::table('users')->insert([
-            'name'=>'Администратор',
-            'email'=>'admin@admin.ru',
-            'email_verified_at'=>now(),
-            'password'=>\Illuminate\Support\Facades\Hash::make('12345678'),
-            'created_at'=>now(),
-            'is_admin'=>true
+            'name' => 'Администратор',
+            'email' => 'admin@admin.ru',
+            'email_verified_at' => now(),
+            'password' => \Illuminate\Support\Facades\Hash::make('12345678'),
+            'created_at' => now(),
+            'is_admin' => true
         ]);
         //все остальные, не админы
         factory(App\User::class, 10)->create();
-        }
+    }
 
 }

@@ -1,5 +1,3 @@
-
-
 @foreach ($news as $new)
 
     <div class="article-box" v-pre>

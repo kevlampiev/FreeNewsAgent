@@ -15,8 +15,8 @@ class ModifyArticlesAddGuidLink extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             //
-            $table->string('guid',255);
-            $table->string('link',255);
+            $table->string('guid', 255);
+            $table->string('link', 255);
         });
     }
 

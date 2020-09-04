@@ -91,7 +91,7 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{route('vkLogin')}}">
                                     <i class="fa fa-vk" aria-hidden="true"></i>
                                 </a>
                             </li>

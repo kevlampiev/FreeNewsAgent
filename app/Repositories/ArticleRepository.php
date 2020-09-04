@@ -10,12 +10,12 @@ use Illuminate\Support\Str;
 
 class ArticleRepository
 {
-    public static function getYandexArticles(string $url, string $category=null): array
+    public static function getYandexArticles(string $url, string $category = null): array
     {
         $xml = XmlParser::load($url);
         $data = $xml->parse(
             [
-                'category' => ['uses' => ($category??'channel.title')],
+                'category' => ['uses' => ($category ?? 'channel.title')],
                 'source' => ['uses' => 'channel.link'],
                 'news' => ['uses' => 'channel.item[title,link,guid,description,pubDate]'],
             ]
@@ -55,8 +55,8 @@ class ArticleRepository
         foreach ($data['news'] as $el) {
             $result[] = [
                 'category' => $el['category'],
-                'slug'=>Str::slug($el['category']),
-                'guid'=>$el['guid'],
+                'slug' => Str::slug($el['category']),
+                'guid' => $el['guid'],
                 'source' => $data['source'],
                 'title' => $el['title'],
                 'announcement' => $el['title'],

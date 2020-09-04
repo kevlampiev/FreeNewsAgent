@@ -22,10 +22,10 @@ class CategoriesSeeder extends Seeder
 
         $data = [];
         for ($i = 0; $i < 10; $i++) {
-            $title=$faker->sentence(rand(3, 20));
+            $title = $faker->sentence(rand(3, 20));
             $data[] = [
                 'name' => $title,
-                'slug'=>Str::slug($title),
+                'slug' => Str::slug($title),
                 'description' => $faker->realText(rand(100, 200))
             ];
         }

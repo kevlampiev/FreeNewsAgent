@@ -26,7 +26,7 @@ class ProfileRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,'.Auth::id(),
+            'email' => 'required|string|email|max:255|unique:users,email,' . Auth::id(),
             'password' => 'required',
             'newPassword' => 'nullable|string|min:8',
         ];

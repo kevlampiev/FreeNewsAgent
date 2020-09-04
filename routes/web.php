@@ -26,8 +26,18 @@ Route::group([
         Route::post('/feedback', 'CustomerRequestController@storeFeedback');
         Route::get('/info-enquiery', 'InfoEnquiryController@create')->name('customer.infoEnquiery');
         Route::post('/info-enquiery', 'InfoEnquiryController@store');
-        Route::get('/personal-account','ManageProfileController@showPersonalAccount')->name('customer.personalAccount')->middleware('auth');
-        Route::post('/personal-account','ManageProfileController@updateAccountInfo');
+        Route::get('/personal-account', 'ManageProfileController@showPersonalAccount')->name('customer.personalAccount')->middleware('auth');
+        Route::post('/personal-account', 'ManageProfileController@updateAccountInfo');
+
+        Route::group([
+            'prefix' => '/auth'
+        ],
+            function () {
+                Route::get('/vk', 'LoginController@loginVK')->name('vkLogin');
+                Route::get('/vk/response', 'LoginController@responseVK')->name('vkResponse');
+                Route::get('/fb', 'LoginController@loginFB')->name('fbLogin');
+                Route::get('/fb/response', 'LoginController@responseFB')->name('fbResponse');
+            });
 
         //данные по статьям и категориям /categories+
         Route::group([
@@ -49,7 +59,7 @@ Route::group([
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
-    'middleware'=>['auth','is.admin']
+    'middleware' => ['auth', 'is.admin']
 ],
     function () {
         Route::get('/', 'HomeController@index')->name('admin');
@@ -79,8 +89,8 @@ Route::group([
             }
         );
 
-        Route::group(['prefix'=>'parse'],function(){
-            Route::get('lenta','ParserController@index')->name('admin.lentaRSS');
+        Route::group(['prefix' => 'parse'], function () {
+            Route::get('lenta', 'ParserController@index')->name('admin.lentaRSS');
         });
 
         //Нормальные источники новостей (из базы данных)  /admin/infosources +
@@ -98,11 +108,10 @@ Route::group([
 
         Route::resource('infoEnquiries', 'InfoEnquiryController');
 
-        Route::get('users','UserController@index')->name('admin.usersList');
-        Route::post('users','UserController@switchRole');
+        Route::get('users', 'UserController@index')->name('admin.usersList');
+        Route::post('users', 'UserController@switchRole');
     }
 );
-
 
 
 Auth::routes();

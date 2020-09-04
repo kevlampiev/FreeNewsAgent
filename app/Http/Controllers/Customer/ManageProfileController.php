@@ -24,7 +24,7 @@ class ManageProfileController extends Controller
     public function updateAccountInfo(ProfileRequest $request)
     {
         $user = Auth::user();
-        $errors=[];
+        $errors = [];
         if (Hash::check($request->post('password'), $user->password)) {
             $user->fill([
                 'name' => $request->post('name'),
@@ -35,10 +35,9 @@ class ManageProfileController extends Controller
             };
             $user->save();
             session()->flash('proceed_status', 'Данные пользователя обновлены');
+        } else {
+            $errors['password'][] = 'Неверно введен текущий пароль';
         }
-        else {
-            $errors['password'][]='Неверно введен текущий пароль';
-        }
-        return redirect()->back()->withErrors($errors );
+        return redirect()->back()->withErrors($errors);
     }
 }

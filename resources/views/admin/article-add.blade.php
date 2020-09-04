@@ -43,7 +43,8 @@
                 <label for="category">Категория новости</label>
                 <select class="form-control" id="category" name="category_id">
                     @foreach($categoryList as $cat)
-                        <option value="{{$cat->id}}" @if ($cat->id==(old('category_id')??$article->category_id)) selected @endif>
+                        <option value="{{$cat->id}}"
+                                @if ($cat->id==(old('category_id')??$article->category_id)) selected @endif>
                             {{$cat->name}}
                         </option>
                     @endforeach

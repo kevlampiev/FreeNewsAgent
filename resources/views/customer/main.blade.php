@@ -11,8 +11,9 @@
                 <h5> Последние новости </h5>
                 @foreach($news as $new)
                     <section>
-                        <img src="{{asset('storage/images/articles/'.(basename($new->img)?basename($new->img):'no_image.jpg'))}}"
-                             alt="{{'Изобржение '.$new->title}}"
+                        <img
+                            src="{{asset('storage/images/articles/'.(basename($new->img)?basename($new->img):'no_image.jpg'))}}"
+                            alt="{{'Изобржение '.$new->title}}"
                             class="front-page-img">
                         <a href="{{route('customer.showArticle',[
                                                         $new->slug,

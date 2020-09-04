@@ -15,16 +15,16 @@ class CreateTmpArticleDataTable extends Migration
     {
         Schema::create('tmp_article_data', function (Blueprint $table) {
             $table->id();
-            $table->string('category',255)->nullable(false);
-            $table->string('slug',255)->nullable(false);
-            $table->string('source',255)->nullable(false);
-            $table->string('title',255)->nullable(false);
-            $table->string('announcement',255)->nullable(false);
+            $table->string('category', 255)->nullable(false);
+            $table->string('slug', 255)->nullable(false);
+            $table->string('source', 255)->nullable(false);
+            $table->string('title', 255)->nullable(false);
+            $table->string('announcement', 255)->nullable(false);
             $table->text('article_body')->nullable(false);
-            $table->string('img',255);
+            $table->string('img', 255);
             $table->boolean('is_private')->default(false);
-            $table->string('link',255);
-            $table->string('guid',255);
+            $table->string('link', 255);
+            $table->string('guid', 255);
             $table->timestamps();
         });
     }
