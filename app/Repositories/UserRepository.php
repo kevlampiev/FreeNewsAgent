@@ -20,7 +20,7 @@ class UserRepository
             $userInSystem = new User();
             $userInSystem->fill([
                 'name' => !empty($user->getName()) ? $user->getName() : '',
-                'email' => !empty($user->getEmail()) ? $user->getEmail() : '',
+                'email' => $user->email,
                 'password' => '',
                 'id_in_soc' => !empty($user->getId()) ? $user->getId() : '',
                 'type_auth' => $socName,

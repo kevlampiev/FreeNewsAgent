@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\Customer;
 
-use Illuminate\Http\Request;
-use Laravel\Socialite\Facades\Socialite;
-use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
+use App\Http\Controllers\Controller;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
-//use SocialiteProviders\Manager\OAuth2\User;
+
 
 
 class LoginController extends Controller
 {
     public function loginVK()
     {
-        return Socialite::driver('vkontakte')->redirect();
+        return Socialite::with('vkontakte')->redirect();
     }
 
     public function responseVK()
@@ -25,7 +24,7 @@ class LoginController extends Controller
 
     public function loginFB()
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::with('facebook')->redirect();
     }
 
     public function responseFB(UserRepository $userRepository)
