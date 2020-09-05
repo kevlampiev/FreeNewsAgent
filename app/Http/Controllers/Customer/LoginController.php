@@ -33,7 +33,6 @@ class LoginController extends Controller
         }
 
         $user = Socialite::driver('facebook')->user();
-        dd($user);
 
         session(['soc.token' => $user->token]);
         $userInSystem = $userRepository->getUserBySocId($user, 'fb');
