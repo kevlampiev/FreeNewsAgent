@@ -4,7 +4,7 @@
 namespace App\Repositories;
 
 use App\User;
-use Laravel\Socialite\Two\User as UserOAuth;
+use \Laravel\Socialite\Contracts\User as UserOAuth;;
 
 class UserRepository
 {
