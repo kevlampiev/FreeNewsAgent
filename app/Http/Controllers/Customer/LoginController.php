@@ -33,7 +33,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        $user = Socialite::driver('facedook')->user();
+        $user = Socialite::driver('facebook')->user();
         dd($user);
 
         session(['soc.token' => $user->token]);
