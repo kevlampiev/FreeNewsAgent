@@ -7,7 +7,8 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Auth;
-use SocialiteProviders\Manager\OAuth2\User as UserOAuth;
+//use SocialiteProviders\Manager\OAuth2\User;
+
 
 class LoginController extends Controller
 {
