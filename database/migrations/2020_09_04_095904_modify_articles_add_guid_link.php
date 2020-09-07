@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyArticlesTable extends Migration
+class ModifyArticlesAddGuidLink extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,9 @@ class ModifyArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->bigInteger('category_id')->unsigned();
-            $table->foreign('category_id', 'fk_categories_id')->references('id')->on('news_categories')->onDelete('cascade');
+            //
+            $table->string('guid', 255);
+            $table->string('link', 255);
         });
     }
 
@@ -26,10 +27,10 @@ class ModifyArticlesTable extends Migration
      */
     public function down()
     {
-        //
         Schema::table('articles', function (Blueprint $table) {
-            $table->dropForeign('fk_categories_id');
-            $table->dropColumn('category_id');
+            //
+            $table->dropColumn('guid');
+            $table->dropColumn('link');
         });
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Articles;
+use App\Models\Article;
 
 class ArticlesCategory extends Model
 {
@@ -17,6 +17,6 @@ class ArticlesCategory extends Model
 
     public function articles()
     {
-        return $this->hasMany(Articles::class, 'category_id', 'id');
+        return $this->hasMany(Article::class, 'category_id', 'id');
     }
 }

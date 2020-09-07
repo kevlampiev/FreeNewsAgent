@@ -17,7 +17,10 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.1"
+        "laravel/ui": "^2.1",
+        "orchestra/parser": "^5.0",
+        "socialiteproviders/facebook": "^1.0",
+        "socialiteproviders/vkontakte": "^4.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",

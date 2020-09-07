@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Articles;
+use App\Models\Article;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsRequest;
 use App\Models\ArticlesCategory;
-use App\Models\InfoSources;
+use App\Models\InfoSource;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 
 
-class ArticlesController extends Controller
+class ArticleController extends Controller
 {
     //Вспомогательная функция, собирающая данные для редактирования/добавления статьи из формы ввода
-    private function getFromForm(Articles $article, NewsRequest $request)
+    private function getFromForm(Article $article, NewsRequest $request)
     {
         $article->fill($request->except(['_token', 'img']));
         if ($request->file('img')) {
@@ -26,10 +26,10 @@ class ArticlesController extends Controller
 
     public function add(string $slug = null)
     {
-        $article = new Articles([], $slug);
+        $article = new Article([], $slug);
         return view('admin.article-add', [
             'categoryList' => ArticlesCategory::orderBy('name')->get(),
-            'sourcesList' => InfoSources::orderBy('name')->get(),
+            'sourcesList' => InfoSource::orderBy('name')->get(),
             'article' => $article,
         ]);
     }
@@ -37,31 +37,28 @@ class ArticlesController extends Controller
 //    public function insert(string $slug, NewsRequest $request)
     public function insert(NewsRequest $request)
     {
-        $new = new Articles();
+        $new = new Article();
         try {
             $this->getFromForm($new, $request);
             session()->flash('proceed_status', 'Новость добавлена');
         } catch (\Exception $e) {
             session()->flash('error_message', "Ошибка сервера. {$e->getMessage()}");
         }
-        if (session()->get('work_sector') == 'admin') {
-            return redirect()->route(session()->get('work_sector'));
-        } else {
-            return redirect()->route(session()->get('work_sector'), ['slug' => $new->category->slug]);
-        }
+
+        return redirect()->to(session()->get('work_sector'));
     }
 
-    public function edit(string $slug, Articles $article)
+    public function edit(string $slug, Article $article)
     {
 //        session()->start();
         return view('admin.article-add', [
             'categoryList' => ArticlesCategory::orderBy('name')->get(),
-            'sourcesList' => InfoSources::orderBy('name')->get(),
+            'sourcesList' => InfoSource::orderBy('name')->get(),
             'article' => $article,
         ]);
     }
 
-    public function update(string $slug, Articles $article, NewsRequest $request)
+    public function update(string $slug, Article $article, NewsRequest $request)
     {
 
         try {
@@ -71,14 +68,10 @@ class ArticlesController extends Controller
             session()->flash('error_message', "Ошибка сервера. {$e->getMessage()}");
         }
 
-        if (session()->get('work_sector') == 'admin') {
-            return redirect()->route(session()->get('work_sector'));
-        } else {
-            return redirect()->route(session()->get('work_sector'), ['slug' => $slug]);
-        }
+        return redirect()->to(session()->get('work_sector'));
     }
 
-    public function delete(string $slug, Articles $article)
+    public function delete(string $slug, Article $article)
     {
         try {
             $article->delete();

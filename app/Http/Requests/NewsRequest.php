@@ -27,7 +27,7 @@ class NewsRequest extends FormRequest
             'title' => 'required|string|between:5,255',
             'is_private' => 'nullable|integer|between:0,1',
             'announcement' => 'required|string|between: 20,255',
-            'article_body' => 'required|string|between: 100,1000',
+            'article_body' => 'required|string|min: 50',
             'category_id' => 'required|integer|exists:news_categories,id',
             'source_id' => 'required|integer|exists:news_sources,id'
         ];

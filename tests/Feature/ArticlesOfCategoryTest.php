@@ -16,7 +16,7 @@ class ArticlesOfCategoryTest extends TestCase
      */
     public function testExample()
     {
-        $slug=DB::table('news_categories')->first()->slug;
+        $slug = DB::table('news_categories')->first()->slug;
         $response = $this->get("/admin/categories/{{$slug}}/articles");
 
         $response->assertStatus(200);

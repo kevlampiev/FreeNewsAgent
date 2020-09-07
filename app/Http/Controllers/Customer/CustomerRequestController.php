@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Customer;
 
-use App\Models\Articles;
+use App\Models\Article;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\TmpServices\DBConnService;
 use App\Http\Requests\FeedbackRequest;
@@ -12,7 +12,7 @@ use App\Models\ArticlesCategory;
 use Illuminate\Http\Response;
 
 
-class CustomerRequestsController extends Controller
+class CustomerRequestController extends Controller
 {
     public function addFeedback()
     {

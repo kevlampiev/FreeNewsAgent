@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class CategoriesSeeder extends Seeder
 {
@@ -21,8 +22,10 @@ class CategoriesSeeder extends Seeder
 
         $data = [];
         for ($i = 0; $i < 10; $i++) {
+            $title = $faker->sentence(rand(3, 20));
             $data[] = [
-                'name' => $faker->sentence(rand(3, 10)),
+                'name' => $title,
+                'slug' => Str::slug($title),
                 'description' => $faker->realText(rand(100, 200))
             ];
         }
