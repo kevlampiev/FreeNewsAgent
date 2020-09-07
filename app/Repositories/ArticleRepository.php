@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Models\TmpArticleData;
+use Illuminate\Support\Facades\DB;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 use Illuminate\Support\Str;
 
@@ -43,10 +44,12 @@ class ArticleRepository
     public static function getLentaArticles(): array
     {
         $xml = XmlParser::load('https://lenta.ru/rss');
+
+
         $data = $xml->parse(
             [
                 'source' => ['uses' => 'channel.link'],
-                'news' => ['uses' => 'channel.item[category,title,link,guid,description,pubDate]'],
+                'news' => ['uses' => 'channel.item[category,title,link,guid,description,pubDate,enclosure::url,category,enclosure]'],
             ]
         );
 
@@ -61,7 +64,7 @@ class ArticleRepository
                 'title' => $el['title'],
                 'announcement' => $el['title'],
                 'article_body' => $el['description'],
-                'img' => '',
+                'img' => $el['enclosure::url'],
                 'is_private' => false,
                 'link' => $el['link'],
                 'created_at' => $el['pubDate']
@@ -75,6 +78,7 @@ class ArticleRepository
 
     public static function storeArticles(array $articles)
     {
+        //TODO Заменить на что-то более оптимальное из методов модели
         if (count($articles) > 0) {
             foreach ($articles as $el) {
                 $article = new TmpArticleData();
@@ -82,7 +86,9 @@ class ArticleRepository
                 $article->save();
             }
         }
-
+        //TODO сделать, чтобы возвращало количество добавленных записей
+        DB::unprepared('CALL parse_articles()');
+        session()->flash('proceed_status', 'Произведена зазрузка данных Lenta.ru');
 
     }
 

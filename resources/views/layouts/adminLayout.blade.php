@@ -47,6 +47,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{route('admin.lentaRSS')}}"> Lenta.ru </a>
+                            <a class="dropdown-item" href="{{route('admin.vzglyadRSS')}}"> Взгляд. ежедневная деловая газета </a>
 
                         </div>
                     </li>

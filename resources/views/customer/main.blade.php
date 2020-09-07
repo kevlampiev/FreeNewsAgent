@@ -12,7 +12,7 @@
                 @foreach($news as $new)
                     <section>
                         <img
-                            src="{{asset('storage/images/articles/'.(basename($new->img)?basename($new->img):'no_image.jpg'))}}"
+                            src="{{($new->img==null||$new->img=='')?asset('storage/images/articles/no_image.jpg'):$new->img}}"
                             alt="{{'Изобржение '.$new->title}}"
                             class="front-page-img">
                         <a href="{{route('customer.showArticle',[

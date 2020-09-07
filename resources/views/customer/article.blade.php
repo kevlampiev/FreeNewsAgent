@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="article-container shadowed-box">
-        <img src="{{asset('storage/images/articles/'.(basename($new->img)?basename($new->img):'no_image.jpg'))}}"
+        <img src="{{($new->img==null||$new->img=='')?asset('storage/images/articles/no_image.jpg'):$new->img}}"
              alt="Иллюстриция к новости" class="article-img">
         <H3 class="article-header">{{$new->title}}</H3>
         <h5>{{$new->category->name}}</h5>

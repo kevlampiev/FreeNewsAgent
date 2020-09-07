@@ -16,7 +16,7 @@
                     <div class="article-main-block">
 
                         <img
-                            src="{{asset('storage/images/articles/'.(basename($new->img)?basename($new->img):'no_image.jpg'))}}"
+                            src="{{($new->img==null||$new->img=='')?asset('storage/images/articles/no_image.jpg'):$new->img}}"
                             alt="Иллюстриция к новости" class="article-img">
                         <h5 class="article-header">
                             {{$new->title}}

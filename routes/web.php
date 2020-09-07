@@ -91,6 +91,7 @@ Route::group([
 
         Route::group(['prefix' => 'parse'], function () {
             Route::get('lenta', 'ParserController@index')->name('admin.lentaRSS');
+            Route::get('vzglyad', 'ParserController@loadVzglyad')->name('admin.vzglyadRSS');
         });
 
         //Нормальные источники новостей (из базы данных)  /admin/infosources +

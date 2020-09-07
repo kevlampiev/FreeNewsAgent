@@ -97,7 +97,7 @@
                     @if (old('tmp_imp_path'))
                     src="{{old('tmp_imp_path')}}"
                     @elseif ($article->img)
-                    src="{{asset('storage/images/articles/'.basename($article->img))}}"
+                    src="{{$article->img}}"
                     @else
                     src="{{asset('storage/images/articles/no_image.jpg')}}"
                     @endif
