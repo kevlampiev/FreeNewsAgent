@@ -37,6 +37,8 @@ Route::group([
                 Route::get('/vk/response', 'LoginController@responseVK')->name('vkResponse');
                 Route::get('/fb', 'LoginController@loginFB')->name('fbLogin');
                 Route::get('/fb/response', 'LoginController@responseFB')->name('fbResponse');
+                Route::get('/github', 'LoginController@loginGH')->name('ghLogin');
+                Route::get('/github/response', 'LoginController@responseGH')->name('ghResponse');
             });
 
         //данные по статьям и категориям /categories+

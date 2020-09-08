@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d7dfa3f5be4e44eb1433d9047d311a8",
+    "content-hash": "48284630fdb1c32aa328b007bcb968bd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2279,6 +2279,44 @@
             ],
             "description": "Facebook (facebook.com) OAuth2 Provider for Laravel Socialite",
             "time": "2019-01-11T19:47:04+00:00"
+        },
+        {
+            "name": "socialiteproviders/github",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocialiteProviders/GitHub.git",
+                "reference": "21b926c50ed00e2fd89f418ee96be7d82959ef44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocialiteProviders/GitHub/zipball/21b926c50ed00e2fd89f418ee96be7d82959ef44",
+                "reference": "21b926c50ed00e2fd89f418ee96be7d82959ef44",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^5.6 || ^7.0",
+                "socialiteproviders/manager": "~2.0 || ~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SocialiteProviders\\GitHub\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Komarev",
+                    "email": "ell@cybercog.su"
+                }
+            ],
+            "description": "GitHub OAuth2 Provider for Laravel Socialite",
+            "time": "2019-09-06T15:27:03+00:00"
         },
         {
             "name": "socialiteproviders/manager",

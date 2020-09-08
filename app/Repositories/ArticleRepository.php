@@ -45,7 +45,6 @@ class ArticleRepository
     {
         $xml = XmlParser::load('https://lenta.ru/rss');
 
-
         $data = $xml->parse(
             [
                 'source' => ['uses' => 'channel.link'],

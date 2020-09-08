@@ -105,6 +105,11 @@
                                     <i class="fa fa-google" aria-hidden="true"></i>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('ghLogin')}}">
+                                    <i class="fa fa-github" aria-hidden="true"></i>
+                                </a>
+                            </li>
                         @endif
                     @else
 

@@ -40,4 +40,24 @@ class LoginController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function loginGH()
+    {
+        return Socialite::driver('github')->redirect();
+    }
+
+    public function responseGH(UserRepository $userRepository)
+    {
+        if (Auth::id()) {
+            return redirect()->route('home');
+        }
+
+        $user = Socialite::driver('github')->user();
+
+        session(['soc.token' => $user->token]);
+        $userInSystem = $userRepository->getUserBySocId($user, 'github');
+        Auth::login($userInSystem);
+
+        return redirect()->route('home');
+    }
 }

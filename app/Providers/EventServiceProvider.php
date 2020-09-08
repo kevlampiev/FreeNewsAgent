@@ -22,6 +22,7 @@ class EventServiceProvider extends ServiceProvider
             // ... other providers
             'SocialiteProviders\\VKontakte\\VKontakteExtendSocialite@handle',
             'SocialiteProviders\\Facebook\\FacebookExtendSocialite@handle',
+            'SocialiteProviders\\GitHub\\GitHubExtendSocialite@handle',
         ],
     ];
 
