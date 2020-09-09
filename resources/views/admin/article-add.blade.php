@@ -147,13 +147,21 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
 
-            <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <a href="{{session()->get('work_sector')}}"
+                       class="btn btn-secondary ">
+                        Отмена
+                    </a>
 
-            <a href="{{session()->get('work_sector')}}"
-               class="btn btn-secondary ">
-                Отмена
-            </a>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+
+
         </form>
     </div>
 @endsection
