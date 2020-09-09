@@ -21,7 +21,16 @@
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app">
+
+
+<div
+    @if (request()->routeIs('admin.editArticle')||request()->routeIs('admin.addArticle'))
+    id="form-id"
+    @else
+    id="app"
+    @endif
+>
+    {{--<div id="app">--}}
     <nav class="navbar navbar-expand-xl navbar navbar-light bg-light shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ route('admin') }}">
@@ -47,7 +56,8 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{route('admin.lentaRSS')}}"> Lenta.ru </a>
-                            <a class="dropdown-item" href="{{route('admin.vzglyadRSS')}}"> Взгляд. ежедневная деловая газета </a>
+                            <a class="dropdown-item" href="{{route('admin.vzglyadRSS')}}"> Взгляд. ежедневная деловая
+                                газета </a>
 
                         </div>
                     </li>

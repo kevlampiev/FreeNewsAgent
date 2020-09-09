@@ -11,7 +11,7 @@
         <h5>{{$new->category->name}}</h5>
         <p><i> {{$new->announcement}}</i></p>
 
-        <p> {{$new->article_body}}</p>
+        <p> {!! $new->article_body !!}</p>
         <hr>
         <a href="{{route('customer.articlesOfCategory',[$new->category->slug])}}">
             Ко всем новостям категории {{$new->category->name}}
@@ -19,6 +19,3 @@
     </div>
 @endsection
 
-{{--@section('stylesheets')--}}
-{{--    <link rel="stylesheet" href="{{asset('css/article.css')}}">--}}
-{{--@endsection--}}

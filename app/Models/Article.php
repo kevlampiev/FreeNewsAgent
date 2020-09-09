@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'announcement', 'article_body', 'is_private', 'category_id', 'source_id'];
+    protected $fillable = ['title', 'announcement', 'article_body',
+        'is_private', 'category_id', 'source_id', 'guid', 'link', 'img'];
 
     public function __construct(array $attributes = [], string $slug = null, int $source_id = null)
     {
@@ -17,6 +18,8 @@ class Article extends Model
             $category = ArticlesCategory::query()->where('slug', $slug)->first();
             if ($category) $this->category_id = $category->id;
         }
+        $this->guid = 'localhost/' . now();
+        $this->link = 'localhost';
     }
 
     public function category()
