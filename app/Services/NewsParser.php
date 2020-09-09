@@ -14,9 +14,9 @@ class NewsParser
     private $sourceUrl;
 
 
-    public function __construct(string $sourceName)
+    public function __construct(string $sourceUrl)
     {
-        $this->sourceUrl=$sourceName;
+        $this->sourceUrl=$sourceUrl;
     }
 
     public function getData(): array
@@ -24,17 +24,21 @@ class NewsParser
         $xml = XmlParser::load($this->sourceUrl);
         $data = $xml->parse(
             [
+                'channel.title'=>['uses'=>'channel.title'],
                 'source' => ['uses' => 'channel.link'],
-                'category'=>['uses'=>'chanel.category'],
+                'category'=>['uses'=>'channel.category'],
                 'news' => ['uses' => 'channel.item[category,title,link,guid,enclosure::url,description,pubDate]'],
             ]
         );
+        if ($data['category']==null) $data['category']=$data['channel.title'];
+
+
         //хочу чтобы на выходе был стандарный массив, но не знаю как иначе
         $result = [];
         foreach ($data['news'] as $el) {
             $result[] = [
-                'category' => isset($el['category'])?$el['category']:$data['category'],
-                'slug' => Str::slug($el['category']),
+                'category' => ($el['category']!=null)?$el['category']:$data['category'],
+                'slug' => Str::slug(($el['category']!=null)?$el['category']:$data['category']),
                 'source' => $data['source'],
                 'title' => $el['title'],
                 'announcement' => $el['title'],
@@ -52,7 +56,7 @@ class NewsParser
 
     public function storeArticles()
     {
-        $articles=$this->getData();
+         $articles=$this->getData();
         //оптимальнее не получится с учетом того, что использую временные таблицы базы
         if (count($articles) > 0) {
             foreach ($articles as $el) {

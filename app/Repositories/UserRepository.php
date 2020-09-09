@@ -11,10 +11,15 @@ class UserRepository
 
     public function getUserBySocId(UserOAuth $user, string $socName)
     {
-        $userInSystem = User::query()
-            ->where('id_in_soc', $user->id)
-            ->where('type_auth', $socName)
-            ->first();
+        $userInSystemBuilder = User::query()
+            ->orWhere([['id_in_soc','=',$user->id],['type_auth', '=',$socName]] );
+//            ->orWhere('email',$user->getEmail())
+//            ->first();
+        if (!empty($user->getEmail())) {
+            $userInSystemBuilder->orWhere('email',$user->getEmail());
+        }
+
+        $userInSystem=$userInSystemBuilder->first();
 
         if (empty($userInSystem)) {
             $userInSystem = new User();
@@ -26,6 +31,12 @@ class UserRepository
                 'type_auth' => $socName,
                 'avatar' => !empty($user->getAvatar()) ? $user->getAvatar() : '',
             ]);
+
+            $userInSystem->save();
+        } else {
+            $userInSystem->id_in_soc=$user->getId();
+            $userInSystem->type_auth=$socName;
+            $userInSystem->name=$user->getName();
             $userInSystem->save();
         }
         return $userInSystem;

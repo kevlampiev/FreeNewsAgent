@@ -20,6 +20,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "orchestra/parser": "^5.0",
+        "predis/predis": "^1.1",
         "socialiteproviders/facebook": "^1.0",
         "socialiteproviders/github": "^1.0",
         "socialiteproviders/vkontakte": "^4.1",
