@@ -37,7 +37,8 @@ class InfoSourceController extends Controller
     public function insert(InfoSourcesRequest $request)
     {
         $source = new InfoSource();
-        $source->fill($request->toArray())->save();
+        $source->fill($request->toArray());
+            $source->save();
         session()->flash('proceed_status', 'Источник новостей добавлен');
         return redirect()->route('admin.infoSourcesList');
     }
@@ -52,7 +53,10 @@ class InfoSourceController extends Controller
 
     public function update(InfoSource $source, InfoSourcesRequest $request)
     {
-        $source->fill($request->toArray())->save();
+//        dd($source);
+        $source->fill($request->except('_token'));
+//            dd($source);
+        $source->save();
         session()->flash('proceed_status', 'Данные об источнике обновлены');
         return redirect()->route('admin.infoSourcesList');
     }

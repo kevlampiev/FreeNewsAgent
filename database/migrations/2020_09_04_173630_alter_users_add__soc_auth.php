@@ -20,7 +20,7 @@ class AlterUsersAddSocAuth extends Migration
             $table->enum('type_auth', ['site', 'vk', 'fb', 'google', 'github'])
                 ->default('site')
                 ->comment('Какой авторзацией пользуется user');
-            $table->string('avatar', 150)->default('')
+            $table->string('avatar', 255)->default('')
                 ->comment('Ссылка на аватар');
             $table->index('id_in_soc');
         });

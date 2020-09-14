@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Services\NewsParser;
+use App\Services\NewsParserService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -33,7 +33,7 @@ class NewsParsing implements ShouldQueue
      */
     public function handle()
     {
-        $newsParser=new NewsParser($this->link);
+        $newsParser=new NewsParserService($this->link);
         $newsParser->storeArticles();
     }
 }

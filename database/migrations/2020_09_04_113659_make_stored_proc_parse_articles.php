@@ -25,16 +25,11 @@ class MakeStoredProcParseArticles extends Migration
                             SELECT DISTINCT category,slug,category,now() FROM tmp_article_data
                             WHERE slug NOT IN (SELECT slug FROM news_categories);
 
-                            INSERT INTO news_sources (name,http_address,created_at)
-                            SELECT DISTINCT source,source,now() FROM tmp_article_data
-                            WHERE source NOT IN (SELECT http_address FROM news_sources);
-
                             SELECT  count(*) INTO rec_added FROM v_articles_to_parse;
                             INSERT INTO articles(title,announcement,article_body,is_private,created_at,category_id,source_id,img,guid,link)
                             SELECT * FROM v_articles_to_parse;
 
                             DELETE FROM tmp_article_data;
-                            SELECT rec_added;
                         COMMIT;
                 END');
     }

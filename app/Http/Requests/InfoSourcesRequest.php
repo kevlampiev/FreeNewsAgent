@@ -27,7 +27,7 @@ class InfoSourcesRequest extends FormRequest
 
             'name' => 'required|string|between:5,255',
             'http_address' => 'required|string|max: 255',
-            'description' => 'required|string|between: 10,1000'
+            'description' => 'string|between: 10,1000'
         ];
     }
 

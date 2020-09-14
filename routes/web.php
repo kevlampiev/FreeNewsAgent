@@ -21,6 +21,7 @@ Route::group([
 ],
     function () {
         Route::get('/', 'HomeController@index')->name('home');
+        Route::get('/privacy','HomeController@privacy')->name('privacy');
 //        Route::get('/login', 'HomeController@login')->name('login');
         Route::get('/feedback', 'CustomerRequestController@addFeedback')->name('customer.feedback');
         Route::post('/feedback', 'CustomerRequestController@storeFeedback');

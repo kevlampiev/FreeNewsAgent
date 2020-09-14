@@ -67,6 +67,14 @@ section {
     padding-top: 15px;
     font-size: small;
     font-style: italic;
+    }
+
+section:hover {
+    background-color: #eee;
+    img.front-page-img {
+        filter: grayscale(0);
+    }
+;
 }
 
 a {
@@ -145,6 +153,7 @@ a > .article-header:hover {
     float: left;
     object-fit: contain;
     margin-right: 15px;
+    filter: grayscale(100%);
 }
 
 .clear-div {

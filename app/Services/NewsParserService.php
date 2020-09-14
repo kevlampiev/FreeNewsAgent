@@ -5,11 +5,12 @@ namespace App\Services;
 
 
 use App\Models\TmpArticleData;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 
-class NewsParser
+class NewsParserService implements ShouldQueue
 {
     private $sourceUrl;
 
@@ -25,7 +26,7 @@ class NewsParser
         $data = $xml->parse(
             [
                 'channel.title'=>['uses'=>'channel.title'],
-                'source' => ['uses' => 'channel.link'],
+//                'source' => ['uses' => $this->sourceUrl],
                 'category'=>['uses'=>'channel.category'],
                 'news' => ['uses' => 'channel.item[category,title,link,guid,enclosure::url,description,pubDate]'],
             ]
@@ -39,7 +40,7 @@ class NewsParser
             $result[] = [
                 'category' => ($el['category']!=null)?$el['category']:$data['category'],
                 'slug' => Str::slug(($el['category']!=null)?$el['category']:$data['category']),
-                'source' => $data['source'],
+                'source' => $this->sourceUrl,
                 'title' => $el['title'],
                 'announcement' => $el['title'],
                 'article_body' => $el['description'],
