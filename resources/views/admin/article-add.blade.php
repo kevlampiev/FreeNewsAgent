@@ -14,6 +14,7 @@
             @csrf
             <div class="row">
                 <div class="col-md-12">
+                    <div class="card-header">Редактирование статьи</div>
 
                     <div class="form-group {{$errors->has('title')?'has-error':''}}">
 

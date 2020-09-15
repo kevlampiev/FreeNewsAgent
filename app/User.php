@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\InfoEnquiery;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','id_in_soc','type_auth','avatar'
+        'name', 'email', 'password', 'id_in_soc', 'type_auth', 'avatar', 'is_admin'
     ];
 
     /**
@@ -36,4 +37,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function enquieries()
+    {
+        return $this->hasMany(InfoEnquiery::class,'user_id','id');
+    }
+
 }

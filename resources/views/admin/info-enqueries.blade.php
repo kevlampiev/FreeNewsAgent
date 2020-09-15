@@ -11,8 +11,8 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Дата поступления</th>
+            <th scope="col">Пользователь</th>
             <th scope="col">Электронная почта</th>
-            <th scope="col">Телефон</th>
             <th scope="col">Содержание</th>
             <th scope="col">Состояние</th>
             <th scope="col">
@@ -29,8 +29,8 @@
             <tr>
                 <th scope="row">{{$req->id}}</th>
                 <td>{{$req->created_at}}</td>
-                <td>{{$req->email}}</td>
-                <td>{{$req->phone}}</td>
+                <td>{{$req->user->name}}</td>
+                <td>{{$req->user->email}}</td>
                 <td>{{substr($req->request_body,0,min(30, strlen($req->request_body)))."..."}}</td>
                 <td>N/a yet</td>
                 <td>

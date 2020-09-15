@@ -80,6 +80,6 @@ class ArticleController extends Controller
         } catch (\Exception $e) {
             session()->flash('error_message', "Ошибка сервера. {$e->getMessage()}");
         }
-            return redirect()->to(session()->get('work_sector'));
+        return redirect()->to(session()->get('work_sector'));
     }
 }

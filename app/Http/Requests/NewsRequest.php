@@ -30,7 +30,7 @@ class NewsRequest extends FormRequest
             'article_body' => 'required|string|min: 50',
             'category_id' => 'required|integer|exists:news_categories,id',
             'source_id' => 'required|integer|exists:news_sources,id',
-            'link'=>'required|string'
+            'link' => 'required|string'
         ];
     }
 

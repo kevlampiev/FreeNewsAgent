@@ -21,14 +21,20 @@ Route::group([
 ],
     function () {
         Route::get('/', 'HomeController@index')->name('home');
-        Route::get('/privacy','HomeController@privacy')->name('privacy');
-//        Route::get('/login', 'HomeController@login')->name('login');
+        Route::get('/privacy', 'HomeController@privacy')->name('privacy');
         Route::get('/feedback', 'CustomerRequestController@addFeedback')->name('customer.feedback');
         Route::post('/feedback', 'CustomerRequestController@storeFeedback');
-        Route::get('/info-enquiery', 'InfoEnquiryController@create')->name('customer.infoEnquiery');
-        Route::post('/info-enquiery', 'InfoEnquiryController@store');
-        Route::get('/personal-account', 'ManageProfileController@showPersonalAccount')->name('customer.personalAccount')->middleware('auth');
-        Route::post('/personal-account', 'ManageProfileController@updateAccountInfo');
+
+        Route::group([
+            'middleware' => ['auth']
+        ],
+            function () {
+                Route::get('/info-enquiery', 'InfoEnquiryController@create')->name('customer.infoEnquiery');
+                Route::post('/info-enquiery', 'InfoEnquiryController@store');
+                Route::get('/personal-account', 'ManageProfileController@showPersonalAccount')->name('customer.personalAccount');
+                Route::post('/personal-account', 'ManageProfileController@updateAccountInfo');
+            });
+
 
         Route::group([
             'prefix' => '/auth'
@@ -93,8 +99,7 @@ Route::group([
         );
 
         Route::group(['prefix' => 'parse'], function () {
-            Route::get('lenta', 'ParserController@index')->name('admin.lentaRSS');
-            Route::get('vzglyad', 'ParserController@loadVzglyad')->name('admin.vzglyadRSS');
+            Route::get('parseAll', 'ParserController@loadAllNews')->name('admin.loadAllNews');
         });
 
         //Нормальные источники новостей (из базы данных)  /admin/infosources +
@@ -107,13 +112,21 @@ Route::group([
             Route::get('{source}/edit', 'InfoSourceController@edit')->name('admin.editInfoSource');
             Route::post('{source}/edit', 'InfoSourceController@update');
             Route::post('{source}/delete', 'InfoSourceController@delete')->name('admin.deleteInfoSource');
-
+            Route::post('{source}/parse', 'ParserController@loadSingle')->name('admin.parseInfoSource');
         });
 
         Route::resource('infoEnquiries', 'InfoEnquiryController');
 
-        Route::get('users', 'UserController@index')->name('admin.usersList');
-        Route::post('users', 'UserController@switchRole');
+        //Нормальные источники новостей (из базы данных)  /admin/users +
+        Route::group(['prefix' => 'users'], function () {
+            Route::get('/', 'UserController@index')->name('admin.usersList');
+            Route::post('/', 'UserController@switchRole');
+            Route::get('add', 'UserController@create')->name('admin.addUser');
+            Route::post('add', 'UserController@insert');
+            Route::get('{user}/edit', 'UserController@edit')->name('admin.editUser');
+            Route::post('{user}/edit', 'UserController@update');
+
+        });
     }
 );
 

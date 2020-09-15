@@ -17,7 +17,7 @@ class ArticleViewTest extends TestCase
     public function testProperPath()
     {
         $article = DB::table('v_articles_with_categories')->first();
-
+        echo '/categories/' . $article->slug . '/articles/' . $article->id;
         $response = $this->get('/categories/' . $article->slug . '/articles/' . $article->id);
         $response->assertStatus(200);
         $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');

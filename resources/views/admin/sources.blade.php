@@ -49,6 +49,13 @@
                         <i class="fa fa-trash" aria-hidden="true"></i>
                         Удалить
                     </a>
+
+                    <a href="{{route('admin.parseInfoSource',[$source])}}" class="article-control-link"
+                       data-method="POST" data-token="{{ csrf_token() }}">
+                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                        Загрузить статьи
+                    </a>
+
                 </div>
             </div>
 

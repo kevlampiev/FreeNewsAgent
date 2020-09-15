@@ -23,7 +23,7 @@ class NewsParsing implements ShouldQueue
     public function __construct(string $link)
     {
         //
-        $this->link=$link;
+        $this->link = $link;
     }
 
     /**
@@ -33,7 +33,7 @@ class NewsParsing implements ShouldQueue
      */
     public function handle()
     {
-        $newsParser=new NewsParserService($this->link);
+        $newsParser = new NewsParserService($this->link);
         $newsParser->storeArticles();
     }
 }

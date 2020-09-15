@@ -24,20 +24,13 @@ class InfoEnquieryRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|string|between:2,60',
-            'phone' => 'required|regex:/^\+\d(\d{3})(\d{3})(\d{4})$/',
-            'email' => 'required|email',
-            'description' => 'required|string|between: 20,1000'
-
+            'description' => 'required|string|between: 10,1000'
         ];
     }
 
     public function attributes()
     {
         return [
-            'username' => 'Имя',
-            'phone' => 'Номер телефон',
-            'email' => 'Адрес электронной почты',
             'description' => 'Описание запрашиваемой информации'
         ];
     }

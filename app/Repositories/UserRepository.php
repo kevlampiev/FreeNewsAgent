@@ -4,7 +4,9 @@
 namespace App\Repositories;
 
 use App\User;
-use \Laravel\Socialite\Contracts\User as UserOAuth;;
+use \Laravel\Socialite\Contracts\User as UserOAuth;
+
+;
 
 class UserRepository
 {
@@ -12,14 +14,14 @@ class UserRepository
     public function getUserBySocId(UserOAuth $user, string $socName)
     {
         $userInSystemBuilder = User::query()
-            ->orWhere([['id_in_soc','=',$user->id],['type_auth', '=',$socName]] );
+            ->orWhere([['id_in_soc', '=', $user->id], ['type_auth', '=', $socName]]);
 //            ->orWhere('email',$user->getEmail())
 //            ->first();
         if (!empty($user->getEmail())) {
-            $userInSystemBuilder->orWhere('email',$user->getEmail());
+            $userInSystemBuilder->orWhere('email', $user->getEmail());
         }
 
-        $userInSystem=$userInSystemBuilder->first();
+        $userInSystem = $userInSystemBuilder->first();
 
         if (empty($userInSystem)) {
             $userInSystem = new User();
@@ -34,9 +36,9 @@ class UserRepository
 
             $userInSystem->save();
         } else {
-            $userInSystem->id_in_soc=$user->getId();
-            $userInSystem->type_auth=$socName;
-            $userInSystem->name=$user->getName();
+            $userInSystem->id_in_soc = $user->getId();
+            $userInSystem->type_auth = $socName;
+            $userInSystem->name = $user->getName();
             $userInSystem->save();
         }
         return $userInSystem;

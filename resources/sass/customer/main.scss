@@ -67,10 +67,11 @@ section {
     padding-top: 15px;
     font-size: small;
     font-style: italic;
-    }
+}
 
 section:hover {
     background-color: #eee;
+
     img.front-page-img {
         filter: grayscale(0);
     }

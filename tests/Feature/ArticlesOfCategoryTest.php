@@ -6,9 +6,12 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class ArticlesOfCategoryTest extends TestCase
 {
+    use WithoutMiddleware;
+
     /**
      * A basic feature test example.
      *
@@ -17,7 +20,8 @@ class ArticlesOfCategoryTest extends TestCase
     public function testExample()
     {
         $slug = DB::table('news_categories')->first()->slug;
-        $response = $this->get("/admin/categories/{{$slug}}/articles");
+        echo "admin/categories/{$slug}/articles";
+        $response = $this->get("admin/categories/{$slug}/articles");
 
         $response->assertStatus(200);
         $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');

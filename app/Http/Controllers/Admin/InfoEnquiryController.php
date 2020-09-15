@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\InfoEnquiery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class InfoEnquiryController extends Controller
 {
@@ -25,7 +26,7 @@ class InfoEnquiryController extends Controller
      */
     public function create()
     {
-        return view('admin.info-enquiery-form', ['ireq' => new InfoEnquiery()]);
+        return view('admin.info-enquiery-form', ['ireq' => new InfoEnquiery(),'users'=>User::all()]);
     }
 
     /**
@@ -63,7 +64,8 @@ class InfoEnquiryController extends Controller
     {
         return view('admin.info-enquiery-form', [
                 'ireq' => InfoEnquiery::get()->where('id', $id)->first(),
-                'id' => $id
+//                'id' => $id
+                'users' => User::all()
             ]
         );
         //
@@ -76,11 +78,10 @@ class InfoEnquiryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
         $infoReq = InfoEnquiery::get()->where('id', $id)->first();
-//        dd($infoReq);
-        $infoReq->fill($request->except(['_token', 'id']))->save();
+        $infoReq->fill($request->except(['_token']))->save();
         session()->flash('proceed_status', 'Данные запроса обновлены');
         return redirect()->route('infoEnquiries.index');
     }
@@ -95,7 +96,7 @@ class InfoEnquiryController extends Controller
     {
         $infoReq = InfoEnquiery::get()->where('id', $id)->first();
         $infoReq->delete();
-        session()->flash('Proceed_status', 'Информаця о запросе удалена');
+        session()->flash('Proceed_status', 'Информация о запросе удалена');
 
         return redirect()->route('infoEnquiries.index');
     }

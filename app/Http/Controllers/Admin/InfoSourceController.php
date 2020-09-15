@@ -11,17 +11,9 @@ use Illuminate\Support\Facades\DB;
 class InfoSourceController extends Controller
 {
 
-//    private function getFromForm(InfoSource $source, InfoSourcesRequest $request)
-//    {
-//        $source->name=$request->get('name');
-//        $source->http_address=$request->get('http_address');
-//        $source->description=$request->get('description');
-//        $source->save();
-//    }
-
     public function index()
     {
-        $sources = InfoSource::all();
+        $sources = InfoSource::withCount('articles')->get();
         return view('admin.sources', [
             'sources' => $sources
         ]);
@@ -38,7 +30,7 @@ class InfoSourceController extends Controller
     {
         $source = new InfoSource();
         $source->fill($request->toArray());
-            $source->save();
+        $source->save();
         session()->flash('proceed_status', 'Источник новостей добавлен');
         return redirect()->route('admin.infoSourcesList');
     }
