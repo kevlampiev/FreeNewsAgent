@@ -11,8 +11,8 @@ class InfoEnquiryController extends Controller
 {
     public function create()
     {
-        $infoEnq= new InfoEnquiery();
-        $infoEnq->user_id=Auth::user()->id;
+        $infoEnq = new InfoEnquiery();
+        $infoEnq->user_id = Auth::user()->id;
         return view('customer.info-enquiery-form', ['ireq' => $infoEnq]);
     }
 

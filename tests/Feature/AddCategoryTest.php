@@ -7,10 +7,11 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
+use App\User;
 
 class AddCategoryTest extends TestCase
 {
-    use WithoutMiddleware;
+//    use WithoutMiddleware;
 
     /**
      * A basic feature test example.
@@ -19,7 +20,10 @@ class AddCategoryTest extends TestCase
      */
     public function testExample()
     {
-        $response = $this->get("admin/categories/add");
+        $user = User::query()->where('is_admin', true)->limit(1)->first();
+//        dd($user);
+        $response = $this->actingAs($user)->get("admin/categories/add");
+//        dd($response);
         $response->assertStatus(200);
         $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');
         $response->assertSee('submit');

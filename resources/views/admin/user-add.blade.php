@@ -13,7 +13,19 @@
                     <form method="POST">
                         @csrf
 
-                        @include('auth.userinfo-template');
+                        @include('auth.user-info-template');
+
+
+                        <div class="form-group row">
+                            <label for="change_pswd"
+                                   class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="change_pswd" type="text" class="form-control" name="change_pswd"
+                                       placeholder="Пустое поле - пароль без изменений">
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-4">

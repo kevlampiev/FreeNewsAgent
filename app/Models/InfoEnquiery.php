@@ -8,9 +8,11 @@ use App\User;
 class InfoEnquiery extends Model
 {
 //    protected $table="info_requests";
-    protected $fillable = ['request_body','user_id','id'];
+    protected $fillable = ['request_body', 'user_id', 'id'];
     protected $table = 'info_requests';
-    public function user() {
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }

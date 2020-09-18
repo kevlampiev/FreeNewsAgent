@@ -26,7 +26,7 @@ class InfoEnquiryController extends Controller
      */
     public function create()
     {
-        return view('admin.info-enquiery-form', ['ireq' => new InfoEnquiery(),'users'=>User::all()]);
+        return view('admin.info-enquiery-form', ['ireq' => new InfoEnquiery(), 'users' => User::all()]);
     }
 
     /**

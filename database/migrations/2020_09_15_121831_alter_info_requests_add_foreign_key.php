@@ -25,8 +25,8 @@ class AlterInfoRequestsAddForeignKey extends Migration
      */
     public function down()
     {
-       Schema::table('info_requests', function(Blueprint $table) {
-          $table->dropForeign(['user_id']);
-       });
+        Schema::table('info_requests', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
     }
 }

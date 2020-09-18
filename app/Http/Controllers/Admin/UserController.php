@@ -8,7 +8,7 @@ use http\Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
@@ -46,9 +46,10 @@ class UserController extends Controller
 
     public function insert(Request $request)
     {
-        $source = new User();
-        $source->fill($request->toArray());
-        $source->save();
+        $user = new User();
+        $user->fill($request->toArray());
+        $user->password=Hash::make($request->get('change_pswd')??'');
+        $user->save();
         session()->flash('proceed_status', 'Пользователь добавлен');
         return redirect()->route('admin.usersList');
     }
@@ -62,6 +63,8 @@ class UserController extends Controller
     public function update(User $user, Request $request)
     {
         $user->fill($request->all());
+        $newPassword=$request->get('change_pswd');
+        if ($newPassword&&($newPassword)>0) $user->password=Hash::make($newPassword);
         $user->save();
         session()->flash('proceed_status', 'Данные пользователя обновлены');
         return redirect()->route('admin.usersList');

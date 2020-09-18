@@ -40,7 +40,7 @@ class User extends Authenticatable
 
     public function enquieries()
     {
-        return $this->hasMany(InfoEnquiery::class,'user_id','id');
+        return $this->hasMany(InfoEnquiery::class, 'user_id', 'id');
     }
 
 }
