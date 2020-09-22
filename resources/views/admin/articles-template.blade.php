@@ -13,7 +13,7 @@
                 {{$new->announcement}}
             </h5>
             <p>
-                {{$new->article_body}}
+                {!! $new->article_body !!}
             </p>
         </div>
         <div class="article-control-block">

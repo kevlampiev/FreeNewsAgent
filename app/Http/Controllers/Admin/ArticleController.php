@@ -16,11 +16,12 @@ class ArticleController extends Controller
     //Вспомогательная функция, собирающая данные для редактирования/добавления статьи из формы ввода
     private function getFromForm(Article $article, NewsRequest $request)
     {
-        $article->fill($request->except(['_token', 'img']));
-        if ($request->file('img')) {
-            $newPath = Storage::put('public/images/articles', $request->file('img'));
-            $article->img = Storage::url($newPath);
-        }
+        $article->fill($request->except(['_token']));
+//        dd($article);
+//        if ($request->file('img')) {
+//            $newPath = Storage::put('public/images/articles', $request->file('img'));
+//            $article->img = Storage::url($newPath);
+//        }
         $article->save();
     }
 
@@ -79,10 +80,6 @@ class ArticleController extends Controller
         } catch (\Exception $e) {
             session()->flash('error_message', "Ошибка сервера. {$e->getMessage()}");
         }
-        if (session()->get('work_sector') == 'admin') {
-            return redirect()->route(session()->get('work_sector'));
-        } else {
-            return redirect()->route(session()->get('work_sector'), ['slug' => $slug]);
-        }
+        return redirect()->to(session()->get('work_sector'));
     }
 }

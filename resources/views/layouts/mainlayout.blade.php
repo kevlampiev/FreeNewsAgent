@@ -100,11 +100,7 @@
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fa fa-google" aria-hidden="true"></i>
-                                </a>
-                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('ghLogin')}}">
                                     <i class="fa fa-github" aria-hidden="true"></i>
@@ -252,7 +248,7 @@
                             <div class="col-md-6">
                                 <dl class="contact-list">
                                     <dt>Мы в социальных сетях</dt>
-                                    <dd><a href="mailto:#"></a></dd>
+                                    <dd><a href="mailto:kevlampiev@gmail.com">kevlampiev@gmail.com</a></dd>
                                 </dl>
                             </div>
                         </div>
@@ -262,7 +258,7 @@
                         <h5>Быстрые ссылки </h5>
                         <ul class="nav-list">
                             <li><a href="#">About</a></li>
-                            <li><a href="#">Projects</a></li>
+                            <li><a href="{{route('privacy')}}">Политика конфиденциальности</a></li>
                             <li><a href="#">Blog</a></li>
                             <li><a href="#">Contacts</a></li>
                         </ul>

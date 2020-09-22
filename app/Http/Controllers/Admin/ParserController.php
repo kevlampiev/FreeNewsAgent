@@ -3,26 +3,27 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\ArticleRepository;
-use App\Repositories\Parsers\VzglyadParser;
+use App\Models\InfoSource;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Orchestra\Parser\Xml\Facade as XmlParser;
-use App\Repositories\Parsers\LentaParser;
+use App\Jobs\NewsParsing;
 
 class ParserController extends Controller
 {
-    public function index()
+    public function loadAllNews()
     {
-//        $data = ArticleRepository::getLentaArticles();
-        $parser=new LentaParser('lenta');
-        ArticleRepository::storeArticles($parser->getData());
+        $sources = InfoSource::all();
+        foreach ($sources as $source) {
+            NewsParsing::dispatch($source->http_address);
+        }
+        session()->flash('proceed_status', 'Задания на скачивания всех новостей поставлены в очередь');
         return back();
     }
 
-    public function loadVzglyad() {
-        $parser=new VzglyadParser('vzglyad');
-        ArticleRepository::storeArticles($parser->getData());
+    public function loadSingle(InfoSource $source)
+    {
+        NewsParsing::dispatch($source->http_address);
+        session()->flash('proceed_status', "Задания на скачивание новостей с ресурса $source->http_address поставлено в очередь");
         return back();
     }
+
 }

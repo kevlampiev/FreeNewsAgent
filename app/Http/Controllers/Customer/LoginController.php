@@ -15,10 +15,21 @@ class LoginController extends Controller
         return Socialite::driver('vkontakte')->redirect();
     }
 
-    public function responseVK()
+    public function responseVK(UserRepository $userRepository)
     {
+        if (Auth::id()) {
+            return redirect()->route('home');
+        }
+
         $user = Socialite::driver('vkontakte')->user();
-        dd($user);
+
+        session(['soc.token' => $user->token]);
+
+        $userInSystem = $userRepository->getUserBySocId($user, 'vk');
+
+        Auth::login($userInSystem);
+
+        return redirect()->route('home');
     }
 
     public function loginFB()
@@ -35,7 +46,9 @@ class LoginController extends Controller
         $user = Socialite::driver('facebook')->user();
 
         session(['soc.token' => $user->token]);
+
         $userInSystem = $userRepository->getUserBySocId($user, 'fb');
+
         Auth::login($userInSystem);
 
         return redirect()->route('home');

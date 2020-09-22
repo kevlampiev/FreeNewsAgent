@@ -11,17 +11,9 @@ use Illuminate\Support\Facades\DB;
 class InfoSourceController extends Controller
 {
 
-//    private function getFromForm(InfoSource $source, InfoSourcesRequest $request)
-//    {
-//        $source->name=$request->get('name');
-//        $source->http_address=$request->get('http_address');
-//        $source->description=$request->get('description');
-//        $source->save();
-//    }
-
     public function index()
     {
-        $sources = InfoSource::all();
+        $sources = InfoSource::withCount('articles')->get();
         return view('admin.sources', [
             'sources' => $sources
         ]);
@@ -37,7 +29,8 @@ class InfoSourceController extends Controller
     public function insert(InfoSourcesRequest $request)
     {
         $source = new InfoSource();
-        $source->fill($request->toArray())->save();
+        $source->fill($request->toArray());
+        $source->save();
         session()->flash('proceed_status', 'Источник новостей добавлен');
         return redirect()->route('admin.infoSourcesList');
     }
@@ -52,7 +45,10 @@ class InfoSourceController extends Controller
 
     public function update(InfoSource $source, InfoSourcesRequest $request)
     {
-        $source->fill($request->toArray())->save();
+//        dd($source);
+        $source->fill($request->except('_token'));
+//            dd($source);
+        $source->save();
         session()->flash('proceed_status', 'Данные об источнике обновлены');
         return redirect()->route('admin.infoSourcesList');
     }

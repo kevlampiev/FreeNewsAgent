@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Customer;
 use App\Models\InfoEnquiery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class InfoEnquiryController extends Controller
 {
     public function create()
     {
-        return view('customer.info-enquiery-form', ['ireq' => new InfoEnquiery()]);
+        $infoEnq = new InfoEnquiery();
+        $infoEnq->user_id = Auth::user()->id;
+        return view('customer.info-enquiery-form', ['ireq' => $infoEnq]);
     }
 
     /**

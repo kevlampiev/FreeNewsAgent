@@ -16,13 +16,12 @@ class CreateInfoRequestsTable extends Migration
         Schema::create('info_requests', function (Blueprint $table) {
             //
             $table->bigIncrements('id');
-            $table->string('user_name')->nullable(false);
-            $table->string('phone')->nullable(false);
-            $table->string('email')->nullable(false);
+            $table->bigInteger('user_id')->nullable(false)->unsigned();
             $table->text('request_body')->nullable(false);
             $table->timestamps();
-            $table->dateTime('ansered')->nullable();
+            $table->dateTime('answered')->nullable();
             $table->string('notes')->nullable();
+//            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 

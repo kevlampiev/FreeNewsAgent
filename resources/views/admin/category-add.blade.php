@@ -5,6 +5,7 @@
 @section('content')
 
     <div class="article-container shadowed-box">
+        <div class="card-header">Редактирование данных о категории</div>
         <form method="POST">
             @csrf
 

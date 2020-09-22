@@ -66,6 +66,15 @@ section {
     font-style: italic;
 }
 
+section:hover {
+    background-color: #eee;
+}
+
+section:hover img.front-page-img {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+}
+
 a {
     color: darkmagenta;
 }
@@ -140,6 +149,8 @@ a > .article-header:hover {
     -o-object-fit: contain;
     object-fit: contain;
     margin-right: 15px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
 .clear-div {
