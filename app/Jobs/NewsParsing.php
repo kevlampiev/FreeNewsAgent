@@ -14,16 +14,18 @@ class NewsParsing implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private $link;
+    private $defaultCategory;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(string $link)
+    public function __construct(string $link, string $def_category='none')
     {
         //
         $this->link = $link;
+        $this->defaultCategory=$def_category;
     }
 
     /**
@@ -33,7 +35,7 @@ class NewsParsing implements ShouldQueue
      */
     public function handle()
     {
-        $newsParser = new NewsParserService($this->link);
+        $newsParser = new NewsParserService($this->link, $this->defaultCategory);
         $newsParser->storeArticles();
     }
 }

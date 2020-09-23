@@ -25,7 +25,8 @@ class ManageProfileController extends Controller
     {
         $user = Auth::user();
         $errors = [];
-        if (Hash::check($request->post('password'), $user->password)) {
+//        dd($request);
+        if (Hash::check($request->post('password_conf'), $user->password)) {
             $user->fill([
                 'name' => $request->post('name'),
                 'email' => $request->post('email'),
@@ -36,6 +37,7 @@ class ManageProfileController extends Controller
             $user->save();
             session()->flash('proceed_status', 'Данные пользователя обновлены');
         } else {
+            session()->flash('error_message', 'Текущий пароль неверен');
             $errors['password'][] = 'Неверно введен текущий пароль';
         }
         return redirect()->back()->withErrors($errors);
