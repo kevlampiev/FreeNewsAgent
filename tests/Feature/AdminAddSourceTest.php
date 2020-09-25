@@ -2,24 +2,27 @@
 
 namespace Tests\Feature;
 
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
-class FeedbackTest extends TestCase
+class AdminAddSourceTest extends TestCase
 {
+//    use WithoutMiddleware;
+
     /**
      * A basic feature test example.
      *
      * @return void
      */
-    public function testView()
+    public function testExample()
     {
-        $response = $this->get('/feedback');
+        $user = User::query()->where('is_admin',true)->inRandomOrder()->first();
+        $response = $this->actingAs($user)->get(route('admin.addInfoSource'));
 
         $response->assertStatus(200);
         $response->assertHeader('Content-Type', 'text/html; charset=UTF-8');
-        $response->assertSee('submit');
-        $response->assertDontSee('alert');
     }
 }

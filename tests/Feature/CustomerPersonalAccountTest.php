@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\User;
 
-class PersonalAccountTest extends TestCase
+class CustomerPersonalAccountTest extends TestCase
 {
     /**
      * A basic feature test example.

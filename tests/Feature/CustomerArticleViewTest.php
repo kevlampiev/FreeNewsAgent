@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Article;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\DB;
@@ -28,9 +29,14 @@ class CustomerArticleViewTest extends TestCase
 
     public function testWrongPath()
     {
-        $articles = DB::table('v_articles_with_categories')->limit(2)->get();
+        $article1 = Article::query()->inRandomOrder()->first();
+        $article2 = Article::query()->where('category_id', '<>', $article1->category_id)->first();
 
-        $response = $this->get('/categories/' . $articles->first()->slug . '/articles/' . $articles->last()->id);
-        $response->assertStatus(404);
+        $response = $this->get(route('customer.showArticle', [
+            'slug' => $article1->category->slug,
+            'id' => $article2->id
+        ]));
+
+        $response->assertStatus(404); //!!! У кастомера важна и статья и категория
     }
 }
