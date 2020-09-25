@@ -8,7 +8,7 @@ use Tests\TestCase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
-class ArticlesOfCategoryTest extends TestCase
+class AdminArticlesOfCategoryTest extends TestCase
 {
     use WithoutMiddleware;
 
