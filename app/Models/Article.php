@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 
 class Article extends Model
@@ -32,4 +34,14 @@ class Article extends Model
         return $this->hasOne(InfoSource::class, 'id', 'source_id');
     }
 
+    public static function searchResult(string $search):LengthAwarePaginator
+    {
+        $searchStr='%'.str_replace(' ','%',$search).'%';
+        $articles=static::query()
+                ->where('title','like',$searchStr)
+                ->orWhere('announcement','like',$searchStr)
+                ->orWhere('article_body','like',$searchStr)
+                ->paginate(15);
+        return $articles;
+    }
 }

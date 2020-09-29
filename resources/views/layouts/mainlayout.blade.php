@@ -148,12 +148,15 @@
 
             </div>
 
-            <form class="form-inline">
+            <form class="form-inline" method="POST" action="/search">
+                @csrf
                 <input
                     class="form-control mr-sm-2"
                     type="search"
                     placeholder="Текст для поиска"
                     aria-label="Search"
+                    name="searchStr"
+                    value=" "
                 />
                 <button class="btn btn-dark " type="submit">
                     Поиск

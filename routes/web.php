@@ -25,6 +25,8 @@ Route::group([
         Route::get('/feedback', 'CustomerRequestController@addFeedback')->name('customer.feedback');
         Route::post('/feedback', 'CustomerRequestController@storeFeedback');
 
+        Route::post('/search','SearchArticlesController@searchArticles')->name('customer.fearchResult');
+
         Route::group([
             'middleware' => ['auth']
         ],
