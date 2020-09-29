@@ -14,7 +14,7 @@ class SearchArticlesController extends Controller
         $searchStr=$request->post('searchStr');
         if (!$searchStr||$searchStr=='') {
             session()->flash('error_message','ЗАдан пустой поисковый запрос ... ');
-            return redirect()->to(session()->get('work_sector'));пше
+            return redirect()->to(session()->get('work_sector'));
         } else {
             return view('customer.articles-search-result',[
                 'news'=>Article::searchResult($searchStr)
