@@ -27,7 +27,8 @@ class InfoSourcesRequest extends FormRequest
 
             'name' => 'required|string|between:5,255',
             'http_address' => 'required|string|max: 255',
-            'description' => 'string|between: 10,1000'
+            'description' => 'string|between: 10,1000',
+            'default_category_name'=>'string|max: 255'
         ];
     }
 
@@ -36,6 +37,7 @@ class InfoSourcesRequest extends FormRequest
         return [
             'name' => 'Название источника',
             'http_address' => 'Http адрес',
+            'default_category_name'=>'Категория по умолчанию',
             'description' => 'Краткая информация об источнике',
         ];
     }

@@ -18,6 +18,7 @@ class CreateNewsSourcesTable extends Migration
             $table->string('name')->unique('source_name_indx')->comment('Название источника');
             $table->string('http_address')->unique()->comment('Адрес в сети интернет');
             $table->text('description')->nullable()->comment('Комментарий');
+            $table->string('default_category_name')->default('')->comment('Имя категории по умолчанию');
             $table->timestamps();
 
         });

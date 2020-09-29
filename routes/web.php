@@ -31,8 +31,8 @@ Route::group([
             function () {
                 Route::get('/info-enquiery', 'InfoEnquiryController@create')->name('customer.infoEnquiery');
                 Route::post('/info-enquiery', 'InfoEnquiryController@store');
-                Route::get('/personal-account', 'ManageProfileController@showPersonalAccount')->name('customer.personalAccount');
-                Route::post('/personal-account', 'ManageProfileController@updateAccountInfo');
+                Route::get('/personal-account', 'ManageProfileController@changePersonalAccount')->name('customer.personalAccount');
+                Route::post('/personal-account', 'ManageProfileController@changePersonalAccount');
             });
 
 

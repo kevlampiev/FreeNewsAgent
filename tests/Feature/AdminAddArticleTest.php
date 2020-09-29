@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 use App\User;
 
-class AddArticleTest extends TestCase
+class AdminAddArticleTest extends TestCase
 {
 //    use WithoutMiddleware;
 

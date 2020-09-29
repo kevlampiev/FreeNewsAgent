@@ -44,6 +44,18 @@
                           name="description">{{(count($errors)>0)?old('description'):$source->description}}</textarea>
             </div>
 
+            <div class="form-group {{$errors->has('default_category_name')?'has-error':''}}">
+
+                <label for="default_category_name">Категория новостей по умолчанию</label>
+                @if ($errors->has('default_category_name'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ $errors->first('default_category_name') }}
+                    </div>
+                @endif
+                <input class="form-control" id="default_category_name" name="default_category_name" type="text"
+                       value="{{(count($errors)>0)?old('default_category_name'):$source->default_category_name}}">
+            </div>
+
             <button type="submit" class="btn btn-primary">Сохранить</button>
             <a href="{{route('admin.infoSourcesList')}}"
                class="btn btn-secondary ">

@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div class="card-header">Личный кабинет</div>
+
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <ul class="nav nav-tabs">
@@ -20,41 +21,52 @@
                         <div class="card shadowed-box">
 
                             <div class="card-body">
-                                <form method="POST">
+                                <form method="POST" >
                                     @csrf
 
                                     @include('auth.user-info-template');
 
                                     <div class="form-group row">
-                                        <label for="password"
-                                               class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                        <label for="password_conf"
+                                               class="col-md-4 col-form-label text-md-right">Текущий пароль</label>
 
                                         <div class="col-md-6">
-                                            <input id="password" type="password"
-                                                   class="form-control @error('password') is-invalid @enderror"
-                                                   name="password"
-                                                   required autocomplete="new-password">
+                                            <input id="password_conf" type="password"
+                                                   class="form-control @error('password_conf') is-invalid @enderror"
+                                                   name="password_conf"
+                                                   required>
 
-                                            @error('password')
+                                            @error('password_conf')
                                             <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                             @enderror
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="new-password"
-                                               class="col-md-4 col-form-label text-md-right">{{ __('new password') }}</label>
+                                        <label for="new-password-1"
+                                               class="col-md-4 col-form-label text-md-right">Новый пароль (если требуется изменить пароль)</label>
 
                                         <div class="col-md-6">
-                                            <input id="new-password" type="password" class="form-control"
-                                                   name="newPassword" autocomplete="new-password"
-                                                   value="{{old('newPassword')}}">
+                                            <input id="new-password-1" type="password" class="form-control"
+                                                   name="newPassword1" autocomplete="new-password"
+                                                   value="{{old('newPassword1')}}">
                                         </div>
                                     </div>
 
-                                    <div class="form-group row mb-0">
+                                    <div class="form-group row">
+                                        <label for="new-password-1"
+                                               class="col-md-4 col-form-label text-md-right">Новый пароль (повторно)</label>
+
+                                        <div class="col-md-6">
+                                            <input id="new-password-2" type="password" class="form-control"
+                                                   name="newPassword2" autocomplete="new-password"
+                                                   value="{{old('newPassword2')}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
                                         <div class="col-md-6 offset-md-4">
                                             <button type="submit" class="btn btn-primary">
                                                 {{ __('Save') }}
