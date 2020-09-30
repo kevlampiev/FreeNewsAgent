@@ -12,6 +12,7 @@
         <p><i> {{$new->announcement}}</i></p>
 
         <p> {!! $new->article_body !!}</p>
+        <a href="{{$new->link}}" target="_blank">Читать в источнике ... </a>
         <hr>
         <a href="{{route('customer.articlesOfCategory',[$new->category->slug])}}">
             Ко всем новостям категории {{$new->category->name}}
