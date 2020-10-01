@@ -43,11 +43,12 @@ class NewsParserService implements ShouldQueue
         echo '<data_category='.$data['category'].'>/n';
         echo '<default_category='.$this->defaultCategory.'>/n';
         if ($data['category'] == null||trim($data['category']) == '') {
-            if ($data['channel.title'] == null||trim($data['channel.title']) == '') {
-                $data['category'] = $this->defaultCategory;
-            } else {
-                $data['category']=trim($data['channel.title']);
-            }
+//            if ($data['channel.title'] == null||trim($data['channel.title']) == '') {
+//                $data['category'] = $this->defaultCategory;
+//            } else {
+//                $data['category']=trim($data['channel.title']);
+//            }
+            $data['category'] = $this->defaultCategory;
         }
 
         $result = [];
