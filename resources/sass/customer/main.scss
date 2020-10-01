@@ -1,8 +1,8 @@
 body {
-    background-color: #aaa;
-    background: url("/img/background4.jpg");
-    background-size: cover;
-    backdrop-filter: opacity(150%);
+    background-color: #eee;
+    ////background: url("/img/background4.jpg");
+    //background-size: cover;
+    //backdrop-filter: opacity(150%);
 }
 
 .subheader {
@@ -22,8 +22,15 @@ body {
 
 
 .main-logo-img {
-    border-radius: 70px;
+    border-radius: 40px;
     filter: grayscale(50%);
+    width: 80px;
+    height: 80px;
+
+}
+
+.searchform {
+    margin: 5px 10px 0 0;
 }
 
 .user-img {
