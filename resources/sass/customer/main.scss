@@ -14,23 +14,27 @@ body {
     min-height: 100px;
     display: flex;
     justify-content: space-between;
+
+}
+
+.bg-orange {
+    background-color: darkblue;
+    color: #fff !important;
 }
 
 .user-div {
 
 }
 
-
 .main-logo-img {
-    border-radius: 40px;
+    //border-radius: 20px;
     filter: grayscale(50%);
-    width: 80px;
-    height: 80px;
+    height: 60px;
 
 }
 
 .searchform {
-    margin: 5px 10px 0 0;
+    margin: 5px 0 0 20px;
 }
 
 .user-img {

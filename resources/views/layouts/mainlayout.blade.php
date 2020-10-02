@@ -22,7 +22,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">
-                <img src="{{asset('img/logo-customer.jpg')}}" class="main-logo-img">
+                <img src="{{asset('img/realno24-logo.png')}}" class="main-logo-img">
             </a>
 {{--            <button--}}
 {{--                class="navbar-toggler"--}}
@@ -41,33 +41,11 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-
-                        <form class="form-inline searchform" method="POST" action="/search">
-                            @csrf
-                            <div class="input-group input-group-sm mb-3 border-white">
-                                <input
-                                    class="form-control bg-transparent"
-                                    type="search"
-                                    placeholder="Текст для поиска"
-                                    aria-label="Search"
-                                    name="searchStr"
-                                    aria-label="" aria-describedby="basic-addon1"
-                                />
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary border-secondary" type="submit">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-
-                    </li>
                     <!-- Authentication Links -->
 
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Войти</a>
+                            <a class="nav-link  text-black-50" href="{{ route('login') }}">Войти</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
@@ -120,13 +98,36 @@
 
                         </li>
                     @endguest
+                    <li class="nav-item">
+
+                        <form class="form-inline searchform" method="POST" action="/search">
+                            @csrf
+                            <div class="input-group input-group-sm mb-3 border-white">
+                                <input
+                                    class="form-control bg-transparent"
+                                    type="search"
+                                    placeholder="Текст для поиска"
+                                    aria-label="Search"
+                                    name="searchStr"
+                                    aria-label="" aria-describedby="basic-addon1"
+                                />
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary border-secondary" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </li>
+
                 </ul>
 
             </div>
 
 
         </nav>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item {{request()->routeIs('home')?'current-menu':''}}">
