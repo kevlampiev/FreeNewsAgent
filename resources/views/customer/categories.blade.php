@@ -1,6 +1,6 @@
 @extends('layouts.mainlayout')
 
-@section('title') @parent Категории новостей @show
+@section('title')  @parent Категории новостей @show
 
 @section('content')
     <H3>Категории новостей</H3>

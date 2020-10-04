@@ -49900,10 +49900,10 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\laravel-dev\projects\laravel\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\laravel-dev\projects\laravel\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! D:\laravel-dev\projects\laravel\resources\sass\admin.scss */"./resources/sass/admin.scss");
-module.exports = __webpack_require__(/*! D:\laravel-dev\projects\laravel\resources\sass\customer.scss */"./resources/sass/customer.scss");
+__webpack_require__(/*! /home/evl/projects/laravel1/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/evl/projects/laravel1/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/evl/projects/laravel1/resources/sass/admin.scss */"./resources/sass/admin.scss");
+module.exports = __webpack_require__(/*! /home/evl/projects/laravel1/resources/sass/customer.scss */"./resources/sass/customer.scss");
 
 
 /***/ })

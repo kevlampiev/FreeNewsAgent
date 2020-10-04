@@ -1,7 +1,5 @@
-@extends('layouts.mainlayout')
-
-
-@section('title') @parent Главная @show
+@extends('layouts.customerlayout')
+@section('title') @parent Главная @endsection
 
 @section('content')
     <div class="row">

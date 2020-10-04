@@ -24,6 +24,10 @@ class HomeController extends Controller
         ]);
     }
 
+    public function indexAlt() {
+        return view('customer.index');
+    }
+
 //    public function login() {
 //        return view('customer.login');
 //    }

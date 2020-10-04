@@ -6,12 +6,12 @@
     <title>
         @section('title') Агрегатор| @show
     </title>
-    <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-        crossorigin="anonymous"
-    />
+{{--    <link--}}
+{{--        rel="stylesheet"--}}
+{{--        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"--}}
+{{--        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"--}}
+{{--        crossorigin="anonymous"--}}
+{{--    />--}}
     <link rel="stylesheet" href="{{asset('css/app.css') }}"/>
     <link rel="stylesheet" href="{{asset('css/customer.css') }}"/>
     {{--    @yield('stylesheets')--}}
@@ -162,6 +162,9 @@
                                 проекте</a>
 
                         </div>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{route('customer.homeAlt')}}">Главная </a>
                     </li>
 
                     @if (Auth::user()&&Auth::user()->is_admin)
